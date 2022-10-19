@@ -2,7 +2,7 @@
 
 ## Database Schema Design
 
-`<insert database schema design here>`
+![AirBnB-API-Schema](https://user-images.githubusercontent.com/98988710/196795985-de68552e-307e-4537-ac95-c08350cd4ca4.png)
 
 ## API Documentation
 
