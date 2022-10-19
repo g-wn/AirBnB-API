@@ -9,12 +9,81 @@
 <br />
 <br />
 
-<h2 align="center">API Documentation</h2>
+## API Documentation
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary id="table-of-contents">Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#user-authentication-authorization">User Authentication/Authorization</a>
+      <ul>
+        <li><a href="#all-endpoints-that-require-authentication">All endpoints that require authentication</a></li>
+        <li><a href="#all-endpoints-that-require-proper-authorization">All endpoints that require proper authorization</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#users">Users</a>
+      <ul>
+        <li><a href="#get-the-current-user">Get the Current User</a></li>
+        <li><a href="#log-in-a-user">Log In a User</a></li>
+        <li><a href="#sign-up-a-user">Sign Up a User</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#spots">Spots</a>
+      <ul>
+        <li><a href="#get-all-spots">Get all Spots</a></li>
+        <li><a href="#get-all-spots-owned-by-the-current-user">Get all Spots owned by the Current User</a></li>
+        <li><a href="#get-details-of-a-spot-from-an-id">Get details of a Spot from an id</a></li>
+        <li><a href="#create-a-spot">Create a Spot</a></li>
+        <li><a href="#add-an-image-to-a-spot-based-on-the-spots-id">Add an Image to a Spot based on the Spot's id</a></li>
+        <li><a href="#edit-a-spot">Edit a Spot</a></li>
+        <li><a href="#delete-a-spot">Delete a Spot</a></li>
+      </ul>
+    </li>
+    <li>
+    <a href="#reviews">Reviews</a>
+        <ul>
+          <li><a href="#get-all-reviews-of-the-current-user">Get all Reviews of the Current User</a></li>
+          <li><a href="#get-all-reviews-by-a-spots-id">Get all Reviews by a Spot's id</a></li>
+          <li><a href="#create-a-review-for-a-spot-based-on-the-spots-id">Create a Review for a Spot based on the Spot's id</a></li>
+          <li><a href="#add-an-image-to-a-review-based-on-the-reviews-id">Add an Image to a Review based on the Review's id</a></li>
+          <li><a href="#edit-a-review">Edit a Review</a></li>
+          <li><a href="#delete-a-review">Delete a Review</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#bookings">Bookings</a>
+      <ul>
+        <li><a href="#get-all-of-the-current-users-bookings">Get all of the Current User's Bookings</a></li>
+        <li><a href="#get-all-bookings-for-a-spot-based-on-the-spots-id">Get all Bookings for a Spot based on the Spot's id</a></li>
+        <li><a href="#create-a-booking-from-a-spot-based-on-the-spots-id">Create a Booking from a Spot based on the Spot's id</a></li>
+        <li><a href="#edit-a-booking">Edit a Booking</a></li>
+        <li><a href="#delete-a-booking">Delete a Booking</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#images">Images</a>
+      <ul>
+        <li><a href="#delete-a-spot-image">Delete a Spot Image</a></li>
+        <li><a href="#delete-a-review-image">Delete a review Image</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#add-query-filters-to-get-all-spots">Query Filters</a>
+      <ul>
+        <li><a href="#add-query-filters-to-get-all-spots">Add Query Filters to Get All Spots</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
 <br />
 
-## USER AUTHENTICATION/AUTHORIZATION
+## USER AUTHENTICATION AUTHORIZATION
+[Back to top](#table-of-contents)
 
 ### All endpoints that require authentication
+[Back to top](#table-of-contents)
 
 All endpoints that require a current user to be logged in.
 
@@ -33,6 +102,7 @@ All endpoints that require a current user to be logged in.
     ```
 
 ### All endpoints that require proper authorization
+[Back to top](#table-of-contents)
 
 All endpoints that require authentication and the current user does not have the
 correct role(s) or permission(s).
@@ -51,7 +121,11 @@ correct role(s) or permission(s).
     }
     ```
 
+## USERS
+[Back to top](#table-of-contents)
+
 ### Get the Current User
+[Back to top](#table-of-contents)
 
 Returns the information about the current user that is logged in.
 
@@ -78,6 +152,7 @@ Returns the information about the current user that is logged in.
     ```
 
 ### Log In a User
+[Back to top](#table-of-contents)
 
 Logs in a current user with valid credentials and returns the current user's
 information.
@@ -145,6 +220,7 @@ information.
     ```
 
 ### Sign Up a User
+[Back to top](#table-of-contents)
 
 Creates a new user, logs them in as the current user, and returns the current
 user's information.
@@ -236,8 +312,10 @@ user's information.
     ```
 
 ## SPOTS
+[Back to top](#table-of-contents)
 
 ### Get all Spots
+[Back to top](#table-of-contents)
 
 Returns all the spots.
 
@@ -278,6 +356,7 @@ Returns all the spots.
     ```
 
 ### Get all Spots owned by the Current User
+[Back to top](#table-of-contents)
 
 Returns all the spots owned (created) by the current user.
 
@@ -318,6 +397,7 @@ Returns all the spots owned (created) by the current user.
     ```
 
 ### Get details of a Spot from an id
+[Back to top](#table-of-contents)
 
 Returns the details of a spot specified by its id.
 
@@ -384,6 +464,7 @@ Returns the details of a spot specified by its id.
     ```
 
 ### Create a Spot
+[Back to top](#table-of-contents)
 
 Creates and returns a new spot.
 
@@ -458,6 +539,7 @@ Creates and returns a new spot.
     ```
 
 ### Add an Image to a Spot based on the Spot's id
+[Back to top](#table-of-contents)
 
 Create and return a new image for a spot specified by id.
 
@@ -505,6 +587,7 @@ Create and return a new image for a spot specified by id.
     ```
 
 ### Edit a Spot
+[Back to top](#table-of-contents)
 
 Updates and returns an existing spot.
 
@@ -593,6 +676,7 @@ Updates and returns an existing spot.
     ```
 
 ### Delete a Spot
+[Back to top](#table-of-contents)
 
 Deletes an existing spot.
 
@@ -630,8 +714,10 @@ Deletes an existing spot.
     ```
 
 ## REVIEWS
+[Back to top](#table-of-contents)
 
 ### Get all Reviews of the Current User
+[Back to top](#table-of-contents)
 
 Returns all the reviews written by the current user.
 
@@ -688,6 +774,7 @@ Returns all the reviews written by the current user.
     ```
 
 ### Get all Reviews by a Spot's id
+[Back to top](#table-of-contents)
 
 Returns all the reviews that belong to a spot specified by id.
 
@@ -744,6 +831,7 @@ Returns all the reviews that belong to a spot specified by id.
     ```
 
 ### Create a Review for a Spot based on the Spot's id
+[Back to top](#table-of-contents)
 
 Create and return a new review for a spot specified by id.
 
@@ -824,6 +912,7 @@ Create and return a new review for a spot specified by id.
     ```
 
 ### Add an Image to a Review based on the Review's id
+[Back to top](#table-of-contents)
 
 Create and return a new image for a review specified by id.
 
@@ -883,6 +972,7 @@ Create and return a new image for a review specified by id.
     ```
 
 ### Edit a Review
+[Back to top](#table-of-contents)
 
 Update and return an existing review.
 
@@ -951,6 +1041,7 @@ Update and return an existing review.
     ```
 
 ### Delete a Review
+[Back to top](#table-of-contents)
 
 Delete an existing review.
 
@@ -988,8 +1079,10 @@ Delete an existing review.
     ```
 
 ## BOOKINGS
+[Back to top](#table-of-contents)
 
 ### Get all of the Current User's Bookings
+[Back to top](#table-of-contents)
 
 Return all the bookings that the current user has made.
 
@@ -1035,6 +1128,7 @@ Return all the bookings that the current user has made.
     ```
 
 ### Get all Bookings for a Spot based on the Spot's id
+[Back to top](#table-of-contents)
 
 Return all the bookings for a spot specified by id.
 
@@ -1103,6 +1197,7 @@ Return all the bookings for a spot specified by id.
     ```
 
 ### Create a Booking from a Spot based on the Spot's id
+[Back to top](#table-of-contents)
 
 Create and return a new booking from a spot specified by id.
 
@@ -1185,6 +1280,7 @@ Create and return a new booking from a spot specified by id.
     ```
 
 ### Edit a Booking
+[Back to top](#table-of-contents)
 
 Update and return an existing booking.
 
@@ -1282,6 +1378,7 @@ Update and return an existing booking.
     ```
 
 ### Delete a Booking
+[Back to top](#table-of-contents)
 
 Delete an existing booking.
 
@@ -1333,8 +1430,10 @@ Delete an existing booking.
     ```
 
 ## IMAGES
+[Back to top](#table-of-contents)
 
 ### Delete a Spot Image
+[Back to top](#table-of-contents)
 
 Delete an existing image for a Spot.
 
@@ -1372,6 +1471,7 @@ Delete an existing image for a Spot.
     ```
 
 ### Delete a Review Image
+[Back to top](#table-of-contents)
 
 Delete an existing image for a Review.
 
@@ -1409,6 +1509,7 @@ Delete an existing image for a Review.
     ```
 
 ## Add Query Filters to Get All Spots
+[Back to top](#table-of-contents)
 
 Return spots filtered by query parameters.
 
