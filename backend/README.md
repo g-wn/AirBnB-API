@@ -2,7 +2,7 @@
 
 <h2 align="center">Database Schema Design</h2>
 
-![AirBnB-API-Schema](https://user-images.githubusercontent.com/98988710/196795985-de68552e-307e-4537-ac95-c08350cd4ca4.png)
+![dbdiagram io_d_635007934709410195982d34](https://user-images.githubusercontent.com/98988710/196813555-c952044d-93f3-4801-9be4-f48d9f0b9a2d.png)
 <br />
 <br />
 
