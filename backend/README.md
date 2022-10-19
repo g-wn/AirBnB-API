@@ -3,7 +3,7 @@
 <h2 align="center">Database Schema Design</h2>
 
 <p align="center">
-<a href="https://dbdiagram.io/d/635007934709410195982d34"><img src="https://user-images.githubusercontent.com/98988710/196813555-c952044d-93f3-4801-9be4-f48d9f0b9a2d.png" alt="Schema Diagram" width="969" height="555"></a>
+<a href="https://dbdiagram.io/d/635007934709410195982d34" target="_blank"><img src="https://user-images.githubusercontent.com/98988710/196813555-c952044d-93f3-4801-9be4-f48d9f0b9a2d.png" alt="Schema Diagram" width="969" height="555"></a>
 </p>
 
 <br />
