@@ -8,6 +8,10 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
+/*-------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------Validations------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+
 const validateSignup = [
   check('email')
     .exists({ checkFalsy: true })
@@ -28,10 +32,20 @@ const validateSignup = [
   handleValidationErrors
 ];
 
+/*-------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------User Signup------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+
 // Sign Up
 router.post('/', validateSignup, async (req, res) => {
-  const { email, password, username } = req.body;
-  const user = await User.signup({ email, username, password });
+  const { firstName, lastName, email, password, username } = req.body;
+  const user = await User.signup({
+    firstName,
+    lastName,
+    email,
+    username,
+    password
+  });
 
   await setTokenCookie(res, user);
 
