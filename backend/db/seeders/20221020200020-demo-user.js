@@ -36,7 +36,7 @@ module.exports = {
       'Users',
       {
         username: {
-          [Op.in]: ['DemoUser1', 'JustAnotherUserName', 'krabkakez123']
+          [Op.in]: ['DemoUser1', 'DemoUser2', 'DemoUser3']
         }
       },
       {}
