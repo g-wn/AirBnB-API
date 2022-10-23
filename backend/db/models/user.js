@@ -44,7 +44,24 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static associate(models) {
-      // define association here
+      const bookingColumnMapping = {
+        through: 'Booking',
+        foreignKey: 'userId',
+        otherKey: 'spotId'
+      };
+
+      const reviewColumnMapping = {
+        through: 'Review',
+        foreignKey: 'userId',
+        otherKey: 'spotId'
+      };
+
+      User.hasMany(models.Booking, { foreignKey: 'userId' });
+      User.hasMany(models.Review, { foreignKey: 'userId' });
+      User.hasMany(models.Spot, { foreignKey: 'ownerId', as: 'Owner' });
+
+      User.belongsToMany(models.Spot, bookingColumnMapping);
+      User.belongsToMany(models.Spot, reviewColumnMapping);
     }
   }
   User.init(
