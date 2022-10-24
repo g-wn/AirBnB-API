@@ -57,6 +57,25 @@ const validateSpot = [
 /*------------------------------------------Route Handlers-----------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------*/
 
+// Get all Spots owned by the Current User
+router.get('/current', requireAuth, async (req, res, next) => {
+  const { user } = req;
+
+  const currentUserSpots = await Spot.findAll({
+    where: {
+      ownerId: user.id
+    }
+  });
+
+  if (currentUserSpots.length) {
+    res.json({ Spots: currentUserSpots });
+  } else {
+    res.json({
+      message: `${user.firstName} ${user.lastName} does not currently have any listed Spots`
+    });
+  }
+});
+
 // Get all Spots
 router.get('/', async (req, res, next) => {
   const allSpots = await Spot.findAll();
@@ -65,7 +84,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // Create a Spot
-router.post('/', validateSpot, requireAuth, async (req, res, next) => {
+router.post('/', validateSpot, requireAuth, async (req, res, _next) => {
   const { address, city, state, country, lat, lng, name, description, price } =
     req.body;
 
