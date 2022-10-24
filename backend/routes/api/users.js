@@ -23,24 +23,10 @@ const validateSignup = [
     .exists({ checkFalsy: true })
     .isEmail()
     .withMessage('Please provide a valid email'),
-  // check('email').custom(value => {
-  //   return User.findOne({ where: { email: value } }).then(user => {
-  //     if (user) {
-  //       return Promise.reject('User with that email already exists');
-  //     }
-  //   });
-  // }),
   check('username')
     .exists({ checkFalsy: true })
     .isLength({ min: 4 })
     .withMessage('Username is required'),
-  // check('username').custom(value => {
-  //   return User.findOne({ where: { username: value } }).then(user => {
-  //     if (user) {
-  //       return Promise.reject('User with that username already exists');
-  //     }
-  //   });
-  // }),
   check('username').not().isEmail().withMessage('Username cannot be an email'),
   check('password')
     .exists({ checkFalsy: true })
@@ -57,41 +43,30 @@ const validateSignup = [
 router.post('/', validateSignup, async (req, res, next) => {
   const { firstName, lastName, email, password, username } = req.body;
 
-  const checkEmail = await User.findOne({
-    where: {
-      email: email
-    }
-  });
+  try {
+    const user = await User.signup({
+      firstName,
+      lastName,
+      email,
+      username,
+      password
+    });
 
-  const checkUsername = await User.findOne({
-    where: {
-      username: username
-    }
-  });
+    await setTokenCookie(res, user);
 
-  if (checkEmail || checkUsername) {
-    const err = Error('User already exists');
-    err.status = 403;
-    err.title = 'Validation error';
-    if (checkEmail) {
-      err.errors = { email: 'User with that email already exists' };
-    } else if (checkUsername) {
-      err.errors = { username: 'User with that username already exists' };
-    }
-    next(err);
+    return res.json(user.toSafeObject());
+  } catch (e) {
+    e.errors.forEach(error => {
+      if (error.type === 'unique violation') {
+        const err = new Error('User already exists');
+        err.status = 403;
+        if (error.path === 'email') err.errors = { email: 'User with that email already exists' };
+        else if (error.path === 'username') err.errors = { username: 'User with that username already exists' };
+        next(err);
+      }
+    });
+    next(e);
   }
-
-  const user = await User.signup({
-    firstName,
-    lastName,
-    email,
-    username,
-    password
-  });
-
-  await setTokenCookie(res, user);
-
-  return res.json(user.toSafeObject());
 });
 
 module.exports = router;
