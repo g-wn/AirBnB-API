@@ -52,9 +52,9 @@ router.post('/', validateSignup, async (req, res, next) => {
       password
     });
 
-    await setTokenCookie(res, user);
+    const token = setTokenCookie(res, user);
 
-    return res.json(user.toSafeObject());
+    return res.json({...user.toSafeObject(), token});
   } catch (e) {
     e.errors.forEach(error => {
       if (error.type === 'unique violation') {
