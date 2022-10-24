@@ -3,26 +3,26 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Spot extends Model {
     static associate(models) {
-      const bookingColumnMapping = {
-        through: 'Booking',
+      const bookingColumnMap = {
+        through: models.Booking,
         foreignKey: 'spotId',
         otherKey: 'userId'
       };
 
-      const reviewColumnMapping = {
-        through: 'Review',
+      const reviewColumnMap = {
+        through: models.Review,
         foreignKey: 'spotId',
         otherKey: 'userId'
       };
 
-      Spot.hasMany(models.Booking, { foreignKey: 'spotId' });
-      Spot.hasMany(models.SpotImage, { foreignKey: 'spotId' });
-      Spot.hasMany(models.Review, { foreignKey: 'spotId' });
+      Spot.hasMany(models.Booking, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true });
+      Spot.hasMany(models.SpotImage, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true });
+      Spot.hasMany(models.Review, { foreignKey: 'spotId', onDelete: 'CASCADE', hooks: true });
 
       Spot.belongsTo(models.User, { foreignKey: 'ownerId'});
 
-      Spot.belongsToMany(models.User, bookingColumnMapping);
-      Spot.belongsToMany(models.User, reviewColumnMapping);
+      Spot.belongsToMany(models.User, bookingColumnMap);
+      Spot.belongsToMany(models.User, reviewColumnMap);
     }
   }
   Spot.init(

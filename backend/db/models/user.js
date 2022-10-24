@@ -44,24 +44,24 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static associate(models) {
-      const bookingColumnMapping = {
-        through: 'Booking',
+      const bookingColumnMap = {
+        through: models.Booking,
         foreignKey: 'userId',
         otherKey: 'spotId'
       };
 
-      const reviewColumnMapping = {
-        through: 'Review',
+      const reviewColumnMap = {
+        through: models.Review,
         foreignKey: 'userId',
         otherKey: 'spotId'
       };
 
-      User.hasMany(models.Booking, { foreignKey: 'userId' });
-      User.hasMany(models.Review, { foreignKey: 'userId' });
-      User.hasMany(models.Spot, { foreignKey: 'ownerId', as: 'Owner' });
+      User.hasMany(models.Booking, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
+      User.hasMany(models.Review, { foreignKey: 'userId', onDelete: 'CASCADE', hooks: true });
+      User.hasMany(models.Spot, { foreignKey: 'ownerId', as: 'Owner', onDelete: 'CASCADE', hooks: true });
 
-      User.belongsToMany(models.Spot, bookingColumnMapping);
-      User.belongsToMany(models.Spot, reviewColumnMapping);
+      User.belongsToMany(models.Spot, bookingColumnMap);
+      User.belongsToMany(models.Spot, reviewColumnMap);
     }
   }
   User.init(
