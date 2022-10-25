@@ -88,23 +88,24 @@ router.get('/current', requireAuth, async (req, res, _next) => {
 router.get('/:spotId', async (req, res, _next) => {
   const spot = await Spot.findByPk(req.params.spotId, {
     include: [
-      { model: SpotImage, attributes: ['id', 'url', 'preview']},
+      { model: SpotImage, attributes: ['id', 'url', 'preview'] },
       { model: User, as: 'Owner', attributes: ['id', 'firstName', 'lastName'] },
-      { model: Review, attributes: [] },
+      { model: Review, attributes: [] }
     ],
     attributes: {
       include: [
         [Sequelize.fn('COUNT', Sequelize.col('Reviews.id')), 'numReviews'],
-        [Sequelize.fn('AVG', Sequelize.col('Reviews.stars')), 'avgStarRating'],
+        [Sequelize.fn('AVG', Sequelize.col('Reviews.stars')), 'avgStarRating']
       ]
     },
+    group: ['SpotImages.id']
   });
 
   res.json(spot);
 });
 
 // Get all Spots
-router.get('/', async (req, res, _next) => {
+router.get('/', async (_req, res, _next) => {
   const allSpots = await Spot.findAll();
 
   res.json({ Spots: allSpots });
