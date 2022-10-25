@@ -4,7 +4,15 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation.js');
 
 const { requireAuth, restoreUser } = require('../../utils/auth.js');
-const { Spot, User } = require('../../db/models');
+const {
+  Spot,
+  User,
+  Review,
+  SpotImage,
+  ReviewImage,
+  Sequelize
+} = require('../../db/models');
+const { Model } = require('sequelize');
 
 const router = express.Router();
 
@@ -58,7 +66,7 @@ const validateSpot = [
 /*-------------------------------------------------------------------------------------------------------*/
 
 // Get all Spots owned by the Current User
-router.get('/current', requireAuth, async (req, res, next) => {
+router.get('/current', requireAuth, async (req, res, _next) => {
   const { user } = req;
 
   const currentUserSpots = await Spot.findAll({
@@ -76,8 +84,28 @@ router.get('/current', requireAuth, async (req, res, next) => {
   }
 });
 
+// Get details for a Spot from an id
+router.get('/:spotId', async (req, res, _next) => {
+  const spot = await Spot.findByPk(req.params.spotId, {
+    include: [
+      { model: SpotImage, attributes: ['id', 'url', 'preview'] },
+      { model: User, as: 'Owner', attributes: ['id', 'firstName', 'lastName'] },
+      { model: Review, attributes: [] }
+    ],
+    attributes: {
+      include: [
+        [Sequelize.fn('COUNT', Sequelize.col('Reviews.id')), 'numReviews'],
+        [Sequelize.fn('AVG', Sequelize.col('Reviews.stars')), 'avgStarRating']
+      ]
+    },
+    group: ['SpotImages.id']
+  });
+
+  res.json(spot);
+});
+
 // Get all Spots
-router.get('/', async (req, res, next) => {
+router.get('/', async (_req, res, _next) => {
   const allSpots = await Spot.findAll();
 
   res.json({ Spots: allSpots });
