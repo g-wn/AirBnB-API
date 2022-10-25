@@ -70,6 +70,17 @@ router.get('/current', requireAuth, async (req, res, _next) => {
   const { user } = req;
 
   const currentUserSpots = await Spot.findAll({
+    include: [
+      { model: Review, attributes: [] },
+      { model: SpotImage, where: { preview: true }, attributes: [], required: false }
+    ],
+    attributes: {
+      include: [
+        [Sequelize.fn('ROUND', Sequelize.fn('AVG', Sequelize.col('Reviews.stars')), 1), 'avgRating'],
+        [Sequelize.col('SpotImages.url'), 'previewImage']
+      ]
+    },
+    group: ['Spot.id', 'previewImage'],
     where: {
       ownerId: user.id
     }
@@ -88,9 +99,9 @@ router.get('/current', requireAuth, async (req, res, _next) => {
 router.get('/:spotId', async (req, res, next) => {
   const spot = await Spot.findByPk(req.params.spotId, {
     include: [
-      { model: SpotImage, attributes: ['id', 'url', 'preview'] },
-      { model: User, as: 'Owner', attributes: ['id', 'firstName', 'lastName'] },
-      { model: Review, attributes: [] }
+      { model: SpotImage, attributes: ['id', 'url', 'preview'], required: false },
+      { model: User, as: 'Owner', attributes: ['id', 'firstName', 'lastName'], required: false },
+      { model: Review, attributes: [], required: false }
     ],
     attributes: {
       include: [
@@ -115,7 +126,7 @@ router.get('/', async (_req, res, _next) => {
   const allSpots = await Spot.findAll({
     include: [
       { model: Review, attributes: [] },
-      { model: SpotImage, where: { preview: true }, attributes: [] }
+      { model: SpotImage, where: { preview: true }, attributes: [], required: false }
     ],
     attributes: {
       include: [
