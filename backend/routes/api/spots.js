@@ -140,6 +140,32 @@ router.get('/', async (_req, res, _next) => {
   res.json({ Spots: allSpots });
 });
 
+// Add an Image to a Spot based on the Spot's id
+router.post('/:spotId/images', requireAuth, async (req, res, next) => {
+  const { url, preview } = req.body
+  const spot = await Spot.findByPk(req.params.spotId);
+
+  if (spot && (+spot.ownerId !== +req.user.id)) {
+    const err = new Error('Unauthorized')
+    err.status = 401
+    return next(err)
+  }
+
+  if (spot) {
+    const newSpotImage = await SpotImage.create({
+      spotId: +req.params.spotId,
+      url,
+      preview
+    })
+
+    res.json({id: newSpotImage.id, url: newSpotImage.url, preview: newSpotImage.preview})
+  } else {
+    const err = new Error("Spot couldn't be found")
+    err.status = 404
+    next(err)
+  }
+})
+
 // Create a Spot
 router.post('/', validateSpot, requireAuth, async (req, res, _next) => {
   const { address, city, state, country, lat, lng, name, description, price } =
