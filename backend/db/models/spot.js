@@ -66,9 +66,6 @@ module.exports = (sequelize, DataTypes) => {
       price: {
         type: DataTypes.DECIMAL(7, 2),
         allowNull: false
-      },
-      previewImage: {
-        type: DataTypes.STRING,
       }
     },
     {
