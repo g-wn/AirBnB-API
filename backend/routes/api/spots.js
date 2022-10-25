@@ -113,11 +113,11 @@ router.get('/', async (_req, res, _next) => {
     ],
     attributes: {
       include: [
-        [Sequelize.fn('AVG', Sequelize.col('Reviews.id')), 'avgRating'],
+        [Sequelize.fn('ROUND', Sequelize.fn('AVG', Sequelize.col('Reviews.stars')), 1), 'avgRating'],
         [Sequelize.col('SpotImages.url'), 'previewImage']
       ]
     },
-    group: ['Spot.id', [Sequelize.col('SpotImages.id')], 'previewImage']
+    group: ['Spot.id', 'previewImage']
   });
 
   res.json({ Spots: allSpots });
