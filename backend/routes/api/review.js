@@ -24,7 +24,7 @@ const validateReview = [];
 router.get('/current', requireAuth, async (req, res, _next) => {
   const { user } = req;
 
-  const currentUserReviews = await Review.findAll({
+  const userReviews = await Review.findAll({
     include: [
       { model: User, attributes: ['id', 'firstName', 'lastName'] },
       {
@@ -47,21 +47,14 @@ router.get('/current', requireAuth, async (req, res, _next) => {
     }
   });
 
-  // for (let i = 0; i < reviews.length; i++) {
-  //     const review = reviews[i].toJSON();
-  //     if (review.Spot) {
-  //         reviews[i] = review;
-  //         review.Spot.previewImage = review.Spot.SpotImages[0].url;
-  //         delete review.Spot.SpotImages;
-  //     }
-  // }
+  for (let i = 0; i < userReviews.length; i++) {
+    const review = userReviews[i].toJSON();
+    userReviews[i] = review;
+    review.Spot.previewImage = review.Spot.SpotImages[0].url;
+    delete review.Spot.SpotImages;
+  }
 
-  currentUserReviews.forEach(review => {
-    review = review.toJSON();
-    delete review.Spot
-  })
-
-  res.json({ Reviews: currentUserReviews });
+  res.json({ Reviews: userReviews });
 });
 
 module.exports = router;
