@@ -33,7 +33,8 @@ router.get('/current', requireAuth, async (req, res, _next) => {
           {
             model: SpotImage,
             where: { preview: true },
-            attributes: ['url']
+            attributes: ['url'],
+            required: false
           }
         ],
         attributes: {
@@ -50,8 +51,13 @@ router.get('/current', requireAuth, async (req, res, _next) => {
   for (let i = 0; i < userReviews.length; i++) {
     const review = userReviews[i].toJSON();
     userReviews[i] = review;
-    review.Spot.previewImage = review.Spot.SpotImages[0].url;
-    delete review.Spot.SpotImages;
+    if (review.Spot.SpotImages.length) {
+      review.Spot.previewImage = review.Spot.SpotImages[0].url;
+      delete review.Spot.SpotImages;
+    } else {
+      review.Spot.previewImage = review.Spot.SpotImages;
+      delete review.Spot.SpotImages;
+    }
   }
 
   res.json({ Reviews: userReviews });

@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      indexes: [{ type: 'unique', fields: ['userId', 'spotId'] }],
       modelName: 'Review'
     }
   );
