@@ -75,11 +75,31 @@ router.get('/current', requireAuth, async (req, res, next) => {
 router.put('/:bookingId', validateBooking, requireAuth, async (req, res, next) => {
   const { startDate, endDate } = req.body;
   const booking = await Booking.findByPk(req.params.bookingId);
+  const spot = await Spot.findByPk(req.params.spotId, {
+    include: [{ model: Booking, attributes: ['startDate', 'endDate'] }]
+  });
 
   if (booking && booking.userId !== req.user.id) {
     const err = new Error('Unauthorized');
     err.status = 401;
     next(err);
+  }
+
+  if (spot) {
+    spot.Bookings.forEach(booking => {
+      const bookingDates = booking.toJSON();
+      if (startDate >= bookingDates.startDate && startDate <= bookingDates.endDate) {
+        const err = new Error('Sorry, this spot is already booked for the specified dates');
+        err.status = 403;
+        err.errors = { startDate: 'Start date conflicts with an existing booking' };
+        return next(err);
+      } else if (endDate <= bookingDates.endDate && endDate >= bookingDates.startDate) {
+        const err = new Error('Sorry, this spot is already booked for the specified dates');
+        err.status = 403;
+        err.errors = { endDate: 'End date conflicts with an existing booking' };
+        return next(err);
+      }
+    });
   }
 
   if (booking) {
