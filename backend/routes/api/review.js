@@ -6,15 +6,8 @@ const { handleValidationErrors } = require('../../utils/validation.js');
 const { requireAuth, restoreUser } = require('../../utils/auth.js');
 const { Spot, User, Review, SpotImage, ReviewImage, Sequelize, Booking } = require('../../db/models');
 const { Model } = require('sequelize');
-const booking = require('../../db/models/booking.js');
 
 const router = express.Router();
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*--------------------------------------------Validations------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------*/
-
-const validateReview = [];
 
 /*-------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------Route Handlers-----------------------------------------------*/
@@ -61,6 +54,39 @@ router.get('/current', requireAuth, async (req, res, _next) => {
   }
 
   res.json({ Reviews: userReviews });
+});
+
+// Add an Image to a Review based on the Review's id
+router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
+  const { url } = req.body;
+  const review = await Review.findByPk(req.params.reviewId);
+  const imageCount = await ReviewImage.findOne({
+    where: { reviewId: req.params.reviewId },
+    attributes: [[Sequelize.fn('COUNT', Sequelize.col('id')), 'imageCount']],
+    raw: true
+  });
+
+  if (review && +review.userId !== +req.user.id) {
+    const err = new Error('Unauthorized');
+    err.status = 401;
+    return next(err);
+  } else if (review && imageCount.imageCount >= 10) {
+    const err = new Error('Maximum number of images for this resource was reached');
+    err.status = 403;
+    next(err);
+  }
+
+  if (review) {
+    const newImage = await ReviewImage.create({
+      reviewId: +req.params.reviewId,
+      url
+    });
+    res.json({ id: newImage.id, url: newImage.url });
+  } else {
+    const err = new Error("Review couldn't be found");
+    err.status = 404;
+    next(err);
+  }
 });
 
 module.exports = router;
