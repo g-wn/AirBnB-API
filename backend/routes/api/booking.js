@@ -12,6 +12,10 @@ const router = express.Router();
 /*--------------------------------------------Validations------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------*/
 
+/*-------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------Route Handlers-----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+
 // Get all of the Current User's Bookings
 router.get('/current', requireAuth, async (req, res, next) => {
   const userBookings = await Booking.findAll({
@@ -49,12 +53,10 @@ router.get('/current', requireAuth, async (req, res, next) => {
   }
 
   res.json(
-    userBookings.length ? { Bookings: userBookings } : { message: "You don't have any bookings yet. Check out some Spots!" }
+    userBookings.length
+      ? { Bookings: userBookings }
+      : { message: "You don't have any bookings yet. Check out some Spots!" }
   );
 });
-
-/*-------------------------------------------------------------------------------------------------------*/
-/*------------------------------------------Route Handlers-----------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------*/
 
 module.exports = router;
