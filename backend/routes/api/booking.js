@@ -12,6 +12,18 @@ const router = express.Router();
 /*--------------------------------------------Validations------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------*/
 
+const validateBooking = [
+  check('endDate')
+    .exists({ checkFalsy: true })
+    .custom((value, { req }) => {
+      if (new Date(value) <= new Date(req.body.startDate)) {
+        throw new Error('endDate cannot be on or before startDate');
+      }
+      return true;
+    }),
+  handleValidationErrors
+];
+
 /*-------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------Route Handlers-----------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------*/
@@ -57,6 +69,30 @@ router.get('/current', requireAuth, async (req, res, next) => {
       ? { Bookings: userBookings }
       : { message: "You don't have any bookings yet. Check out some Spots!" }
   );
+});
+
+// Edit a Booking
+router.put('/:bookingId', validateBooking, requireAuth, async (req, res, next) => {
+  const { startDate, endDate } = req.body;
+  const booking = await Booking.findByPk(req.params.bookingId);
+
+  if (booking && booking.userId !== req.user.id) {
+    const err = new Error('Unauthorized');
+    err.status = 401;
+    next(err);
+  }
+
+  if (booking) {
+    await booking.update({
+      startDate,
+      endDate
+    });
+    res.json(booking);
+  } else {
+    const err = new Error("Booking couldn't be found");
+    err.status = 404;
+    next(err);
+  }
 });
 
 module.exports = router;
