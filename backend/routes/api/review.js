@@ -60,11 +60,32 @@ router.get('/current', requireAuth, async (req, res, _next) => {
 router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
   const { url } = req.body;
   const review = await Review.findByPk(req.params.reviewId);
+  const imageCount = await ReviewImage.findOne({
+    where: { reviewId: req.params.reviewId },
+    attributes: [[Sequelize.fn('COUNT', Sequelize.col('id')), 'imageCount']],
+    raw: true
+  });
 
   if (review && +review.userId !== +req.user.id) {
     const err = new Error('Unauthorized');
     err.status = 401;
     return next(err);
+  } else if (review && imageCount.imageCount >= 10) {
+    const err = new Error('Maximum number of images for this resource was reached');
+    err.status = 403;
+    next(err);
+  }
+
+  if (review) {
+    const newImage = await ReviewImage.create({
+      reviewId: +req.params.reviewId,
+      url
+    });
+    res.json({ id: newImage.id, url: newImage.url });
+  } else {
+    const err = new Error("Review couldn't be found");
+    err.status = 404;
+    next(err);
   }
 });
 
