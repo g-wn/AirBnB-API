@@ -282,7 +282,7 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
 
   if (spot) {
     spot.destroy();
-    res.json({ message: 'Succssfully deleted' });
+    res.json({ message: 'Succssfully deleted', statusCode: 200 });
   } else {
     const err = new Error("Spot couldn't be found");
     err.status = 404;

@@ -20,7 +20,7 @@ const validateReview = [
     .exists({ checkFalsy: true })
     .isFloat({ min: 1, max: 5 })
     .withMessage('Stars must be an integer from 1 to 5'),
-    handleValidationErrors
+  handleValidationErrors
 ];
 
 /*-------------------------------------------------------------------------------------------------------*/
@@ -121,6 +121,26 @@ router.put('/:reviewId', validateReview, requireAuth, async (req, res, next) => 
     });
 
     res.json(prevReview);
+  } else {
+    const err = new Error("Review couldn't be found");
+    err.status = 404;
+    next(err);
+  }
+});
+
+// Delete a Review
+router.delete('/:reviewId', requireAuth, async (req, res, next) => {
+  const review = await Review.findByPk(req.params.reviewId);
+
+  if (review && +review.userId !== +req.user.id) {
+    const err = new Error('Unauthorized');
+    err.status = 401;
+    return next(err);
+  }
+
+  if (review) {
+    review.destroy();
+    res.json({ message: 'Successfully deleted', statusCode: 200 });
   } else {
     const err = new Error("Review couldn't be found");
     err.status = 404;
