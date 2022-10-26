@@ -6,7 +6,6 @@ const { handleValidationErrors } = require('../../utils/validation.js');
 const { requireAuth, restoreUser } = require('../../utils/auth.js');
 const { Spot, User, Review, SpotImage, ReviewImage, Sequelize, Booking } = require('../../db/models');
 const { Model } = require('sequelize');
-const e = require('express');
 
 const router = express.Router();
 
