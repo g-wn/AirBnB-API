@@ -6,8 +6,22 @@ const { handleValidationErrors } = require('../../utils/validation.js');
 const { requireAuth, restoreUser } = require('../../utils/auth.js');
 const { Spot, User, Review, SpotImage, ReviewImage, Sequelize, Booking } = require('../../db/models');
 const { Model } = require('sequelize');
+const e = require('express');
 
 const router = express.Router();
+
+/*-------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------Validations------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
+
+const validateReview = [
+  check('review').exists({ checkFalsy: true }).notEmpty().withMessage('Review text is required'),
+  check('stars')
+    .exists({ checkFalsy: true })
+    .isFloat({ min: 1, max: 5 })
+    .withMessage('Stars must be an integer from 1 to 5'),
+    handleValidationErrors
+];
 
 /*-------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------Route Handlers-----------------------------------------------*/
@@ -82,6 +96,31 @@ router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
       url
     });
     res.json({ id: newImage.id, url: newImage.url });
+  } else {
+    const err = new Error("Review couldn't be found");
+    err.status = 404;
+    next(err);
+  }
+});
+
+// Edit a review
+router.put('/:reviewId', validateReview, requireAuth, async (req, res, next) => {
+  const { review, stars } = req.body;
+  const prevReview = await Review.findByPk(req.params.reviewId);
+
+  if (prevReview && +prevReview.userId !== +req.user.id) {
+    const err = new Error('Unauthorized');
+    err.status = 401;
+    return next(err);
+  }
+
+  if (prevReview) {
+    await prevReview.update({
+      review,
+      stars
+    });
+
+    res.json(prevReview);
   } else {
     const err = new Error("Review couldn't be found");
     err.status = 404;
