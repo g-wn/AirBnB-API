@@ -65,6 +65,31 @@ router.get('/current', requireAuth, async (req, res, _next) => {
   }
 });
 
+// Get all Reviews by a Spot's id
+router.get('/:spotId/reviews', async (req, res, next) => {
+  const spot = await Spot.findByPk(req.params.spotId);
+
+  if (spot) {
+    const spotReviews = await Review.findAll({
+      where: { spotId: req.params.spotId },
+      include: [
+        { model: User, attributes: ['id', 'firstName', 'lastName'] },
+        { model: ReviewImage, attributes: ['id', 'url'] }
+      ]
+    });
+
+    res.json(
+      spotReviews.length
+        ? { Reviews: spotReviews }
+        : { message: `${spot.name} doesn't have any reviews yet. Book a stay and let the owners know what you think!` }
+    );
+  } else {
+    const err = new Error("Spot couldn't be found");
+    err.status = 404;
+    next(err);
+  }
+});
+
 // Get details for a Spot from an id
 router.get('/:spotId', async (req, res, next) => {
   const spot = await Spot.findByPk(req.params.spotId, {
