@@ -26,6 +26,14 @@ const validateSpot = [
   handleValidationErrors
 ];
 
+const validateReview = [
+  check('review').exists({ checkFalsy: true }).notEmpty().withMessage('Review text is required'),
+  check('stars')
+    .exists({ checkFalsy: true })
+    .isFloat({ min: 1, max: 5 })
+    .withMessage('Stars must be an integer from 1 to 5')
+];
+
 /*-------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------Route Handlers-----------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------*/
@@ -147,6 +155,34 @@ router.get('/', async (_req, res, _next) => {
   });
 
   res.json({ Spots: allSpots });
+});
+
+// Create a Review for a Spot based on the Spot's id
+router.post('/:spotId/reviews', validateReview, requireAuth, async (req, res, next) => {
+  const { review, stars } = req.body;
+  const spot = await Spot.findByPk(req.params.spotId);
+  console.log(spot);
+
+  if (spot) {
+    try {
+      const newSpotReview = await Review.create({
+        userId: +req.user.id,
+        spotId: +req.params.spotId,
+        review,
+        stars
+      });
+
+      res.status(201).json(newSpotReview);
+    } catch (e) {
+      const err = new Error('User already has a review for this spot');
+      err.status = 403;
+      next(err);
+    }
+  } else {
+    const err = new Error("Spot couldn't be found");
+    err.status = 404;
+    next(err);
+  }
 });
 
 // Add an Image to a Spot based on the Spot's id
