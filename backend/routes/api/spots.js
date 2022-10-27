@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { check } = require('express-validator');
+const { check, query } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation.js');
 
 const { requireAuth, restoreUser } = require('../../utils/auth.js');
@@ -44,6 +44,34 @@ const validateBooking = [
       }
       return true;
     }),
+  handleValidationErrors
+];
+
+const validateQuery = [
+  query('page').isFloat({ min: 0, max: 10 }).withMessage('Page must be greater than or equal to 0'),
+  query('size').isFloat({ min: 0, max: 20 }).withMessage('Size must be greater than or equal to 0'),
+  query('maxLat').isFloat({ min: -90, max: 90 }).withMessage('Maximum latitude is invalid'),
+  query('minLat')
+    .isFloat({ min: -90, max: 90 })
+    .custom((value, { req }) => {
+      if (value > req.query.maxLat) {
+        throw new Error('Minimum latitude is invalid');
+      }
+      return true;
+    })
+    .withMessage('Minimum latitude is invalid'),
+  query('maxLng').isFloat({ max: -180, min: 180 }).withMessage('Maximum longitude is invalid'),
+  query('minLng')
+    .isFloat({ max: -180, min: 180 })
+    .custom((value, { req }) => {
+      if (value > req.query.maxLng) {
+        throw new Error('Minimum longitute is invalid');
+      }
+      return true;
+    })
+    .withMessage('Minimum longitude is invalid'),
+  query('minPrice').isFloat({ min: 0 }).withMessage('Minimum price must be greater than or equal to 0'),
+  query('maxPrice').isFloat({ min: 0 }).withMessage('Maximum price must be greater than or equal to 0'),
   handleValidationErrors
 ];
 
@@ -174,7 +202,13 @@ router.get('/:spotId', async (req, res, next) => {
 });
 
 // Get all Spots
-router.get('/', async (_req, res, _next) => {
+router.get('/', async (req, res, _next) => {
+  let { page, size, minLat, maxLat, minLng, maxLng, minPrice, maxPrice } = req.query;
+
+  if (!page) page = 0;
+  if (!size) size = 20;
+  const offset = size * (page - 1);
+
   const allSpots = await Spot.findAll({
     include: [
       { model: Review, attributes: [] },
@@ -182,7 +216,7 @@ router.get('/', async (_req, res, _next) => {
         model: SpotImage,
         where: { preview: true },
         attributes: [],
-        required: false
+        required: false,
       }
     ],
     attributes: {
@@ -191,10 +225,13 @@ router.get('/', async (_req, res, _next) => {
         [Sequelize.col('SpotImages.url'), 'previewImage']
       ]
     },
-    group: ['Spot.id', 'previewImage']
+    group: ['Spot.id', 'previewImage'],
+    offset,
+    limit: size,
+    // subQuery: false
   });
 
-  res.json({ Spots: allSpots });
+  res.json({ Spots: allSpots, page, size });
 });
 
 // Create a Review for a Spot based on the Spot's id
