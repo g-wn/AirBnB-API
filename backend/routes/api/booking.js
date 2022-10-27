@@ -88,7 +88,19 @@ router.put('/:bookingId', validateBooking, requireAuth, async (req, res, next) =
   if (spot) {
     spot.Bookings.forEach(booking => {
       const bookingDates = booking.toJSON();
-      if (startDate >= bookingDates.startDate && startDate <= bookingDates.endDate) {
+      if (
+        startDate >= bookingDates.startDate &&
+        startDate <= bookingDates.endDate &&
+        endDate <= bookingDates.endDate &&
+        endDate >= bookingDates.startDate
+      ) {
+        const err = new Error('Sorry, this spot is already booked for the specified dates');
+        err.status = 403;
+        err.errors = {
+          startDate: 'Start date conflicts with an existing booking',
+          endDate: 'End date conflicts with an existing booking'
+        };
+      } else if (startDate >= bookingDates.startDate && startDate <= bookingDates.endDate) {
         const err = new Error('Sorry, this spot is already booked for the specified dates');
         err.status = 403;
         err.errors = { startDate: 'Start date conflicts with an existing booking' };
@@ -128,7 +140,7 @@ router.delete('/:bookingId', requireAuth, async (req, res, next) => {
     return next(err);
   }
 
-  if (booking && (booking.userId !== req.user.id && booking.Spot.ownerId !== req.user.id)) {
+  if (booking && booking.userId !== req.user.id && booking.Spot.ownerId !== req.user.id) {
     const err = new Error('Forbidden');
     err.status = 403;
     return next(err);
