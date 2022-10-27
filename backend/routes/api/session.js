@@ -3,7 +3,7 @@ const express = require('express');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation.js');
 
-const { setTokenCookie, restoreUser } = require('../../utils/auth.js');
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth.js');
 const { User } = require('../../db/models');
 
 const router = express.Router();
@@ -44,7 +44,7 @@ router.delete('/', (_req, res) => {
 });
 
 // Restore session user
-router.get('/', restoreUser, (req, res) => {
+router.get('/', requireAuth, (req, res) => {
   const { user } = req;
   if (user) {
     return res.json(user.toSafeObject());

@@ -80,8 +80,8 @@ router.put('/:bookingId', validateBooking, requireAuth, async (req, res, next) =
   });
 
   if (booking && booking.userId !== req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     next(err);
   }
 
@@ -129,8 +129,8 @@ router.delete('/:bookingId', requireAuth, async (req, res, next) => {
   }
 
   if (booking && (booking.userId !== req.user.id && booking.Spot.ownerId !== req.user.id)) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   }
 

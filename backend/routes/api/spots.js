@@ -307,8 +307,8 @@ router.post('/:spotId/images', requireAuth, async (req, res, next) => {
   const spot = await Spot.findByPk(req.params.spotId);
 
   if (spot && +spot.ownerId !== +req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   }
 
@@ -347,7 +347,20 @@ router.post('/:spotId/bookings', validateBooking, requireAuth, async (req, res, 
   if (spot) {
     spot.Bookings.forEach(booking => {
       const bookingDates = booking.toJSON();
-      if (startDate >= bookingDates.startDate && startDate <= bookingDates.endDate) {
+      if (
+        startDate >= bookingDates.startDate &&
+        startDate <= bookingDates.endDate &&
+        endDate <= bookingDates.endDate &&
+        endDate >= bookingDates.startDate
+      ) {
+        const err = new Error('Sorry, this spot is already booked for the specified dates');
+        err.status = 403;
+        err.errors = {
+          startDate: 'Start date conflicts with an existing booking',
+          endDate: 'End date conflicts with an existing booking'
+        };
+        return next (err)
+      } else if (startDate >= bookingDates.startDate && startDate <= bookingDates.endDate) {
         const err = new Error('Sorry, this spot is already booked for the specified dates');
         err.status = 403;
         err.errors = { startDate: 'Start date conflicts with an existing booking' };
@@ -405,8 +418,8 @@ router.put('/:spotId', validateSpot, requireAuth, async (req, res, next) => {
   const spot = await Spot.findByPk(req.params.spotId);
 
   if (spot && +spot.ownerId !== +req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   }
 
@@ -436,8 +449,8 @@ router.delete('/:spotId', requireAuth, async (req, res, next) => {
   const spot = await Spot.findByPk(req.params.spotId);
 
   if (spot && +spot.ownerId !== +req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   }
 
