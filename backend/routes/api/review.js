@@ -44,7 +44,7 @@ router.get('/current', requireAuth, async (req, res, _next) => {
           }
         ],
         attributes: {
-          exclude: ['createdAt', 'updatedAt']
+          exclude: ['createdAt', 'updatedAt', 'description']
         }
       },
       { model: ReviewImage, attributes: ['id', 'url'] }
@@ -80,13 +80,13 @@ router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
   });
 
   if (review && +review.userId !== +req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   } else if (review && imageCount.imageCount >= 10) {
     const err = new Error('Maximum number of images for this resource was reached');
     err.status = 403;
-    next(err);
+    return next(err);
   }
 
   if (review) {
@@ -108,8 +108,8 @@ router.put('/:reviewId', validateReview, requireAuth, async (req, res, next) => 
   const prevReview = await Review.findByPk(req.params.reviewId);
 
   if (prevReview && +prevReview.userId !== +req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   }
 
@@ -132,8 +132,8 @@ router.delete('/:reviewId', requireAuth, async (req, res, next) => {
   const review = await Review.findByPk(req.params.reviewId);
 
   if (review && +review.userId !== +req.user.id) {
-    const err = new Error('Unauthorized');
-    err.status = 401;
+    const err = new Error('Forbidden');
+    err.status = 403;
     return next(err);
   }
 
