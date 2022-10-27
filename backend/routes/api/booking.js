@@ -100,6 +100,7 @@ router.put('/:bookingId', validateBooking, requireAuth, async (req, res, next) =
           startDate: 'Start date conflicts with an existing booking',
           endDate: 'End date conflicts with an existing booking'
         };
+        return next(err);
       } else if (startDate >= bookingDates.startDate && startDate <= bookingDates.endDate) {
         const err = new Error('Sorry, this spot is already booked for the specified dates');
         err.status = 403;
