@@ -35,7 +35,7 @@ export const login = payload => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(setUser(data.user));
-    return data;
+    return data.user;
   }
   return res;
 };
@@ -47,6 +47,27 @@ export const restoreUser = () => async dispatch => {
     const data = await res.json();
     dispatch(setUser(data.user));
     return data;
+  }
+  return res;
+};
+
+export const signup = payload => async dispatch => {
+  const { firstName, lastName, email, username, password } = payload;
+  const res = await csrfFetch(`/api/users`, {
+    method: 'POST',
+    body: JSON.stringify({
+      firstName,
+      lastName,
+      email,
+      username,
+      password
+    })
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(setUser(data.user));
+    return data.user;
   }
   return res;
 };
@@ -63,7 +84,7 @@ const sessionReducer = (state = initialState, action) => {
       return { ...state, user: { ...action.user } };
     }
     case REMOVE_USER: {
-      return { ...initialState };
+      return { ...state, user: null };
     }
     default:
       return state;
