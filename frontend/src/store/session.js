@@ -4,19 +4,19 @@ import { csrfFetch } from './csrf';
 /* ------------------------- ACTIONS ------------------------- */
 /* ----------------------------------------------------------- */
 
-const LOGIN_USER = 'users/LOGIN_USER';
-const LOGOUT_USER = 'users/LOGOUT_USER';
+const SET_USER = 'users/SET_USER';
+const REMOVE_USER = 'users/REMOVE_USER';
 
 export const setUser = user => {
   return {
-    type: LOGIN_USER,
+    type: SET_USER,
     user
   };
 };
 
 export const removeUser = user => {
   return {
-    type: LOGOUT_USER,
+    type: REMOVE_USER,
     user
   };
 };
@@ -33,9 +33,20 @@ export const login = payload => async dispatch => {
   });
 
   if (res.ok) {
-    const user = await res.json();
-    dispatch(setUser(user));
-    return user;
+    const data = await res.json();
+    dispatch(setUser(data.user));
+    return data;
+  }
+  return res;
+};
+
+export const restoreUser = () => async dispatch => {
+  const res = await csrfFetch(`/api/session`);
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(setUser(data.user));
+    return data;
   }
   return res;
 };
@@ -48,10 +59,10 @@ const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_USER: {
+    case SET_USER: {
       return { ...state, user: { ...action.user } };
     }
-    case LOGOUT_USER: {
+    case REMOVE_USER: {
       return { ...initialState };
     }
     default:
