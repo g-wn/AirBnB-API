@@ -34,7 +34,7 @@ router.post('/', validateLogin, async (req, res, next) => {
 
   const token = setTokenCookie(res, user);
 
-  return res.json({...user.toSafeObject(), token: token});
+  return res.json({user: user.toSafeObject()/*, token: token */});
 });
 
 // Log out
@@ -44,11 +44,11 @@ router.delete('/', (_req, res) => {
 });
 
 // Restore session user
-router.get('/', requireAuth, (req, res) => {
+router.get('/', (req, res) => {
   const { user } = req;
   if (user) {
-    return res.json(user.toSafeObject());
-  } else return res.json({});
+    return res.json({user: user.toSafeObject()});
+  } else return res.json({user: null});
 });
 
 module.exports = router;
