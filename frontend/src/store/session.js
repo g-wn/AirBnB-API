@@ -7,14 +7,14 @@ import { csrfFetch } from './csrf';
 const LOGIN_USER = 'users/LOGIN_USER';
 const LOGOUT_USER = 'users/LOGOUT_USER';
 
-export const loginUser = user => {
+export const setUser = user => {
   return {
     type: LOGIN_USER,
     user
   };
 };
 
-export const logoutUser = user => {
+export const removeUser = user => {
   return {
     type: LOGOUT_USER,
     user
@@ -25,7 +25,7 @@ export const logoutUser = user => {
 /* ------------------------- THUNKS -------------------------- */
 /* ----------------------------------------------------------- */
 
-export const thunkLoginUser = payload => async dispatch => {
+export const login = payload => async dispatch => {
   const { credential, password } = payload;
   const res = await csrfFetch(`/api/session`, {
     method: 'POST',
@@ -33,9 +33,9 @@ export const thunkLoginUser = payload => async dispatch => {
   });
 
   if (res.ok) {
-    const data = await res.json();
-    dispatch(loginUser(data));
-    return data;
+    const user = await res.json();
+    dispatch(setUser(user));
+    return user;
   }
   return res;
 };
