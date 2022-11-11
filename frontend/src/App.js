@@ -14,7 +14,7 @@ function App() {
       .then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  return (
+  return isLoaded && (
     <Switch>
       <Route path={`/login`}>
         <LoginFormPage />

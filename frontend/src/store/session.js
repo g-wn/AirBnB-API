@@ -14,10 +14,9 @@ export const setUser = user => {
   };
 };
 
-export const removeUser = user => {
+export const removeUser = () => {
   return {
-    type: REMOVE_USER,
-    user
+    type: REMOVE_USER
   };
 };
 
@@ -43,11 +42,8 @@ export const login = payload => async dispatch => {
 export const restoreUser = () => async dispatch => {
   const res = await csrfFetch(`/api/session`);
 
-  if (res.ok) {
-    const data = await res.json();
-    dispatch(setUser(data.user));
-    return data;
-  }
+  const data = await res.json();
+  dispatch(setUser(data.user));
   return res;
 };
 
@@ -72,6 +68,17 @@ export const signup = payload => async dispatch => {
   return res;
 };
 
+export const logout = () => async dispatch => {
+  const res = await csrfFetch(`/api/session`, {
+    method: 'DELETE'
+  });
+
+  if (res.ok) {
+    dispatch(removeUser());
+    return res;
+  }
+};
+
 /* ----------------------------------------------------------- */
 /* ------------------------- REDUCER ------------------------- */
 /* ----------------------------------------------------------- */
@@ -81,10 +88,10 @@ const initialState = { user: null };
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER: {
-      return { ...state, user: { ...action.user } };
+      return { ...state, user: action.user };
     }
     case REMOVE_USER: {
-      return { ...state, user: null };
+      return { ...initialState };
     }
     default:
       return state;
