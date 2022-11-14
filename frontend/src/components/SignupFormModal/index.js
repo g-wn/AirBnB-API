@@ -10,7 +10,7 @@ export default function SignupFormModal() {
 
   return (
     <>
-      <button onClick={() => dispatch(signupModal(true))}>Sign Up</button>
+      <button className="sign-up-btn" onClick={() => dispatch(signupModal(true))}>Sign Up</button>
       {showSignupModal && (
         <Modal onClose={() => dispatch(signupModal(false))}>
           <SignupForm />
