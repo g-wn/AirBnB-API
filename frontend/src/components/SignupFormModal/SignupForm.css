@@ -1,10 +1,13 @@
-button {
+.sign-up-btn {
   background-color: white;
   border: none;
+  cursor: pointer;
+  font-size: 14px;
   transition: background-color 0.2s ease;
+  text-align: left;
   width: 100%;
 }
 
-button:hover {
-  background-color: ;
+.sign-up-btn:hover {
+  background-color: rgba(0, 0, 0, .06);
 }

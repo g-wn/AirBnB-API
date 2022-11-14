@@ -1,3 +1,31 @@
+i.fa-user-circle {
+  font-size: 30px;
+  color: #717171;
+}
+
+i.fa-bars {
+  font-size: 15px;
+  color: #222222;
+}
+
+.profile-btn:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+}
+
+.host-btn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.host-btn:hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
 .profile-btn {
   align-items: center;
   border-radius: 21px;
@@ -15,34 +43,27 @@
   vertical-align: center;
 }
 
-i.fa-user-circle {
-  font-size: 30px;
-  color: #717171;
-}
-
-i.fa-bars {
-  font-size: 15px;
-  color: #222222;
-}
-
-.profile-btn:hover {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
-}
-
 .profile-dropdown,
 .login-signup-dropdown {
-  align-items: left;
+  align-items: flex-start;
   background-color: white;
   border: 1pd solid #DDDDDD;
-  border-radius: 21px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, .15);
   color: #222222;
   cursor: pointer;
   flex-direction: column;
+  gap: 15px;
   display: flex;
   justify-content: center;
-  padding: 5px 5px 5px 12px;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
   position: absolute;
   right: 40px;
-  width: 177px;
+  width: 250px;
+}
+
+.login-signup-dropdown > hr {
+  background-color: rgba(0, 0, 0, .01);
+  width: 100%;
 }
