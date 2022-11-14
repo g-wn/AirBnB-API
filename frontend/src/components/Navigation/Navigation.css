@@ -1,1 +1,7 @@
-/* TODO: Add css styles to Navigation Component */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 2520px;
+  height: 80px;
+  padding: 0 40px 0 40px;
+}

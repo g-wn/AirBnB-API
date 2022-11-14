@@ -1,15 +1,48 @@
 .profile-btn {
+  align-items: center;
   border-radius: 21px;
   border: 1px solid #DDDDDD;
   background-color: white;
   cursor: pointer;
   display: inline-flex;
+  height: 42px;
+  justify-content: space-around;
+  transition: box-shadow 0.2s ease;
+  padding: 5px 5px 5px 12px;
+  position: relative;
+  text-decoration: none;
+  width: 77px;
+  vertical-align: center;
 }
 
-.fas {
-  margin: .5rem .5rem;
+i.fa-user-circle {
+  font-size: 30px;
+  color: #717171;
 }
 
-.icon-container {
-  font-size: 16px;
+i.fa-bars {
+  font-size: 15px;
+  color: #222222;
+}
+
+.profile-btn:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+}
+
+.profile-dropdown,
+.login-signup-dropdown {
+  align-items: left;
+  background-color: white;
+  border: 1pd solid #DDDDDD;
+  border-radius: 21px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, .18);
+  color: #222222;
+  cursor: pointer;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  padding: 5px 5px 5px 12px;
+  position: absolute;
+  right: 40px;
+  width: 177px;
 }

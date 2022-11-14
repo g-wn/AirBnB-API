@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Modal } from "../../context/Modal";
 import SignupForm from "./SignupForm";
+import './SignupForm.css'
 
 export default function SignupFormModal() {
-  const [showModal, setShowModal] = useState()
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <>

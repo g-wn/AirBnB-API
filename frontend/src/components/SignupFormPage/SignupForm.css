@@ -1,1 +1,10 @@
-/* TODO: Add css styling for SignupForm Component  */
+button {
+  background-color: white;
+  border: none;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: ;
+}
