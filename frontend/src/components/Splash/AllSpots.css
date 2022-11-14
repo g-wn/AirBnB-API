@@ -1,0 +1,17 @@
+.splash-container {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 100%;
+  flex-wrap: wrap;
+  padding: 0 40px 0 40px;
+}
+
+.splash-container > div {
+  border-radius: 10px;
+  width: 200px;
+  height: 350px;
+  margin: 10px;
+  flex-grow: 1;
+}

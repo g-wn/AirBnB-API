@@ -1,12 +1,17 @@
-.nav-container {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  max-width: 2520px;
-  height: 80px;
-  padding: 0 40px 0 40px;
-}
-
 .hidden-btns {
   display: none;
+}
+
+.nav-container {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  border-top: 1px solid #000;
+  background-color: white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 40px 0 40px;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
