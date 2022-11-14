@@ -14,7 +14,7 @@ export default function LoginForm({ onClose }) {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors([]);
-    dispatch(sessionActions.login({ credential, password }))
+    return dispatch(sessionActions.login({ credential, password }))
     .then(async res => {
       if (res.ok) {
         dispatch(loginModal(false))

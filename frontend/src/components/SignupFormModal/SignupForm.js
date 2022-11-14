@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import * as SessionActions from '../../store/session';
+import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 
 import './SignupForm.css';
+import { signupModal } from '../../store/modal';
 
 export default function SignupForm() {
   const dispatch = useDispatch();
@@ -15,10 +16,16 @@ export default function SignupForm() {
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = e => {
-    e.prefentDefault();
+    e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(SessionActions.signup({ firstName, lastName, email, username, password })).catch(async res => {
+      return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
+      .then(async res => {
+        if (res.ok) {
+          dispatch(signupModal(false))
+        }
+      })
+      .catch(async res => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
