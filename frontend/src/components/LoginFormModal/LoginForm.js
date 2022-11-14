@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import './LoginForm.css';
 import { loginModal } from '../../store/modal';
 
-export default function LoginForm() {
+export default function LoginForm({ onClose }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
@@ -14,8 +14,13 @@ export default function LoginForm() {
   const handleSubmit = e => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(async res => {
-      if (res.ok) dispatch(loginModal(false))
+    dispatch(sessionActions.login({ credential, password }))
+    .then(async res => {
+      if (res.ok) {
+        dispatch(loginModal(false))
+      }
+    })
+    .catch(async res => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
     });

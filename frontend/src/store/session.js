@@ -34,7 +34,7 @@ export const login = payload => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(setUser(data.user));
-    return data.user;
+    return res;
   }
   return res;
 };
@@ -63,7 +63,7 @@ export const signup = payload => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(setUser(data.user));
-    return data.user;
+    return res;
   }
   return res;
 };
@@ -77,6 +77,7 @@ export const logout = () => async dispatch => {
     dispatch(removeUser());
     return res;
   }
+  return res;
 };
 
 /* ----------------------------------------------------------- */
