@@ -1,0 +1,22 @@
+.spot-detail-container {
+  margin-top: 15px;
+  padding: 0px 40px 0px 40px;
+}
+
+.img-container {
+  border-radius: 15px;
+  border: 1px solid red;
+  display: grid;
+  gap: 10px;
+  grid-template-areas:
+  'a a b c'
+  'a a d e';
+  margin-top: 15px;
+  object-fit: contain;
+  overflow: hidden;
+  width: 100%;
+}
+
+.preview-img {
+  height: 110%;
+}
