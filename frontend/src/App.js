@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
+import Filters from './components/Filters';
+import Splash from './components/Splash';
 
 function App() {
   const dispatch = useDispatch();
@@ -15,6 +17,8 @@ function App() {
     isLoaded && (
       <>
         <Navigation isLoaded={isLoaded} />
+        <Filters />
+        <Splash />
       </>
     )
   );

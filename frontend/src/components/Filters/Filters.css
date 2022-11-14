@@ -1,0 +1,12 @@
+.filters-container {
+  align-items: center;
+  border: 1px solid red;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 0 40px 0 40px;
+  position: sticky;
+  width: 100%;
+  z-index: -1;
+}

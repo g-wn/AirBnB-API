@@ -57,7 +57,6 @@ export default function ProfileButton({ user }) {
         <div className='login-signup-dropdown'>
           <LoginFormModal />
           <SignupFormModal />
-          <hr />
           <button className='host-btn'>Host your home</button>
         </div>
       )}
