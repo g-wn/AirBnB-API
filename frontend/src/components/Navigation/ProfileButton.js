@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import './ProfileButton.css'
+import LoginFormModal from '../LoginFormModal';
+import SignupFormModal from '../SignupFormModal';
+import './ProfileButton.css';
 
 export default function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -31,20 +33,35 @@ export default function ProfileButton({ user }) {
 
   return (
     <>
-      <button className='btn profile-btn' onClick={openMenu}>
+      <button
+        className='btn profile-btn'
+        onClick={openMenu}
+      >
         <div className='icon-container'>
-          <i className="fas fa-bars"></i>
+          <i className='fas fa-bars'></i>
+        </div>
+        <div className='icon-container'>
           <i className='fas fa-user-circle' />
         </div>
       </button>
-      {showMenu && (
-        <ul className='profile-dropdown'>
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
+      {showMenu && user && (
+        <div className='profile-dropdown'>
+          <div>{user.username}</div>
+          <div>{user.email}</div>
+          <div>
             <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+          </div>
+        </div>
+      )}
+      {showMenu && !user && (
+        <div className='login-signup-dropdown'>
+          <div>
+            <LoginFormModal />
+          </div>
+          <div>
+            <SignupFormModal />
+          </div>
+        </div>
       )}
     </>
   );
