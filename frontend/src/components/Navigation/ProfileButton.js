@@ -45,26 +45,22 @@ export default function ProfileButton({ user }) {
         </div>
       </button>
       {showMenu && user && (
-        <div className='profile-dropdown-container'>
-          <ul className='profile-dropdown'>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={logout}>Log Out</button>
-            </li>
-          </ul>
+        <div className='profile-dropdown'>
+          <div>{user.username}</div>
+          <div>{user.email}</div>
+          <div>
+            <button onClick={logout}>Log Out</button>
+          </div>
         </div>
       )}
       {showMenu && !user && (
-        <div className="login-signup-dropdown-container">
-          <ul className="login-signup-dropdown">
-            <li>
-              <LoginFormModal />
-            </li>
-            <li>
-              <SignupFormModal />
-            </li>
-          </ul>
+        <div className='login-signup-dropdown'>
+          <div>
+            <LoginFormModal />
+          </div>
+          <div>
+            <SignupFormModal />
+          </div>
         </div>
       )}
     </>

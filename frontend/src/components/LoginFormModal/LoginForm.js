@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 
 import './LoginForm.css';
+import { loginModal } from '../../store/modal';
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export default function LoginForm() {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(async res => {
+      if (res.ok) dispatch(loginModal(false))
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
     });
