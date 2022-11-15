@@ -1,0 +1,125 @@
+.home-btn {
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  height: 65px;
+  justify-content: center;
+  left: 40px;
+  position: absolute;
+  top: 40px;
+  transition: background-color 0.2s ease;
+  width: 65px;
+  z-index: 1;
+}
+
+.home-btn:hover {
+  background-color: rgba(255, 255, 255, .11);
+}
+
+.host-splash-container {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.host-splash-main-img {
+  z-index: 1;
+}
+
+.hosting-btn {
+  background-image: linear-gradient(to right,
+      #E61E4D 0%,
+      #E31C5F 50%,
+      #D70466 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  height: 48px;
+  font-weight: bold;
+  margin-top: 45px;
+  width: 200px;
+}
+
+.hosting-welcome-msg {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 64px;
+  justify-content: center;
+  letter-spacing: -1px;
+  line-height: 70px;
+  margin: 0;
+  max-width: 500px;
+  min-height: 140px;
+  text-align: center;
+}
+
+.left-content,
+.right-content {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.money {
+  font-family: 'Nothing You Could Do';
+  font-size: 65px;
+  line-height: 60px;
+}
+
+.right-content {
+  z-index: 1;
+}
+
+.left-panel,
+.right-panel {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.left-panel {
+  background-color: black;
+}
+
+.panel {
+  flex-grow: 1;
+  height: 100vh;
+}
+
+.right-panel {
+  background-position: center;
+  background-size: cover;
+}
+
+.testimonial>div.spend-it {
+  font-size: 36px;
+}
+
+.testimonial {
+  bottom: 0;
+  color: white;
+  margin-bottom: 50px;
+  margin-left: 50px;
+  position: absolute;
+  width: 100%;
+}
+
+.testimonial>div {
+  font-size: 45px;
+  line-height: 60px;
+  max-width: 425px;
+}
