@@ -19,7 +19,7 @@ export default function SpotCard({ spot }) {
   return (
     <div onClick={handleRedirect} className='spot-card'>
       <img
-        src='https://a0.muscache.com/im/pictures/66526778/a45cd4a4_original.jpg?im_w=720'
+        src={`${spot.previewImage}`}
         alt='previewImage'
       />
       <div className='spot-text-container'>
