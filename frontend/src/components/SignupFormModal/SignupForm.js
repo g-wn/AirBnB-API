@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import './SignupForm.css';
 import { signupModal } from '../../store/modal';
+import { IoCloseSharp } from 'react-icons/io5';
 
 export default function SignupForm() {
   const dispatch = useDispatch();
@@ -20,70 +21,111 @@ export default function SignupForm() {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
-      .then(async res => {
-        if (res.ok) {
-          dispatch(signupModal(false))
-        }
-      })
-      .catch(async res => {
-        const data = await res.json();
-        console.log('DATA ERRORS', Object.values(data.errors))
-        if (data && data.errors) setErrors(Object.values(data.errors));
-      });
+        .then(async res => {
+          if (res.ok) {
+            dispatch(signupModal(false));
+          }
+        })
+        .catch(async res => {
+          const data = await res.json();
+          console.log('DATA ERRORS', Object.values(data.errors));
+          if (data && data.errors) setErrors(Object.values(data.errors));
+        });
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <label>First Name</label>
-      <input
-        type='text'
-        value={firstName}
-        onChange={e => setFirstName(e.target.value)}
-        required
-      />
-      <label>Last Name</label>
-      <input
-        type='text'
-        value={lastName}
-        onChange={e => setLastName(e.target.value)}
-        required
-      />
-      <label>Email</label>
-      <input
-        type='test'
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        required
-      />
-      <label>Username</label>
-      <input
-        type='text'
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-        required
-      />
-      <label>Password</label>
-      <input
-        type='password'
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        required
-      />
-      <label>Confirm Password</label>
-      <input
-        type='password'
-        value={confirmPassword}
-        onChange={e => setConfirmPassword(e.target.value)}
-        required
-      />
-      <button type='submit'>Sign Up</button>
-    </form>
+    <>
+      <header className='signup-form-header'>
+        <button
+          className='close-form-btn'
+          onClick={() => dispatch(signupModal(false))}
+        >
+          <IoCloseSharp size={20} />
+        </button>
+        <div className='header-text bold'>Sign Up</div>
+        <div className='hidden'></div>
+      </header>
+
+      <form
+        className='signup-form'
+        onSubmit={handleSubmit}
+      >
+        {errors.length > 0 ? (
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+        ) : (
+          <h2 className='signup-form-h2'>Welcome to NoCleaningFees</h2>
+        )}
+
+        <div className='inputs-container'>
+          <input
+            className='first-name-input input'
+            onChange={e => setFirstName(e.target.value)}
+            placeholder='First name'
+            required
+            type='text'
+            value={firstName}
+          />
+          <input
+            className='last-name-input input'
+            onChange={e => setLastName(e.target.value)}
+            placeholder='Last name'
+            required
+            type='text'
+            value={lastName}
+          />
+          <p className='id-match-disclaimer'>Make sure it doesn't match any official government ID.</p>
+          <input
+            className='username-input input'
+            onChange={e => setUsername(e.target.value)}
+            placeholder='Username'
+            required
+            type='text'
+            value={username}
+          />
+          <input
+            className='email-input input'
+            onChange={e => setEmail(e.target.value)}
+            placeholder='Email'
+            required
+            type='test'
+            value={email}
+          />
+          <p className='valid-email-disclaimer'>You must have an actual email, but don't enter a real one here.</p>
+          <input
+            className='signup-password-input input'
+            onChange={e => setPassword(e.target.value)}
+            placeholder='Password'
+            required
+            type='password'
+            value={password}
+          />
+          <input
+            className='confirm-input input'
+            onChange={e => setConfirmPassword(e.target.value)}
+            placeholder='Re-enter your password'
+            required
+            type='password'
+            value={confirmPassword}
+          />
+        </div>
+
+        <p className='tos-disclaimer'>
+          By selecting <span>Agree and continue</span>, I agree to having a really fantastic time.
+        </p>
+
+        <button
+          className='signup-submit-btn'
+          type='submit'
+        >
+          Agree and sign up
+        </button>
+      </form>
+    </>
   );
 }
