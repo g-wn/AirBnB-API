@@ -7,6 +7,7 @@ import { csrfFetch } from './csrf';
 const SET_SPOTS = 'spots/SET_SPOTS';
 const SET_SPOT = 'spots/SET_SPOT';
 const CREATE_SPOT = 'spots/CREATE_SPOT';
+const UPDATE_SPOT = 'spots/UPDATE_SPOT';
 
 export const setSpots = spots => {
   return {
@@ -25,6 +26,13 @@ export const setSpot = spot => {
 export const createSpot = spot => {
   return {
     type: CREATE_SPOT,
+    spot
+  };
+};
+
+export const updateSpot = spot => {
+  return {
+    type: UPDATE_SPOT,
     spot
   };
 };
@@ -52,7 +60,7 @@ export const getSpot = spotId => async dispatch => {
     dispatch(setSpot(data));
     return data;
   }
-  // return res;
+  return res;
 };
 
 export const postSpot = payload => async dispatch => {
@@ -65,6 +73,21 @@ export const postSpot = payload => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(createSpot(data));
+    return res;
+  }
+  return res;
+};
+
+export const putSpot = (spotId, payload) => async dispatch => {
+  const { address, city, state, country, lat, lng, name, description, price } = payload;
+  const res = await csrfFetch(`/api/spots/${spotId}`, {
+    method: 'PUT',
+    body: JSON.stringify({ address, city, state, country, lat, lng, name, description, price })
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(updateSpot(data));
     return res;
   }
   return res;
@@ -85,11 +108,9 @@ const spotsReducer = (state = initialState, action) => {
       return { ...state, spot: action.spot };
     }
     case CREATE_SPOT: {
-      // alert(`YOU JUST CREATED THIS SPOT:
-
-      // ${JSON.stringify(action.spot)}
-
-      // CHECK THE REDUX STORE!`)
+      return { ...state, spots: { ...state.spots, [action.spot.id]: action.spot } };
+    }
+    case UPDATE_SPOT: {
       return { ...state, spots: { ...state.spots, [action.spot.id]: action.spot } };
     }
     default:
@@ -109,12 +130,14 @@ const normalizeArray = array => {
 
 export default spotsReducer;
 
-// window.store.dispatch(window.spotActions.createSpot({
-//   'address': 'TEST ADDRESS',
-//   'city': 'TEST CITY',
-//   'state': 'TEST STATE',
-//   'country': 'TEST COUNTRY',
-//   'name': 'TEST NAME',
-//   'description': 'TEST DESCRIPTION',
-//   'price': 1000
-// }))
+// window.store.dispatch(
+//   window.spotActions.putSpot(36, {
+//     address: 'UPDATE',
+//     city: 'UPDATE',
+//     state: 'UPDATE',
+//     country: 'TEST COUNTRY',
+//     name: 'TEST NAME',
+//     description: 'TEST DESCRIPTION',
+//     price: 1000
+//   })
+// );
