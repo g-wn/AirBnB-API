@@ -1,5 +1,6 @@
 'use strict';
 
+const { faker } = require('@faker-js/faker');
 const bcrypt = require('bcryptjs');
 
 /** @type {import('sequelize-cli').Migration} */
@@ -26,7 +27,231 @@ module.exports = {
         lastName: 'User3',
         username: 'DemoUser3',
         hashedPassword: bcrypt.hashSync('password3')
-      }
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        email: faker.internet.email(),
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
+        username: faker.internet.userName(),
+        hashedPassword: bcrypt.hashSync('password')
+      },
     ]);
   },
 
