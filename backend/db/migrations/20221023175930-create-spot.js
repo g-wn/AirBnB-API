@@ -35,12 +35,10 @@ module.exports = {
         allowNull: false
       },
       lat: {
-        type: Sequelize.DECIMAL(12, 10),
-        allowNull: false
+        type: Sequelize.DECIMAL(12, 10)
       },
       lng: {
-        type: Sequelize.DECIMAL(13, 10),
-        allowNull: false
+        type: Sequelize.DECIMAL(13, 10)
       },
       name: {
         type: Sequelize.STRING,
