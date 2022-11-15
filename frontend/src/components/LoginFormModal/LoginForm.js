@@ -110,7 +110,7 @@ export default function LoginForm({ onClose }) {
           onClick={handleFbLogin}
         >
           <span className='demo-user-login-icon'>
-            <BsFacebook size={20} />
+            <BsFacebook size={20} color='rgb(24, 118, 242)'/>
           </span>
           <span className='demo-user-btn-text'>Continue with Facebook Demo User</span>
           <span className='hidden'></span>
