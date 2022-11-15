@@ -32,18 +32,50 @@ export default function LoginForm({ onClose }) {
 
   const handleFbLogin = e => {
     e.preventDefault();
+    const credential = 'fblover@fb.com';
+    const password = 'password1';
+
+    return dispatch(sessionActions.login({ credential, password })).then(async res => {
+      if (res.ok) {
+        dispatch(loginModal(false))
+      }
+    });
   };
 
   const handleGglLogin = e => {
     e.preventDefault();
+    const credential = 'gglboi@ggl.com';
+    const password = 'password2';
+
+    return dispatch(sessionActions.login({ credential, password })).then(async res => {
+      if (res.ok) {
+        dispatch(loginModal(false))
+      }
+    });
   };
 
   const handleAplLogin = e => {
     e.preventDefault();
+    const credential = 'aplclt@apl.eco';
+    const password = 'password3';
+
+    return dispatch(sessionActions.login({ credential, password })).then(async res => {
+      if (res.ok) {
+        dispatch(loginModal(false))
+      }
+    });
   };
 
   const handleEmlLogin = e => {
     e.preventDefault();
+    const credential = 'oldskool@email.com';
+    const password = 'password4';
+
+    return dispatch(sessionActions.login({ credential, password })).then(async res => {
+      if (res.ok) {
+        dispatch(loginModal(false))
+      }
+    });
   };
 
   return (
@@ -110,7 +142,10 @@ export default function LoginForm({ onClose }) {
           onClick={handleFbLogin}
         >
           <span className='demo-user-login-icon'>
-            <BsFacebook size={20} color='rgb(24, 118, 242)'/>
+            <BsFacebook
+              size={20}
+              color='rgb(24, 118, 242)'
+            />
           </span>
           <span className='demo-user-btn-text'>Continue with Facebook Demo User</span>
           <span className='hidden'></span>
@@ -120,7 +155,7 @@ export default function LoginForm({ onClose }) {
           onClick={handleGglLogin}
         >
           <span className='demo-user-login-icon'>
-            <FcGoogle size={20}/>
+            <FcGoogle size={20} />
           </span>
           <span className='demo-user-btn-text'>Continue with Google Demo User</span>
           <span className='hidden'></span>

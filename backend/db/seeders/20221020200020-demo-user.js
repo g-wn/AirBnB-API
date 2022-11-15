@@ -8,32 +8,32 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Users', [
       {
-        email: 'demo1@user.io',
-        firstName: 'Demo1',
-        lastName: 'User1',
-        username: 'DemoUser1',
+        email: 'fblover@fb.com',
+        firstName: 'Face',
+        lastName: 'Book',
+        username: 'Metaverse4Ever',
         hashedPassword: bcrypt.hashSync('password1')
       },
       {
-        email: 'demo2@user.io',
-        firstName: 'Demo2',
-        lastName: 'User2',
-        username: 'DemoUser2',
+        email: 'gglboi@ggl.com',
+        firstName: 'Goo',
+        lastName: 'Gle',
+        username: 'GoogleGlassHoldout',
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
-        email: 'demo3@user.io',
-        firstName: 'Demo3',
-        lastName: 'User3',
-        username: 'DemoUser3',
+        email: 'aplclt@apl.eco',
+        firstName: 'Apple',
+        lastName: 'Ecosystem',
+        username: 'NoGrnBubbz',
         hashedPassword: bcrypt.hashSync('password3')
       },
       {
-        email: faker.internet.email(),
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName(),
-        username: faker.internet.userName(),
-        hashedPassword: bcrypt.hashSync('password')
+        email: 'oldskool@email.com',
+        firstName: 'Plainold',
+        lastName: 'Emailuser',
+        username: 'SnailMailWuz2Slow',
+        hashedPassword: bcrypt.hashSync('password4')
       },
       {
         email: faker.internet.email(),
