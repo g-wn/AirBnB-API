@@ -31,16 +31,28 @@ export default function SpotDetail() {
             </div>
           </div>
           <div className='img-container'>
-            <img
-              src='https://a0.muscache.com/im/pictures/66526778/a45cd4a4_original.jpg?im_w=720'
-              alt='previewImage'
+            <div
               className='preview-img'
-            />
-            {Object.values(spot.SpotImages).filter(img => img.preview === false).map((img, idx) => (
-              <img key={idx} src={`${img.url}`} alt={`spotImage ${idx}`}></img>
-            ))}
+              style={{ backgroundImage: `url(${spot.SpotImages.find(image => image.preview === true)?.url})` }}></div>
+            <div className='imgs'>
+              <div
+                className='img1'
+                style={{ backgroundImage: `url(${spot.SpotImages[1]?.url})` }}
+              ></div>
+              <div
+                className='img2'
+                style={{ backgroundImage: `url(${spot.SpotImages[2]?.url})` }}
+              ></div>
+              <div
+                className='img3'
+                style={{ backgroundImage: `url(${spot.SpotImages[3]?.url})` }}
+              ></div>
+              <div
+                className='img4'
+                style={{ backgroundImage: `url(${spot.SpotImages[4]?.url})` }}
+              ></div>
+            </div>
           </div>
-          .
         </div>
       )}
     </>

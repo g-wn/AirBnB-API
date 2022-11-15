@@ -1,13 +1,14 @@
+import { faker } from '@faker-js/faker';
 import './Filters.css';
 
 export default function Filters() {
   return (
     <div className='filters-container'>
-      <span>filters</span>
-      <span>filters</span>
-      <span>filters</span>
-      <span>filters</span>
-      <span>filters</span>
+      <span>{faker.name.firstName()}</span>
+      <span>{faker.name.firstName()}</span>
+      <span>{faker.name.firstName()}</span>
+      <span>{faker.name.firstName()}</span>
+      <span>{faker.name.firstName()}</span>
     </div>
   );
 }
