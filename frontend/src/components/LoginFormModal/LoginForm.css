@@ -1,3 +1,82 @@
+.close-form-btn {
+  align-items: center;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  width: 32px;
+}
+
+.close-form-btn:hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+.credential-input {
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.demo-user-btn {
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .75);
+  border-radius: 8px;
+  cursor: pointer;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.demo-user-btn:hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+.demo-user-btn-text {
+  font-size: 14px;
+}
+
+.demo-user-login-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center
+}
+
+.input {
+  border: 1px solid rgba(0, 0, 0, .11);
+  height: 56px;
+  padding: 15px;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.line-break-text {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.line-break-text::before,
+.line-break-text::after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  margin: auto 10px;
+}
+
 .log-in-btn {
   background-color: white;
   border: none;
@@ -11,4 +90,51 @@
 
 .log-in-btn:hover {
   background-color: rgba(0, 0, 0, .06);
+}
+
+.login-disclaimer {
+  font-size: 12px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.login-form-h2 {
+  font-size: 22px;
+}
+
+.login-form-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 24px 0 24px
+}
+
+.login-submit-btn {
+  background-image: radial-gradient(circle at center center,
+      rgb(255, 56, 92) 0%,
+      rgb(230, 30, 77) 27.5%,
+      rgb(227, 28, 95) 40%,
+      rgb(215, 4, 102) 57.5%,
+      rgb(189, 30, 89) 75%,
+      rgb(189, 30, 89) 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  height: 48px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.password-input {
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

@@ -1,3 +1,29 @@
+.first-name-input,
+.username-input,
+.signup-password-input {
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.id-match-disclaimer,
+.valid-email-disclaimer,
+.tos-disclaimer {
+  font-size: 12px;
+}
+
+.tos-disclaimer > span {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.last-name-input,
+.email-input,
+.confirm-input {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .sign-up-btn {
   background-color: white;
   border: none;
@@ -12,4 +38,41 @@
 
 .sign-up-btn:hover {
   background-color: rgba(0, 0, 0, .06);
+}
+
+.signup-form-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 24px 0 24px
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.signup-form-h2 {
+  font-size: 22px;
+}
+
+.signup-submit-btn {
+  background-image: radial-gradient(circle at center center,
+      rgb(255, 56, 92) 0%,
+      rgb(230, 30, 77) 27.5%,
+      rgb(227, 28, 95) 40%,
+      rgb(215, 4, 102) 57.5%,
+      rgb(189, 30, 89) 75%,
+      rgb(189, 30, 89) 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  height: 48px;
+  font-weight: bold;
+  margin-bottom: 16px;
 }
