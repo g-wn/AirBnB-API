@@ -85,11 +85,11 @@ const spotsReducer = (state = initialState, action) => {
       return { ...state, spot: action.spot };
     }
     case CREATE_SPOT: {
-      alert(`YOU JUST CREATED THIS SPOT:
+      // alert(`YOU JUST CREATED THIS SPOT:
 
-      ${JSON.stringify(action.spot)}
+      // ${JSON.stringify(action.spot)}
 
-      CHECK THE REDUX STORE!`)
+      // CHECK THE REDUX STORE!`)
       return { ...state, spots: { ...state.spots, [action.spot.id]: action.spot } };
     }
     default:
