@@ -13,8 +13,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 1',
-        description: 'Test Description 1',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -25,8 +25,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 2',
-        description: 'Test Description 2',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -37,8 +37,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -49,8 +49,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -61,8 +61,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -73,8 +73,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -85,8 +85,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -97,8 +97,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -109,8 +109,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -121,8 +121,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -133,8 +133,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -145,8 +145,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -157,8 +157,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -169,8 +169,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -181,8 +181,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -193,8 +193,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -205,8 +205,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -217,8 +217,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -229,8 +229,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -241,8 +241,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -253,8 +253,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -265,8 +265,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -277,8 +277,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -289,8 +289,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -301,8 +301,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -313,8 +313,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -325,8 +325,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -337,8 +337,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -349,8 +349,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -361,8 +361,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -373,8 +373,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -385,8 +385,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -397,8 +397,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -409,8 +409,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       },
       {
@@ -421,8 +421,8 @@ module.exports = {
         country: 'United States',
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
-        name: 'Test Name 3',
-        description: 'Test Description 3',
+        name: faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2),
+        description: faker.lorem.sentence(),
         price: Math.floor(Math.random() * (1200 - 200 + 1)) + 200
       }
     ]);
@@ -434,7 +434,7 @@ module.exports = {
       'Spots',
       {
         name: {
-          [Op.in]: ['Test Name 1', 'Test Name 2', 'Test Name 3']
+          [Op.in]: ['Test Name 1', 'Test Name 2', faker.lorem.sentence(Math.floor(Math.random() * (6 - 2 + 1)) + 2)]
         }
       },
       {}
