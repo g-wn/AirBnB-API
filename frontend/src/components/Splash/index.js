@@ -3,7 +3,7 @@ import SpotCard from '../SpotCard';
 import './AllSpots.css';
 
 export default function Splash() {
-  const spots = useSelector(state => Object.values(state.spots)[0]);
+  const spots = useSelector(state => Object.values(state.spots.spots));
 
   return (
     <div className='splash-container'>
