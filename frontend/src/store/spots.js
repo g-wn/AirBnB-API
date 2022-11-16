@@ -96,15 +96,16 @@ export const postSpot = payload => async dispatch => {
 };
 
 export const putSpot = (spotId, payload) => async dispatch => {
-  const { address, city, state, country, lat, lng, name, description, price } = payload;
+  const { address, city, state, country, lat, lng, name, previewImage, description, price } = payload;
   const res = await csrfFetch(`/api/spots/${spotId}`, {
     method: 'PUT',
-    body: JSON.stringify({ address, city, state, country, lat, lng, name, description, price })
+    body: JSON.stringify({ address, city, state, country, lat, lng, name, previewImage, description, price })
   });
 
   if (res.ok) {
     const data = await res.json();
-    dispatch(updateSpot(data));
+    console.log('DATA----------->', data)
+    dispatch(updateSpot(payload));
     return res;
   }
   return res;

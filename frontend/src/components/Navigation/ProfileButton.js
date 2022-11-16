@@ -10,7 +10,7 @@ import './ProfileButton.css';
 
 export default function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user)
+  const sessionUser = useSelector(state => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -54,11 +54,15 @@ export default function ProfileButton({ user }) {
       </button>
       {showMenu && user && (
         <div className='profile-dropdown'>
-          <div>{user.username}</div>
-          <div>{user.email}</div>
+          <div className='user-info'>
+            <div>{user.username}</div>
+            <div>{user.email}</div>
+          </div>
           <CurrentUserSpotsModal />
           <div>
-            <button onClick={logout}>Log Out</button>
+            <button
+            className='log-out-btn'
+            onClick={logout}>Log Out</button>
           </div>
         </div>
       )}

@@ -6,8 +6,6 @@ export default function UpdateSpot() {
   const location = useLocation();
   const { spot } = location.state;
 
-  console.log('spot', spot);
-
   if (!spot) return null;
   return (
     <>
