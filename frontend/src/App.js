@@ -8,6 +8,7 @@ import Filters from './components/Filters';
 import Splash from './components/Splash';
 import SpotDetail from './components/SpotDetail';
 import HostSplash from './components/HostSplash';
+import CurrentUserSpots from './components/CurrentUserSpots';
 
 function App() {
   const dispatch = useDispatch();
@@ -23,12 +24,15 @@ function App() {
       <>
         <Switch>
           <Route
-            exact={true}
             path={`/`}
+            exact={true}
           >
             <Navigation isLoaded={isLoaded} />
-            <Filters />
             <Splash />
+          </Route>
+          <Route exact path={`/spots/current`}>
+            <Navigation isLoaded={isLoaded}/>
+            <CurrentUserSpots />
           </Route>
           <Route
             path={`/spots/:spotId`}
