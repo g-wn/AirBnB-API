@@ -28,7 +28,6 @@ export default function SignupForm() {
         })
         .catch(async res => {
           const data = await res.json();
-          console.log('DATA ERRORS', Object.values(data.errors));
           if (data && data.errors) setErrors(Object.values(data.errors));
         });
     }

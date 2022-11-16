@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import HostForm from '../HostForm';
 
 import './HostSplash.css';
 
@@ -32,7 +33,7 @@ export default function HostSplash() {
       >
         {showForm ? (
           <div className='form-container'>
-            <div>SHOW FORM</div>
+            <HostForm showForm={showForm} setShowForm={setShowForm}/>
           </div>
         ) : (
           <div className='testimonial'>
