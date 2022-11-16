@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as spotActions from '../../store/spots';
 import { currentUserModal } from '../../store/modal';
@@ -9,17 +8,13 @@ import { AiOutlineEdit } from 'react-icons/ai';
 
 export default function CurrentUserSpots() {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
   const userSpots = useSelector(state => state.spots.currentUserSpots);
-
-  useEffect(() => {
-    sessionUser && dispatch(spotActions.getCurrentUsersSpots());
-  }, [dispatch, sessionUser]);
 
   const handleDelete = async (e, spotId) => {
     e.preventDefault();
 
     await dispatch(spotActions.deleteSpot(spotId));
+    await dispatch(spotActions.getCurrentUsersSpots());
   };
 
   return (

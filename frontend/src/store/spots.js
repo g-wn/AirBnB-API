@@ -10,7 +10,6 @@ const CURRENT_USER_SPOTS = 'spots/CURRENT_USER_SPOTS';
 const CREATE_SPOT = 'spots/CREATE_SPOT';
 const UPDATE_SPOT = 'spots/UPDATE_SPOT';
 const REMOVE_SPOT = 'spots/REMOVE_SPOT';
-const ADD_IMAGE = 'images/ADD_IMAGE';
 
 export const setSpots = allSpots => {
   return {
@@ -48,19 +47,9 @@ export const removeSpot = spotId => {
 };
 
 export const setCurrentUserSpots = currentUserSpots => {
-  console.log('IN ACTION CREATOR');
   return {
     type: CURRENT_USER_SPOTS,
     currentUserSpots
-  };
-};
-
-export const addSpotImage = (spotId, imageId, imageUrl, preview) => {
-  return {
-    type: ADD_IMAGE,
-    imageId,
-    imageUrl,
-    preview
   };
 };
 
@@ -138,7 +127,6 @@ export const getCurrentUsersSpots = () => async dispatch => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log('IN THUNK: ', data.Spots);
     dispatch(setCurrentUserSpots(data.Spots));
     return res;
   }
@@ -194,9 +182,11 @@ const spotsReducer = (state = initialState, action) => {
 const normalizeArray = array => {
   const newObj = {};
 
-  array.forEach(item => {
-    newObj[item.id] = item;
-  });
+  if (array) {
+    array.forEach(item => {
+      newObj[item.id] = item;
+    });
+  }
 
   return newObj;
 };
