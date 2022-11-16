@@ -2,26 +2,29 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import * as spotActions from '../../store/spots';
 
-
 import './SpotCard.css';
 
 export default function SpotCard({ spot }) {
-  const history = useHistory()
-  const dispatch = useDispatch()
+  const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleRedirect = e => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch(spotActions.getSpot(spot.id))
-    history.push(`/spots/${spot.id}`)
-  }
+    dispatch(spotActions.getSpot(spot.id));
+    history.push(`/spots/${spot.id}`);
+  };
 
   return (
-    <div onClick={handleRedirect} className='spot-card'>
-      <img
-        src={`${spot.previewImage}`}
-        alt='previewImage'
-      />
+    <div
+      onClick={handleRedirect}
+      className='spot-card'
+    >
+      <div
+        className='spot-card-img'
+        style={{ backgroundImage: `url('${spot.previewImage}')` }}
+      ></div>
+
       <div className='spot-text-container'>
         <div className='bold top-row'>
           {spot.city}, {spot.state}
