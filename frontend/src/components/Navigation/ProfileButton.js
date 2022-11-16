@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import LoginFormModal from '../LoginFormModal';
@@ -59,7 +60,7 @@ export default function ProfileButton({ user }) {
         <div className='login-signup-dropdown'>
           <LoginFormModal />
           <SignupFormModal />
-          <button className='host-btn'>Host your home</button>
+          <NavLink to={`/host`} className='host-btn-dropdown'>Host your home</NavLink>
         </div>
       )}
     </>

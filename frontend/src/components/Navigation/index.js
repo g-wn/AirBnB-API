@@ -32,7 +32,7 @@ export default function Navigation({ isLoaded }) {
   return (
     <div className='nav-container'>
       <span>
-        <NavLink to={`/`}>Home</NavLink>
+        <NavLink className='home-icon' to={`/`}>Home</NavLink>
       </span>
       <span className='hidden-btns'>
         <SignupFormModal />
@@ -40,7 +40,12 @@ export default function Navigation({ isLoaded }) {
         <CurrentUserSpotsModal />
       </span>
       {sessionUser && <button onClick={handleUpdateDemoSpot}>UPDATE THE TEST SPOT</button>}
-      {isLoaded && <span>{sessionLinks}</span>}
+      {isLoaded && (
+        <div className='right-buttons'>
+          <NavLink className='host-btn-nav bold' to={`/host`}>Host your home</NavLink>
+          <span>{sessionLinks}</span>
+        </div>
+      )}
     </div>
   );
 }

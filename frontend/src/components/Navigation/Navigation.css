@@ -10,8 +10,26 @@
   display: flex;
   height: 80px;
   justify-content: space-between;
-  padding: 0 40px 0 40px;
+  padding: 0 2.5em 0 2.5em;
   position: sticky;
   top: 0;
   width: 100%;
+}
+
+.home-icon {
+  color: black;
+  text-decoration: none;
+}
+
+.host-btn-nav {
+  border-radius: 2em;
+  color: black;
+  margin-right: 2em;
+  padding: .75em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.host-btn-nav:hover {
+  background-color: rgba(0, 0, 0, .06);
 }
