@@ -10,6 +10,7 @@ const CURRENT_USER_SPOTS = 'spots/CURRENT_USER_SPOTS';
 const CREATE_SPOT = 'spots/CREATE_SPOT';
 const UPDATE_SPOT = 'spots/UPDATE_SPOT';
 const REMOVE_SPOT = 'spots/REMOVE_SPOT';
+const ADD_IMAGE = 'images/ADD_IMAGE';
 
 export const setSpots = allSpots => {
   return {
@@ -47,10 +48,19 @@ export const removeSpot = spotId => {
 };
 
 export const setCurrentUserSpots = currentUserSpots => {
-  console.log('IN ACTION CREATOR')
+  console.log('IN ACTION CREATOR');
   return {
     type: CURRENT_USER_SPOTS,
     currentUserSpots
+  };
+};
+
+export const addSpotImage = (spotId, imageId, imageUrl, preview) => {
+  return {
+    type: ADD_IMAGE,
+    imageId,
+    imageUrl,
+    preview
   };
 };
 
@@ -91,7 +101,7 @@ export const postSpot = payload => async dispatch => {
   if (res.ok) {
     const data = await res.json();
     dispatch(createSpot(data));
-    return res;
+    return data;
   }
   return res;
 };
@@ -128,10 +138,23 @@ export const getCurrentUsersSpots = () => async dispatch => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log('IN THUNK: ', data.Spots)
+    console.log('IN THUNK: ', data.Spots);
     dispatch(setCurrentUserSpots(data.Spots));
     return res;
   }
+  return res;
+};
+
+export const postImage = (spotId, payload) => async dispatch => {
+  const { url, preview } = payload;
+  const res = await csrfFetch(`/api/spots/${spotId}/images`, {
+    method: 'POST',
+    body: JSON.stringify({
+      url,
+      preview
+    })
+  });
+
   return res;
 };
 

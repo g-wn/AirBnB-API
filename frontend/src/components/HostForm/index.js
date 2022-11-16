@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as spotActions from '../../store/spots';
 import { useDispatch } from 'react-redux';
 
@@ -6,6 +7,7 @@ import './HostForm.css';
 import { IoCloseSharp } from 'react-icons/io5';
 
 export default function HostForm({ showForm, setShowForm }) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -13,13 +15,15 @@ export default function HostForm({ showForm, setShowForm }) {
   const [country, setCountry] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [previewImage, setPreviewImg] = useState('');
   const [price, setPrice] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(
+
+    const newSpot = await dispatch(
       spotActions.postSpot({
         address,
         city,
@@ -29,14 +33,18 @@ export default function HostForm({ showForm, setShowForm }) {
         description,
         price
       })
-    )
-      .then(() => {
-          setShowForm(false);
-      })
-      .catch(async res => {
-        const data = await res.json();
-        if (data && data.errors) setErrors(Object.values(data.errors));
-      });
+    ).catch(async res => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(Object.values(data.errors));
+    });
+
+    console.log('NEW SPOT!!', newSpot)
+
+    if (newSpot && previewImage) {
+      await dispatch(spotActions.postImage(newSpot.id, { url: previewImage, preview: true }));
+    }
+
+    if (newSpot) history.push(`/`);
   };
 
   return (
@@ -108,7 +116,7 @@ export default function HostForm({ showForm, setShowForm }) {
             type='text'
             value={name}
           />
-          <p className="home-name-weird">Homes have names, name yours now!</p>
+          <p className='home-name-weird'>Homes have names, name yours now!</p>
           <input
             className='description-input input'
             onChange={e => setDescription(e.target.value)}
@@ -116,6 +124,14 @@ export default function HostForm({ showForm, setShowForm }) {
             required
             type='text'
             value={description}
+          />
+          <input
+            className='preview-img-input input'
+            onChange={e => setPreviewImg(e.target.value)}
+            placeholder='Add an image url to get started'
+            required
+            type='text'
+            value={previewImage}
           />
           <input
             className='price-input input'
