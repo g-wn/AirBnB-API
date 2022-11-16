@@ -50,7 +50,7 @@ export default function CurrentUserSpots() {
               </div>
               <div className='user-spot-card-options'>
                 <div className='spot-description'>
-                  <h1 className='spot-name'>{spot.name}</h1>
+                  <h1 className='spot-name'>{spot.address}</h1>
                   <p className='spot-description'>{spot.description}</p>
                 </div>
                 <div className='user-spot-card-btns'>
