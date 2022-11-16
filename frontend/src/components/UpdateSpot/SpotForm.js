@@ -1,37 +1,31 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import * as spotActions from '../../store/spots';
 
-import './HostForm.css';
-import { IoCloseSharp } from 'react-icons/io5';
-import { faker } from '@faker-js/faker'
-
-export default function HostForm({ showForm, setShowForm }) {
+export default function SpotForm({ spot }) {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [country, setCountry] = useState('');
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [previewImage, setPreviewImg] = useState('');
-  const [price, setPrice] = useState('');
+  const [address, setAddress] = useState(spot.address);
+  const [city, setCity] = useState(spot.city);
+  const [state, setState] = useState(spot.state);
+  const [country, setCountry] = useState(spot.country);
+  const [name, setName] = useState(spot.name);
+  const [previewImage] = useState(spot.previewImage);
+  const [description, setDescription] = useState(spot.description);
+  const [price, setPrice] = useState(spot.price);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async e => {
     e.preventDefault();
     setErrors([]);
 
-    const newSpot = await dispatch(
-      spotActions.postSpot({
+    const updatedSpot = await dispatch(
+      spotActions.putSpot(spot.id, {
         address,
         city,
         state,
         country,
-        lat: faker.address.latitude(),
-        lng: faker.address.longitude(),
         name,
         previewImage,
         description,
@@ -42,23 +36,13 @@ export default function HostForm({ showForm, setShowForm }) {
       if (data && data.errors) setErrors(Object.values(data.errors));
     });
 
-    if (newSpot && previewImage) {
-      await dispatch(spotActions.postImage(newSpot.id, { url: previewImage, preview: true }));
-    }
-
-    if (newSpot) history.push(`/`);
+    updatedSpot && history.push('/');
   };
 
   return (
-    <div className='host-form-container'>
-      <header className='host-form-header'>
-        <button
-          className='close-form-btn'
-          onClick={() => setShowForm(false)}
-        >
-          <IoCloseSharp size={20} />
-        </button>
-        <div className='header-text bold'>Welcome to the adventure</div>
+    <div className='update-form-container'>
+      <header className='update-form-header'>
+        <div className='header-text bold'>Things Change!</div>
         <div className='hidden'></div>
       </header>
 
@@ -73,7 +57,7 @@ export default function HostForm({ showForm, setShowForm }) {
             ))}
           </ul>
         ) : (
-          <h2 className='signup-form-h2'>Tell us about your home</h2>
+          <h2 className='signup-form-h2'>Enter some updates to your home</h2>
         )}
 
         <div className='inputs-container'>
@@ -128,14 +112,6 @@ export default function HostForm({ showForm, setShowForm }) {
             value={description}
           />
           <input
-            className='preview-img-input input'
-            onChange={e => setPreviewImg(e.target.value)}
-            placeholder='Add an image url to get started'
-            required
-            type='text'
-            value={previewImage}
-          />
-          <input
             className='price-input input'
             onChange={e => setPrice(e.target.value)}
             placeholder="What's the price?"
@@ -154,7 +130,7 @@ export default function HostForm({ showForm, setShowForm }) {
           className='host-submit-btn'
           type='submit'
         >
-          Agree and list your home
+          Agree and update your home
         </button>
       </form>
     </div>

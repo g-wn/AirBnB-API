@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import * as spotActions from '../../store/spots';
+import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './ProfileButton.css';
 
 export default function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -25,6 +29,10 @@ export default function ProfileButton({ user }) {
 
     return () => document.removeEventListener('click', closeMenu);
   }, [showMenu]);
+
+  useEffect(() => {
+    dispatch(spotActions.getCurrentUsersSpots());
+  }, [dispatch, sessionUser]);
 
   const logout = e => {
     e.preventDefault();
@@ -46,10 +54,15 @@ export default function ProfileButton({ user }) {
       </button>
       {showMenu && user && (
         <div className='profile-dropdown'>
-          <div>{user.username}</div>
-          <div>{user.email}</div>
+          <div className='user-info'>
+            <div>{user.username}</div>
+            <div>{user.email}</div>
+          </div>
+          <CurrentUserSpotsModal />
           <div>
-            <button onClick={logout}>Log Out</button>
+            <button
+            className='log-out-btn'
+            onClick={logout}>Log Out</button>
           </div>
         </div>
       )}
@@ -57,7 +70,12 @@ export default function ProfileButton({ user }) {
         <div className='login-signup-dropdown'>
           <LoginFormModal />
           <SignupFormModal />
-          <button className='host-btn'>Host your home</button>
+          <NavLink
+            to={`/host`}
+            className='host-btn-dropdown'
+          >
+            Host your home
+          </NavLink>
         </div>
       )}
     </>

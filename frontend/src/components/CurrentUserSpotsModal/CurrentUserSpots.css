@@ -1,0 +1,71 @@
+.delete-disclaimer,
+.edit-disclaimer {
+  font-size: 12px;
+}
+
+.delete-user-spot-btn,
+.edit-user-spot-btn {
+  align-items: center;
+  background-image: radial-gradient(circle at center center,
+      rgb(255, 56, 92) 0%,
+      rgb(230, 30, 77) 27.5%,
+      rgb(227, 28, 95) 40%,
+      rgb(215, 4, 102) 57.5%,
+      rgb(189, 30, 89) 75%,
+      rgb(189, 30, 89) 100%);
+  border: none;
+  border-radius: .5em;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  height: 2em;
+  justify-content: center;
+  gap: 1em;
+}
+
+.user-spot-card-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-spot-card-container {
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: row;
+  padding: 16px 0 16px 0;
+}
+
+.user-spot-card-options {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 1.5em;
+  text-align: center;
+}
+
+.user-spots-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 16px 0 16px 0;
+  padding: 0 24px 0 24px;
+}
+
+.user-spots-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 24px 0 24px
+}
+
+
+.test {
+  padding-right: 1.5em;
+}

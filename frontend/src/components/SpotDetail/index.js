@@ -7,7 +7,7 @@ import './SpotDetail.css';
 
 export default function SpotDetail() {
   const dispatch = useDispatch();
-  const spot = useSelector(state => state.spots.spot);
+  const spot = useSelector(state => state.spots.spotDetail);
   const { spotId } = useParams();
 
   useEffect(() => {
@@ -33,7 +33,8 @@ export default function SpotDetail() {
           <div className='img-container'>
             <div
               className='preview-img'
-              style={{ backgroundImage: `url(${spot.SpotImages.find(image => image.preview === true)?.url})` }}></div>
+              style={{ backgroundImage: `url(${spot.SpotImages.find(image => image.preview === true)?.url})` }}
+            ></div>
             <div className='imgs'>
               <div
                 className='img1'
