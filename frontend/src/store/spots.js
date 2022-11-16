@@ -80,7 +80,7 @@ export const getSpot = spotId => async dispatch => {
 };
 
 export const postSpot = payload => async dispatch => {
-  const { address, city, state, country, lat, lng, name, description, price } = payload;
+  const { address, city, state, country, lat, lng, name, previewImage, description, price } = payload;
 
   const res = await csrfFetch(`/api/spots`, {
     method: 'POST',
@@ -89,6 +89,7 @@ export const postSpot = payload => async dispatch => {
 
   if (res.ok) {
     const data = await res.json();
+    data.previewImage = previewImage
     dispatch(createSpot(data));
     return data;
   }

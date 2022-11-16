@@ -33,6 +33,7 @@ export default function HostForm({ showForm, setShowForm }) {
         lat: faker.address.latitude(),
         lng: faker.address.longitude(),
         name,
+        previewImage,
         description,
         price
       })
