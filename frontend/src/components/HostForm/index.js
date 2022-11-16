@@ -30,10 +30,8 @@ export default function HostForm({ showForm, setShowForm }) {
         price
       })
     )
-      .then(async res => {
-        if (res.okay) {
+      .then(() => {
           setShowForm(false);
-        }
       })
       .catch(async res => {
         const data = await res.json();

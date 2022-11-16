@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import SignupFormModal from '../SignupFormModal';
 import LoginFormModal from '../LoginFormModal';
-import { deleteSpot, putSpot } from '../../store/spots';
+import { putSpot } from '../../store/spots';
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 
 export default function Navigation({ isLoaded }) {
@@ -29,11 +29,6 @@ export default function Navigation({ isLoaded }) {
     return dispatch(putSpot(36, updatedSpot));
   };
 
-  const handleDeleteDemoSpot = e => {
-    e.preventDefault();
-    return dispatch(deleteSpot(36));
-  };
-
   return (
     <div className='nav-container'>
       <span>
@@ -45,7 +40,6 @@ export default function Navigation({ isLoaded }) {
         <CurrentUserSpotsModal />
       </span>
       {sessionUser && <button onClick={handleUpdateDemoSpot}>UPDATE THE TEST SPOT</button>}
-      {sessionUser && <button onClick={handleDeleteDemoSpot}>DELETE THE TEST SPOT</button>}
       {isLoaded && <span>{sessionLinks}</span>}
     </div>
   );

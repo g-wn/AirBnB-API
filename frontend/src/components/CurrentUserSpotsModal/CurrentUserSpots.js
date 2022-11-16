@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as spotActions from '../../store/spots';
+import { currentUserModal } from '../../store/modal';
 import SpotCard from '../SpotCard';
 import { IoCloseSharp } from 'react-icons/io5';
-import { currentUserModal } from '../../store/modal';
+import { FaTrashAlt } from 'react-icons/fa';
+import { AiOutlineEdit } from 'react-icons/ai';
 
 export default function CurrentUserSpots() {
   const dispatch = useDispatch();
@@ -13,6 +15,12 @@ export default function CurrentUserSpots() {
   useEffect(() => {
     sessionUser && dispatch(spotActions.getCurrentUsersSpots());
   }, [dispatch, sessionUser]);
+
+  const handleDelete = async (e, spotId) => {
+    e.preventDefault();
+
+    await dispatch(spotActions.deleteSpot(spotId));
+  };
 
   return (
     <>
@@ -41,10 +49,22 @@ export default function CurrentUserSpots() {
                 />
               </div>
               <div className='user-spot-card-options'>
-                <div className='spot-description'>{spot.description}</div>
+                <div className='spot-description'>
+                  <h1 className='spot-name'>{spot.name}</h1>
+                  <p className='spot-description'>{spot.description}</p>
+                </div>
                 <div className='user-spot-card-btns'>
-                  <button className='edit-user-spot-btn'>EDIT</button>
-                  <button className='delete-user-spot-btn'>DELETE</button>
+                  <p className='edit-disclaimer'>Need to change some information about this spot?</p>
+                  <button className='edit-user-spot-btn'>
+                    <AiOutlineEdit /> Update this spot
+                  </button>
+                  <p className='delete-disclaimer'>Don't want to host this spot anymore?</p>
+                  <button
+                    className='delete-user-spot-btn'
+                    onClick={e => handleDelete(e, spot.id)}
+                  >
+                    <FaTrashAlt /> Remove this spot
+                  </button>
                 </div>
               </div>
             </div>
