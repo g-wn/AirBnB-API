@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import './HostForm.css';
 import { IoCloseSharp } from 'react-icons/io5';
+import { faker } from '@faker-js/faker'
 
 export default function HostForm({ showForm, setShowForm }) {
   const history = useHistory();
@@ -29,6 +30,8 @@ export default function HostForm({ showForm, setShowForm }) {
         city,
         state,
         country,
+        lat: faker.address.latitude(),
+        lng: faker.address.longitude(),
         name,
         description,
         price
