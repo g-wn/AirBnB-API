@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './ProfileButton.css';
@@ -48,6 +49,7 @@ export default function ProfileButton({ user }) {
         <div className='profile-dropdown'>
           <div>{user.username}</div>
           <div>{user.email}</div>
+          <CurrentUserSpotsModal />
           <div>
             <button onClick={logout}>Log Out</button>
           </div>

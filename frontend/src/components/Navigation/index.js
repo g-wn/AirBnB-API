@@ -5,28 +5,13 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import SignupFormModal from '../SignupFormModal';
 import LoginFormModal from '../LoginFormModal';
-import { deleteSpot, postSpot, putSpot } from '../../store/spots';
+import { deleteSpot, putSpot } from '../../store/spots';
+import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 
 export default function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   let sessionLinks = <ProfileButton user={sessionUser} />;
-
-  const handleCreateDemoSpot = e => {
-    e.preventDefault();
-
-    const demoSpot = {
-      address: 'TEST ADDRESS',
-      city: 'TEST CITY',
-      state: 'TEST STATE',
-      country: 'TEST COUNTRY',
-      name: 'TEST NAME',
-      description: 'TEST DESCRIPTION',
-      price: 1000
-    };
-
-    return dispatch(postSpot(demoSpot));
-  };
 
   const handleUpdateDemoSpot = e => {
     e.preventDefault();
@@ -57,8 +42,8 @@ export default function Navigation({ isLoaded }) {
       <span className='hidden-btns'>
         <SignupFormModal />
         <LoginFormModal />
+        <CurrentUserSpotsModal />
       </span>
-      {sessionUser && <button onClick={handleCreateDemoSpot}>CREATE A TEST SPOT</button>}
       {sessionUser && <button onClick={handleUpdateDemoSpot}>UPDATE THE TEST SPOT</button>}
       {sessionUser && <button onClick={handleDeleteDemoSpot}>DELETE THE TEST SPOT</button>}
       {isLoaded && <span>{sessionLinks}</span>}
