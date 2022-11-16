@@ -11,12 +11,10 @@ export default function SpotForm({ spot }) {
   const [state, setState] = useState(spot.state);
   const [country, setCountry] = useState(spot.country);
   const [name, setName] = useState(spot.name);
-  const [previewImage, setPreviewImage] = useState(spot.previewImage)
+  const [previewImage] = useState(spot.previewImage);
   const [description, setDescription] = useState(spot.description);
   const [price, setPrice] = useState(spot.price);
   const [errors, setErrors] = useState([]);
-
-  console.log('previewImage URL ------------>', previewImage)
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -31,14 +29,14 @@ export default function SpotForm({ spot }) {
         name,
         previewImage,
         description,
-        price,
+        price
       })
     ).catch(async res => {
       const data = await res.json();
       if (data && data.errors) setErrors(Object.values(data.errors));
     });
 
-    updatedSpot && await dispatch(spotActions.getSpots()).then(() => history.push(`/`))
+    updatedSpot && history.push('/');
   };
 
   return (
