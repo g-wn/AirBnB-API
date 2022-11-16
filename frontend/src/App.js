@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import Splash from './components/Splash';
 import SpotDetail from './components/SpotDetail';
 import HostSplash from './components/HostSplash';
+import UpdateSpot from './components/UpdateSpot';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function App() {
             exact={true}
           >
             <Navigation isLoaded={isLoaded} />
-            <Splash />
+            <Splash isLoaded={isLoaded}/>
           </Route>
           <Route
             path={`/spots/:spotId`}
@@ -41,6 +42,9 @@ function App() {
             exact={true}
           >
             <HostSplash isLoaded={isLoaded} />
+          </Route>
+          <Route path={`/update/:spotId`}>
+            <UpdateSpot isLoaded={isLoaded} />
           </Route>
           <Route>Page Not Found</Route>
         </Switch>

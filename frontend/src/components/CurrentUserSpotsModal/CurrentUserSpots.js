@@ -5,6 +5,7 @@ import SpotCard from '../SpotCard';
 import { IoCloseSharp } from 'react-icons/io5';
 import { FaTrashAlt } from 'react-icons/fa';
 import { AiOutlineEdit } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 export default function CurrentUserSpots() {
   const dispatch = useDispatch();
@@ -50,9 +51,14 @@ export default function CurrentUserSpots() {
                 </div>
                 <div className='user-spot-card-btns'>
                   <p className='edit-disclaimer'>Need to change some information about this spot?</p>
-                  <button className='edit-user-spot-btn'>
+                  <Link to={{
+                    pathname: `/update/${spot.id}`,
+                    state: {
+                      spot: spot
+                    }
+                  }} className='edit-user-spot-btn'>
                     <AiOutlineEdit /> Update this spot
-                  </button>
+                  </Link>
                   <p className='delete-disclaimer'>Don't want to host this spot anymore?</p>
                   <button
                     className='delete-user-spot-btn'

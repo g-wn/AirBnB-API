@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import * as spotActions from '../../store/spots';
@@ -10,6 +10,7 @@ import './ProfileButton.css';
 
 export default function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user)
   const [showMenu, setShowMenu] = useState(false);
 
   const openMenu = () => {
@@ -31,7 +32,7 @@ export default function ProfileButton({ user }) {
 
   useEffect(() => {
     dispatch(spotActions.getCurrentUsersSpots());
-  }, [dispatch]);
+  }, [dispatch, sessionUser]);
 
   const logout = e => {
     e.preventDefault();
