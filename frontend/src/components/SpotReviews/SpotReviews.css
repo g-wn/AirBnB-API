@@ -12,18 +12,25 @@
 }
 
 .spot-reviews-container {
-  padding: 0 3em 0 3em;
+  /* border: 1px solid red; */
+  max-width: 1120px;
   width: 100%;
 }
 
 .spot-reviews-header {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
+  flex-direction: column;
   gap: .5em;
   width: 100%;
   padding: 1.5em 0 2.5em 0;
 }
 
-.spot-reviews-header>span {
+.spot-reviews-header-above {
+  display: flex;
+  gap: .25em;
+}
+
+.spot-reviews-header-above>span {
   font-size: 22px;
 }

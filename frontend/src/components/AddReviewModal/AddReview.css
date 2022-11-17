@@ -1,0 +1,92 @@
+.add-review-btn {
+  background-image: radial-gradient(circle at center center,
+      rgb(255, 56, 92) 0%,
+      rgb(230, 30, 77) 27.5%,
+      rgb(227, 28, 95) 40%,
+      rgb(215, 4, 102) 57.5%,
+      rgb(189, 30, 89) 75%,
+      rgb(189, 30, 89) 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+  height: 2.5em;
+  margin-bottom: 1.25em;
+  text-align: center;
+  width: 10.5em;
+}
+
+.add-review-form-container {
+  padding: 1.5em;
+}
+
+.add-review-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.add-review-form-h2 {
+  font-size: 22px;
+}
+
+.add-review-form-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  justify-content: space-between;
+  padding: 0 24px 0 24px
+}
+
+.red-text {
+  color: #FF385C;
+  font-size: 14px;
+}
+
+.review-content-in-form {
+  border: 1px solid rgba(0, 0, 0, .11);
+  border-top-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  height: 20em;
+  padding: .75em;
+  resize: none;
+  width: 100%;
+}
+
+.review-content-in-form::-webkit-scrollbar {
+  display: none;
+}
+
+.review-stars {
+  border: 1px solid rgba(0, 0, 0, .11);
+  border-bottom-left-radius: 1.5em;
+  border-bottom-right-radius: 1.5em;
+  border-top: none;
+  height: 4em;
+  padding: .75em;
+}
+
+.review-submit-btn {
+  background-image: radial-gradient(circle at center center,
+      rgb(255, 56, 92) 0%,
+      rgb(230, 30, 77) 27.5%,
+      rgb(227, 28, 95) 40%,
+      rgb(215, 4, 102) 57.5%,
+      rgb(189, 30, 89) 75%,
+      rgb(189, 30, 89) 100%);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 1em;
+  height: 2.5em;
+  margin-bottom: 1.25em;
+  text-align: center;
+  width: 10.5em;
+}
+
+.reviews-disclaimer {
+  font-size: 12px;
+}

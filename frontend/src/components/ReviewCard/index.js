@@ -15,7 +15,7 @@ export default function ReviewCard({ review }) {
               />
             </div>
             <div className='review-details'>
-              <div className='reviewer-name bold'>{review.User.firstName}</div>
+              <div className='reviewer-name bold'>{review.User?.firstName}</div>
               <div className='review-month-year'>
                 {months[new Date(review.createdAt).getMonth()]} {new Date(review.createdAt).getFullYear()}
               </div>
