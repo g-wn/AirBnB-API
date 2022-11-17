@@ -1,9 +1,95 @@
+.booking-details-container {
+  flex-grow: 1fr;
+  height: 100%;
+  width: 33%;
+}
+
+.coverage-red {
+  color: #FF385C;
+}
+
+.coverage-title>span {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+}
+
+.check-in,
+.cancel,
+.host {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+}
+
+.check-in-disclaimer,
+.cancel-disclaimer,
+.host-disclaimer {
+  font-size: 12px;
+  margin: .5em 0 2em 0;
+}
+
+.check-in-icon,
+.cancel-icon,
+.host-icon {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin-right: 1em;
+}
+
+.check-in-info,
+.cancel-info,
+.host-info {
+  display: flex;
+}
+
+
+.details-container {
+  align-items: center;
+  display: flex;
+  height: 1250px;
+  justify-content: center;
+  margin: 1.5em 0 1.5em 0;
+  padding: 0 2.25em 0 2.25em;
+}
+
+.details-sizing-container {
+  display: flex;
+  height: 100%;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.fake-coverage-container {
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5em 0 1em 0;
+}
+
+.host-checkin-cancel {
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5em 0 1em 0;
+}
+
+.host-avatar-img,
+.host-avatar-img-container {
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+}
+
 .img-container {
   border-radius: 15px;
   display: flex;
   margin-top: 15px;
-  min-height: 300px;
-  max-height: 550px;
+  height: 100%;
   width: 100%;
   max-width: 1120px;
 }
@@ -41,16 +127,9 @@
   padding: 5px 0 0 5px;
 }
 
-.spot-detail-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
-  padding: 0px 40px 0px 40px;
-}
-
-.spot-header {
-  align-self: flex-start;
+.location-text,
+.reviews-text {
+  text-decoration: underline;
 }
 
 .preview-img {
@@ -63,4 +142,46 @@
   max-width: 50%;
   padding-right: 10px;
   margin-right: 5px;
+}
+
+.reviews-container {
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  justify-content: center;
+  padding: 1.5em 0 1.5em 0;
+}
+
+.spot-details-container {
+  flex-grow: 2fr;
+  height: 100%;
+  margin-right: 4em;
+  width: 66%;
+}
+
+.spot-details-header {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  font-size: 24px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.spot-overview-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em 0 1.5em 0;
+  height: 650px;
+  padding: 0px 2.25em 0px 2.25em;
+}
+
+.spot-header {
+  max-width: 1120px;
+  width: 100%;
+}
+
+.main-text {
+  font-size: 23px;
 }
