@@ -1,11 +1,14 @@
 .review-card {
+  height: 100%;
   width: 100%;
-  padding: 0 1.5em;
 }
 
 .review-card-header {
+  align-items: center;
   display: flex;
   gap: 1em;
+  padding-bottom: .5em;
+  width: 100%;
 }
 
 .review-user-avatar > img {

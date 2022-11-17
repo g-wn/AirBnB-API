@@ -1,19 +1,23 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 import * as spotActions from '../../store/spots';
+import * as reviewActions from '../../store/reviews';
+import BookingDetails from '../BookingDetails';
+import SpotReviews from '../SpotReviews';
 
 import { faker } from '@faker-js/faker';
 import { HiOutlineKey } from 'react-icons/hi';
 import { CiMedal } from 'react-icons/ci';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import './SpotDetail.css';
-import BookingDetails from '../BookingDetails';
 
 export default function SpotDetail() {
   const dispatch = useDispatch();
-  const spot = useSelector(state => state.spots.spotDetail);
   const { spotId } = useParams();
+  const spot = useSelector(state => state.spots.spotDetail);
+  const spotReviews = useSelector(state => state.reviews.spotReviews);
   const hostName = faker.name.firstName();
 
   const randomNumber = num => {
@@ -22,6 +26,7 @@ export default function SpotDetail() {
 
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
+    dispatch(reviewActions.getReviews(spotId));
   }, [spotId, dispatch]);
 
   return (
@@ -130,17 +135,23 @@ export default function SpotDetail() {
                     <span className='coverage-red'>fee</span>
                     <span>cover</span>
                   </div>
-                  <p className="coverage-text">We don't provide coverage for anything because if you actually manage to book through this website somehow, you've already won...</p>
-                </div>
-                <div className="reviews-container">
-                  REVIEWS COMPONENT PLACEHOLDER
+                  <p className='coverage-text'>
+                    We don't provide coverage for anything because if you actually manage to book through this website
+                    somehow, you've already won...
+                  </p>
                 </div>
               </div>
               <div className='booking-details-container'>
-                <div className="booking-details-component">
+                <div className='booking-details-component'>
                   <BookingDetails spot={spot} />
                 </div>
               </div>
+            </div>
+            <div className='reviews-container'>
+              <SpotReviews
+                spot={spot}
+                spotReviews={spotReviews}
+              />
             </div>
           </div>
         </>
