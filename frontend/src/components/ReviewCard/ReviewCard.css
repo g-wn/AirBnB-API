@@ -1,0 +1,20 @@
+.review-card {
+  border: 1px solid blue;
+  width: 100%;
+}
+
+.review-card-header {
+  border: 1px solid red;
+  display: flex;
+  gap: 1em;
+}
+
+.review-user-avatar > img {
+  border-radius: 50%;
+  height: 3.75em;
+  width: 3.75em;
+}
+
+.review-month-year {
+  font-size: 15px;
+}
