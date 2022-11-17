@@ -4,12 +4,16 @@ import { useParams } from 'react-router-dom';
 import * as spotActions from '../../store/spots';
 
 import { faker } from '@faker-js/faker';
+import { HiOutlineKey } from 'react-icons/hi';
+import { CiMedal } from 'react-icons/ci';
+import { AiOutlineCalendar } from 'react-icons/ai';
 import './SpotDetail.css';
 
 export default function SpotDetail() {
   const dispatch = useDispatch();
   const spot = useSelector(state => state.spots.spotDetail);
   const { spotId } = useParams();
+  const hostName = faker.name.firstName();
 
   const randomNumber = num => {
     return Math.floor(Math.random() * num);
@@ -64,31 +68,62 @@ export default function SpotDetail() {
           </div>
 
           <div className='details-container'>
-            <div className='spot-details-container'>
-              <header className='spot-details-header'>
-                <div>
-                  <h2 className='main-text bold'>Entire home hosted by {faker.name.firstName()}</h2>
-                  <p className='spot-info'>
-                    {randomNumber(15)} guests - {randomNumber(10)} bedrooms - {randomNumber(10)} beds -{' '}
-                    {randomNumber(8)} baths
-                  </p>
-                </div>
-                <div className='host-avatar-img-container'>
-                  <img
-                    src={faker.image.avatar()}
-                    alt=''
-                    className='host-avatar-img'
-                  />
-                </div>
-              </header>
+            <div className='details-sizing-container'>
+              <div className='spot-details-container'>
+                <header className='spot-details-header'>
+                  <div>
+                    <h2 className='main-text bold'>Entire home hosted by {hostName}</h2>
+                    <p className='spot-info'>
+                      {randomNumber(15)} guests - {randomNumber(10)} bedrooms - {randomNumber(10)} beds -{' '}
+                      {randomNumber(8)} baths
+                    </p>
+                  </div>
+                  <div className='host-avatar-img-container'>
+                    <img
+                      src={faker.image.avatar()}
+                      alt=''
+                      className='host-avatar-img'
+                    />
+                  </div>
+                </header>
 
-              <div className="host-checkin-cancel">
-                <div className='host-info'></div>
-                <div className='check-in-info'></div>
-                <div className='cancel-info'></div>
+                <div className='host-checkin-cancel'>
+                  <div className='host-info'>
+                    <div className='host-icon'>
+                      <CiMedal size={30} />
+                    </div>
+                    <div>
+                      <span className='host bold'>{hostName} is a superhost</span>
+                      <p className='host-disclaimer'>
+                        Superhosts would probably be experienced, if they were hosting on a site where you could
+                        actually rent a place.
+                      </p>
+                    </div>
+                  </div>
+                  <div className='check-in-info'>
+                    <div className='check-in-icon'>
+                      <HiOutlineKey size={30} />
+                    </div>
+                    <div>
+                      <span className='check-in bold'> Great check-in experience</span>
+                      <p className='check-in-disclaimer'>
+                        {randomNumber(100)}% of guests gave the check-in process a {randomNumber(5)}-star rating.
+                      </p>
+                    </div>
+                  </div>
+                  <div className='cancel-info'>
+                    <div className='cancel-icon'><AiOutlineCalendar size={30} /></div>
+                    <div>
+                      <span className='cancel bold'>Free cancellation for {randomNumber(72)} hours</span>
+                      <p className='cancel-disclaimer'>
+                        If you could actually book this place, you would have that many hours to cancel.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div className='booking-details-container'>booking details container</div>
             </div>
-            <div className='booking-details-container'></div>
           </div>
         </>
       )}

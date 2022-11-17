@@ -5,14 +5,59 @@
   width: 33%;
 }
 
+.check-in,
+.cancel,
+.host {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+}
+
+.check-in-disclaimer,
+.cancel-disclaimer,
+.host-disclaimer {
+  font-size: 12px;
+  margin: .5em 0 2em 0;
+}
+
+.check-in-icon,
+.cancel-icon,
+.host-icon {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin-right: 1em;
+}
+
+.check-in-info,
+.cancel-info,
+.host-info {
+  display: flex;
+}
+
+
 .details-container {
   align-items: center;
-  border: 1px solid red;
   display: flex;
   height: 650px;
   justify-content: center;
   margin: 1.5em 0 1.5em 0;
   padding: 0 2.25em 0 2.25em;
+}
+
+.details-sizing-container {
+  display: flex;
+  height: 100%;
+  max-width: 1120px;
+  width: 100%;
+}
+
+.host-checkin-cancel {
+  border-bottom: 1px solid rgba(0, 0, 0, .11);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5em 0 1em 0;
 }
 
 .host-avatar-img,
@@ -99,7 +144,6 @@
 }
 
 .spot-overview-container {
-  border: 1px solid green;
   align-items: center;
   display: flex;
   flex-direction: column;
