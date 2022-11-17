@@ -17,6 +17,21 @@
   gap: 1em;
 }
 
+.user-reviews-btn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.user-reviews-btn:hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
 .user-review-card-btns {
   align-items: center;
   display: flex;

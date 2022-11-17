@@ -23,6 +23,21 @@
   gap: 1em;
 }
 
+.user-spots-btn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.user-spots-btn:hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
 .user-spot-card-btns {
   display: flex;
   flex-direction: column;

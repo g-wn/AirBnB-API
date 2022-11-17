@@ -65,14 +65,12 @@ export default function ProfileButton({ user }) {
           </div>
           <CurrentUserSpotsModal />
           <CurrentUserReviewsModal />
-          <div>
             <button
               className='log-out-btn'
               onClick={logout}
             >
               Log Out
             </button>
-          </div>
         </div>
       )}
       {showMenu && !user && (
