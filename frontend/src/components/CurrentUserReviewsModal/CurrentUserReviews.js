@@ -11,9 +11,10 @@ import './CurrentUserReviews.css';
 export default function CurrentUserReviews({ userReviews }) {
   const dispatch = useDispatch();
 
-  const handleDelete = async (e, reviewId) => {
+  const handleDelete = async (e, reviewId, spotId) => {
     e.preventDefault();
 
+    await dispatch (reviewActions.getReviews(spotId))
     await dispatch(reviewActions.deleteReview(reviewId));
     await dispatch(reviewActions.getUserReviews());
   };
@@ -46,7 +47,7 @@ export default function CurrentUserReviews({ userReviews }) {
                 <p className='delete-disclaimer'>Don't want your opinion heard anymore? Good.</p>
                 <button
                   className='delete-user-review-btn'
-                  onClick={e => handleDelete(e, review?.id)}
+                  onClick={e => handleDelete(e, review.id, review.Spot.id)}
                 >
                   <FaTrashAlt /> Remove this review
                 </button>
