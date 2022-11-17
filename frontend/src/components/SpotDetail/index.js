@@ -8,6 +8,7 @@ import { HiOutlineKey } from 'react-icons/hi';
 import { CiMedal } from 'react-icons/ci';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import './SpotDetail.css';
+import BookingDetails from '../BookingDetails';
 
 export default function SpotDetail() {
   const dispatch = useDispatch();
@@ -112,7 +113,9 @@ export default function SpotDetail() {
                     </div>
                   </div>
                   <div className='cancel-info'>
-                    <div className='cancel-icon'><AiOutlineCalendar size={30} /></div>
+                    <div className='cancel-icon'>
+                      <AiOutlineCalendar size={30} />
+                    </div>
                     <div>
                       <span className='cancel bold'>Free cancellation for {randomNumber(72)} hours</span>
                       <p className='cancel-disclaimer'>
@@ -121,8 +124,23 @@ export default function SpotDetail() {
                     </div>
                   </div>
                 </div>
+                <div className='fake-coverage-container'>
+                  <div className='coverage-title'>
+                    <span>clean</span>
+                    <span className='coverage-red'>fee</span>
+                    <span>cover</span>
+                  </div>
+                  <p className="coverage-text">We don't provide coverage for anything because if you actually manage to book through this website somehow, you've already won...</p>
+                </div>
+                <div className="reviews-container">
+                  REVIEWS COMPONENT PLACEHOLDER
+                </div>
               </div>
-              <div className='booking-details-container'>booking details container</div>
+              <div className='booking-details-container'>
+                <div className="booking-details-component">
+                  <BookingDetails spot={spot} />
+                </div>
+              </div>
             </div>
           </div>
         </>
