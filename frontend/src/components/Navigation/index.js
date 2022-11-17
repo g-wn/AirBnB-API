@@ -18,7 +18,7 @@ export default function Navigation({ isLoaded }) {
           className='home-icon'
           to={`/`}
         >
-          Home
+          nocleaningfees
         </NavLink>
       </span>
       <span className='hidden-btns'>

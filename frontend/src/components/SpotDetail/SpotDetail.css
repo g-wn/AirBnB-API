@@ -182,6 +182,10 @@
   width: 100%;
 }
 
+.spot-header-h1 {
+  font-size: 26px;
+}
+
 .main-text {
   font-size: 23px;
 }

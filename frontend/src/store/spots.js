@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import { normalizeArray } from '../utils/normalizeArray';
 
 /* ----------------------------------------------------------- */
 /* ------------------------- ACTIONS ------------------------- */
@@ -179,18 +180,6 @@ const spotsReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-const normalizeArray = array => {
-  const newObj = {};
-
-  if (array) {
-    array.forEach(item => {
-      newObj[item.id] = item;
-    });
-  }
-
-  return newObj;
 };
 
 export default spotsReducer;
