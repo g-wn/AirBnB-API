@@ -4,6 +4,7 @@ import { addReviewModal } from '../../store/modal';
 
 import * as reviewActions from '../../store/reviews';
 import * as modalActions from '../../store/modal';
+import * as spotActions from '../../store/spots'
 
 import { IoCloseSharp } from 'react-icons/io5';
 
@@ -26,6 +27,7 @@ export default function AddReviewForm({ spot }) {
       .then(async res => {
         if (res.ok) {
           dispatch(modalActions.addReviewModal(false));
+          dispatch(spotActions.getSpot(spot.id))
         }
       })
       .catch(async res => {
