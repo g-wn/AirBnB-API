@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { currentUserReviewsModal } from '../../store/modal';
 import * as reviewActions from '../../store/reviews';
 // import ReviewCard from '../ReviewCard';
@@ -8,9 +8,8 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 import './CurrentUserReviews.css';
 
-export default function CurrentUserReviews() {
+export default function CurrentUserReviews({ userReviews }) {
   const dispatch = useDispatch();
-  const userReviews = useSelector(state => state.reviews.currentUserReviews);
 
   const handleDelete = async (e, reviewId) => {
     e.preventDefault();
@@ -48,15 +47,15 @@ export default function CurrentUserReviews() {
               <div className='user-review-card-options'>
                 <div className='review-content-container'>
                   <h1 className='review-spot-address'>
-                    address:{review.Spot.address}stars:{review.stars}
+                    address:{review.Spot?.address}stars:{review?.stars}reviewID:{review?.id}
                   </h1>
-                  <p className='review-content'>review:{review.review}</p>
+                  <p className='review-content'>review:{review?.review}</p>
                 </div>
                 <div className='user-review-card-btns'>
                   <p className='delete-disclaimer'>Don't want your opinion heard anymore? Good.</p>
                   <button
                     className='delete-user-review-btn'
-                    onClick={e => handleDelete(e, review.id)}
+                    onClick={e => handleDelete(e, review?.id)}
                   >
                     <FaTrashAlt /> Remove this review
                   </button>

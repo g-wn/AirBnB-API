@@ -7,6 +7,7 @@ import './CurrentUserReviews.css';
 export default function CurrentUserReviewsModal() {
   const dispatch = useDispatch();
   const showCurrentUserReviewsModal = useSelector(state => state.modal.showCurrentUserReviewsModal);
+    const userReviews = useSelector(state => state.reviews.currentUserReviews);
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function CurrentUserReviewsModal() {
       </button>
       {showCurrentUserReviewsModal && (
         <Modal onClose={() => dispatch(currentUserReviewsModal(false))}>
-          <CurrentUserReviews />
+          <CurrentUserReviews userReviews={userReviews}/>
         </Modal>
       )}
     </>

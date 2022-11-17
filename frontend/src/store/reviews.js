@@ -33,6 +33,7 @@ export const updateReview = review => {
 };
 
 export const removeReview = reviewId => {
+  console.log('DATA IN ACTION/ACTION CREATOR', reviewId);
   return {
     type: REMOVE_REVIEW,
     reviewId
@@ -40,7 +41,6 @@ export const removeReview = reviewId => {
 };
 
 export const setCurrentUserReviews = currentUserReviews => {
-  console.log('DATA IN ACTION/ACTION CREATOR', currentUserReviews);
   return {
     type: CURRENT_USER_REVIEWS,
     currentUserReviews
@@ -67,7 +67,6 @@ export const getUserReviews = () => async dispatch => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log('DATA IN THUNK/THUNK CREATOR --------->', data);
     dispatch(setCurrentUserReviews(normalizeArray(data.Reviews)));
     return res;
   }
@@ -108,6 +107,8 @@ export const deleteReview = reviewId => async dispatch => {
   });
 
   if (res.ok) {
+    const data = res.json();
+    console.log('DATA IN THUNK/THUNK CREATOR --------->', data);
     dispatch(removeReview(reviewId));
     return res;
   }
@@ -129,7 +130,11 @@ const reviewsReducer = (state = initialState, action) => {
       return { ...state, currentUserReviews: { ...action.currentUserReviews } };
     }
     case CREATE_REVIEW: {
-      return { ...state, spotReviews: { ...state.spotReviews, [action.review.id]: action.review } };
+      return {
+        ...state,
+        spotReviews: { ...state.spotReviews, [action.review.id]: action.review },
+        currentUserReviews: { ...state.currentUserReviews, [action.review.id]: action.review }
+      };
     }
     case REMOVE_REVIEW: {
       const newState = { ...state };
