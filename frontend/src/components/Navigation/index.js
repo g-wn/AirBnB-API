@@ -6,6 +6,7 @@ import './Navigation.css';
 import SignupFormModal from '../SignupFormModal';
 import LoginFormModal from '../LoginFormModal';
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
+import CurrentUserReviewsModal from '../CurrentUserReviewsModal';
 
 export default function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -25,6 +26,7 @@ export default function Navigation({ isLoaded }) {
         <SignupFormModal />
         <LoginFormModal />
         <CurrentUserSpotsModal />
+        <CurrentUserReviewsModal />
       </span>
       {isLoaded && (
         <div className='right-buttons'>

@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import * as spotActions from '../../store/spots';
+import * as reviewActions from '../../store/reviews'
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
+import CurrentUserReviewsModal from '../CurrentUserReviewsModal';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './ProfileButton.css';
@@ -31,7 +33,10 @@ export default function ProfileButton({ user }) {
   }, [showMenu]);
 
   useEffect(() => {
-    if (sessionUser) dispatch(spotActions.getCurrentUsersSpots());
+    if (sessionUser) {
+      dispatch(spotActions.getCurrentUsersSpots())
+      dispatch(reviewActions.getUserReviews())
+    };
   }, [dispatch, sessionUser]);
 
   const logout = e => {
@@ -59,6 +64,7 @@ export default function ProfileButton({ user }) {
             <div>{user.email}</div>
           </div>
           <CurrentUserSpotsModal />
+          <CurrentUserReviewsModal />
           <div>
             <button
               className='log-out-btn'

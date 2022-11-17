@@ -1,23 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../context/Modal';
-import { currentUserModal } from '../../store/modal';
+import { currentUserSpotsModal } from '../../store/modal';
 import CurrentUserSpots from './CurrentUserSpots';
 import './CurrentUserSpots.css';
 
 export default function CurrentUserSpotsModal() {
   const dispatch = useDispatch();
-  const showCurrentUserModal = useSelector(state => state.modal.showCurrentUserModal);
+  const showCurrentUserSpotsModal = useSelector(state => state.modal.showCurrentUserSpotsModal);
 
   return (
     <>
       <button
         className='user-spots-btn'
-        onClick={() => dispatch(currentUserModal(true))}
+        onClick={() => dispatch(currentUserSpotsModal(true))}
       >
         My spots
       </button>
-      {showCurrentUserModal && (
-        <Modal onClose={() => dispatch(currentUserModal(false))}>
+      {showCurrentUserSpotsModal && (
+        <Modal onClose={() => dispatch(currentUserSpotsModal(false))}>
           <CurrentUserSpots />
         </Modal>
       )}
