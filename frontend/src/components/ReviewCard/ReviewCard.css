@@ -1,0 +1,22 @@
+.review-card {
+  height: 100%;
+  width: 100%;
+}
+
+.review-card-header {
+  align-items: center;
+  display: flex;
+  gap: 1em;
+  padding-bottom: .5em;
+  width: 100%;
+}
+
+.review-user-avatar > img {
+  border-radius: 50%;
+  height: 3.75em;
+  width: 3.75em;
+}
+
+.review-month-year {
+  font-size: 15px;
+}

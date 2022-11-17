@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { currentUserModal } from '../../store/modal';
+import { currentUserSpotsModal } from '../../store/modal';
 import * as spotActions from '../../store/spots';
 
 import './SpotCard.css';
@@ -12,7 +12,7 @@ export default function SpotCard({ spot }) {
   const handleRedirect = e => {
     e.preventDefault();
 
-    dispatch(currentUserModal(false));
+    dispatch(currentUserSpotsModal(false));
     dispatch(spotActions.getSpot(spot.id));
     history.push(`/spots/${spot.id}`);
   };

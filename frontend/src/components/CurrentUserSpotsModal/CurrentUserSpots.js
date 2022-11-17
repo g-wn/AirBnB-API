@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { currentUserSpotsModal } from '../../store/modal';
 import * as spotActions from '../../store/spots';
-import { currentUserModal } from '../../store/modal';
 import SpotCard from '../SpotCard';
+
 import { IoCloseSharp } from 'react-icons/io5';
 import { FaTrashAlt } from 'react-icons/fa';
 import { AiOutlineEdit } from 'react-icons/ai';
@@ -24,7 +25,7 @@ export default function CurrentUserSpots() {
       <header className='user-spots-header'>
         <button
           className='close-form-btn'
-          onClick={() => dispatch(currentUserModal(false))}
+          onClick={() => dispatch(currentUserSpotsModal(false))}
         >
           <IoCloseSharp size={20} />
         </button>
