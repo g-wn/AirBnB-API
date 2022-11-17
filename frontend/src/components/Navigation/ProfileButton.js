@@ -31,7 +31,7 @@ export default function ProfileButton({ user }) {
   }, [showMenu]);
 
   useEffect(() => {
-    dispatch(spotActions.getCurrentUsersSpots());
+    if (sessionUser) dispatch(spotActions.getCurrentUsersSpots());
   }, [dispatch, sessionUser]);
 
   const logout = e => {
@@ -61,8 +61,11 @@ export default function ProfileButton({ user }) {
           <CurrentUserSpotsModal />
           <div>
             <button
-            className='log-out-btn'
-            onClick={logout}>Log Out</button>
+              className='log-out-btn'
+              onClick={logout}
+            >
+              Log Out
+            </button>
           </div>
         </div>
       )}
