@@ -132,7 +132,7 @@ export default function HostForm({ showForm, setShowForm }) {
             onChange={e => setPreviewImg(e.target.value)}
             placeholder='Add an image url to get started'
             required
-            type='text'
+            type='url'
             value={previewImage}
           />
           <input

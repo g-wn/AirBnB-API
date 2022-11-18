@@ -4,7 +4,6 @@ import './SpotReviews.css';
 import AddReviewModal from '../AddReviewModal';
 
 export default function SpotReviews({ spot, spotReviews }) {
-  console.log(spot);
 
   return (
     <div className='spot-reviews-container'>
