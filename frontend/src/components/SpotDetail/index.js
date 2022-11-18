@@ -53,19 +53,19 @@ export default function SpotDetail() {
               <div className='imgs'>
                 <div
                   className='img1'
-                  style={{ backgroundImage: `url(${spot.SpotImages[1]?.url})` }}
+                  style={spot.SpotImages[1] && { backgroundImage: `url(${spot.SpotImages[1]?.url})` }}
                 ></div>
                 <div
                   className='img2'
-                  style={{ backgroundImage: `url(${spot.SpotImages[2]?.url})` }}
+                  style={spot.SpotImages[2] && { backgroundImage: `url(${spot.SpotImages[2]?.url})` }}
                 ></div>
                 <div
                   className='img3'
-                  style={{ backgroundImage: `url(${spot.SpotImages[3]?.url})` }}
+                  style={spot.SpotImages[3] && { backgroundImage: `url(${spot.SpotImages[3]?.url})` }}
                 ></div>
                 <div
                   className='img4'
-                  style={{ backgroundImage: `url(${spot.SpotImages[4]?.url})` }}
+                  style={spot.SpotImages[4] && { backgroundImage: `url(${spot.SpotImages[4]?.url})` }}
                 ></div>
               </div>
             </div>
@@ -146,7 +146,10 @@ export default function SpotDetail() {
               </div>
             </div>
             <div className='reviews-container'>
-              <SpotReviews spot={spot} spotReviews={spotReviews}/>
+              <SpotReviews
+                spot={spot}
+                spotReviews={spotReviews}
+              />
             </div>
           </div>
         </>
