@@ -20,8 +20,6 @@ export default function SpotDetail() {
   const spot = useSelector(state => state.spots.spotDetail);
   const spotReviews = useSelector(state => state.reviews.spotReviews);
 
-  console.log('SPOT REVIEWS ----------->', spotReviews);
-
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
     dispatch(reviewActions.getReviews(spotId));
@@ -53,19 +51,35 @@ export default function SpotDetail() {
               <div className='imgs'>
                 <div
                   className='img1'
-                  style={spot.SpotImages[1] && { backgroundImage: `url(${spot.SpotImages[1]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[1]
+                      ? `url(${spot.SpotImages[1]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
                 <div
                   className='img2'
-                  style={spot.SpotImages[2] && { backgroundImage: `url(${spot.SpotImages[2]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[2]
+                      ? `url(${spot.SpotImages[2]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
                 <div
                   className='img3'
-                  style={spot.SpotImages[3] && { backgroundImage: `url(${spot.SpotImages[3]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[3]
+                      ? `url(${spot.SpotImages[3]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
                 <div
                   className='img4'
-                  style={spot.SpotImages[4] && { backgroundImage: `url(${spot.SpotImages[4]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[4]
+                      ? `url(${spot.SpotImages[4]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
               </div>
             </div>

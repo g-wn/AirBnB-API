@@ -7,15 +7,20 @@ import './AddReview.css';
 export default function AddReviewModal({ spot }) {
   const dispatch = useDispatch();
   const showAddReviewModal = useSelector(state => state.modal.showAddReviewModal);
+  const user = useSelector(state => state.session.user);
+  console.log('SPOT --------->', spot)
+  console.log('USER --------->', user)
 
   return (
     <>
-      <button
-        className='add-review-btn'
-        onClick={() => dispatch(addReviewModal(true))}
-      >
-        Leave a review
-      </button>
+      {spot.ownerId !== user.id && (
+        <button
+          className='add-review-btn'
+          onClick={() => dispatch(addReviewModal(true))}
+        >
+          Leave a review
+        </button>
+      )}
       {showAddReviewModal && (
         <Modal onClose={() => dispatch(addReviewModal(false))}>
           <AddReviewForm spot={spot} />

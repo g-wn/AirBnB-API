@@ -244,7 +244,7 @@ router.get('/', validateQuery, async (req, res, _next) => {
   else if (minPrice && maxPrice) where.price = { [Op.between]: [minPrice, maxPrice] };
 
   if (!page) page = 0;
-  if (!size) size = 20;
+  if (!size) size = 40;
   let offset = size * (page - 1);
   if (offset < 0) offset = 0;
 

@@ -3,8 +3,6 @@ import { BsChevronDown } from 'react-icons/bs';
 import './BookingDetails.css';
 
 export default function BookingDetails({ spot }) {
-  const firstDate = new Date('2023-04-02').toLocaleDateString();
-  const secondDate = new Date('2023-04-06').toLocaleDateString();
 
   return (
     <div className='booking-details-component-container'>
@@ -25,11 +23,17 @@ export default function BookingDetails({ spot }) {
         <div className='date-guest-top'>
           <div className='date-guest-top-left'>
             <p className='check-in bold'>CHECK-IN</p>
-            <p className='check-in-out-date'>{firstDate}</p>
+            <input
+              type='date'
+              className='date-input'
+            />
           </div>
           <div className='date-guest-top-right'>
             <p className='check-out bold'>CHECK-OUT</p>
-            <p className='check-in-out-date'>{secondDate}</p>
+            <input
+              type='date'
+              className='date-input'
+            />
           </div>
         </div>
         <div className='date-guest-btm'>
@@ -45,33 +49,31 @@ export default function BookingDetails({ spot }) {
         </div>
       </div>
 
-      <div className='reserve-btn bold'>
-        <p>This ain't no button</p>
+      <button className='reserve-btn bold' onClick={() => alert('Why did you click that? It says it is NOT a button!')}>This ain't no button</button>
+
+      <p className='no-charge-disclaimer'>You won't be charged yet. Or ever.</p>
+
+      <div className='price-breakdown-container'>
+        <p className='nightly-price'>
+          <span className='price-breakdown-left'>${spot.price} x 5 nights</span>
+          <span>${spot.price * 5}</span>
+        </p>
+        <p className='cleaning-fee'>
+          <span className='price-breakdown-left'>Cleaning fee</span>
+          <span>$LOL</span>
+        </p>
+        <p className='service-fee'>
+          <span className='price-breakdown-left'>Service Fee</span>
+          <span>$Nope</span>
+        </p>
       </div>
 
-      <p className="no-charge-disclaimer">You won't be charged yet. Or ever.</p>
-
-      <div className="price-breakdown-container">
-      <p className='nightly-price'>
-        <span className='price-breakdown-left'>${spot.price} x 5 nights</span>
-        <span>${spot.price * 5}</span>
-      </p>
-      <p className='cleaning-fee'>
-        <span className='price-breakdown-left'>Cleaning fee</span>
-        <span>$LOL</span>
-      </p>
-      <p className='service-fee'>
-        <span className='price-breakdown-left'>Service Fee</span>
-        <span>$Nope</span>
-      </p>
-      </div>
-
-      <p className="total-price bold">
+      <p className='total-price bold'>
         <span>Total before taxes</span>
         <span>$0,000</span>
       </p>
 
-      <p className="price-disclaimer">Don't you get it by now? This site can't charge you money... Ever.</p>
+      <p className='price-disclaimer'>Don't you get it by now? This site can't charge you money... Ever.</p>
     </div>
   );
 }

@@ -40,6 +40,13 @@
   margin: 0;
 }
 
+.date-input,
+.date-input:focus {
+  border: none;
+  max-width: 8rem;
+  outline: none;
+}
+
 .date-guest-select-container {
   align-items: center;
   border: 1px solid rgba(0, 0, 0, .2);
@@ -87,6 +94,8 @@
 
 .date-guest-top-left {
   border-right: 1px solid rgba(0, 0, 0, .2);
+  max-width: 50%;
+  padding-right: 1em;
 }
 
 .date-guest-top-left,
@@ -152,7 +161,9 @@
       rgb(215, 4, 102) 57.5%,
       rgb(189, 30, 89) 75%,
       rgb(189, 30, 89) 100%);
+  border: none;
   color: white;
+  cursor: pointer;
   border-radius: 1em;
   height: 3.5em;
   margin-bottom: 1.25em;
