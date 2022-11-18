@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import * as spotActions from '../../store/spots';
 import * as reviewActions from '../../store/reviews';
+import { randomNumber } from '../../utils/randomNumber';
 import BookingDetails from '../BookingDetails';
 import SpotReviews from '../SpotReviews';
 
@@ -18,11 +19,6 @@ export default function SpotDetail() {
   const { spotId } = useParams();
   const spot = useSelector(state => state.spots.spotDetail);
   const spotReviews = useSelector(state => state.reviews.spotReviews);
-  const hostName = faker.name.firstName();
-
-  const randomNumber = num => {
-    return Math.floor(Math.random() * num);
-  };
 
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
@@ -78,7 +74,7 @@ export default function SpotDetail() {
               <div className='spot-details-container'>
                 <header className='spot-details-header'>
                   <div>
-                    <h2 className='main-text bold'>Entire home hosted by {hostName}</h2>
+                    <h2 className='main-text bold'>Entire home hosted by {spot.Owner.firstName}</h2>
                     <p className='spot-info'>
                       {randomNumber(15)} guests - {randomNumber(10)} bedrooms - {randomNumber(10)} beds -{' '}
                       {randomNumber(8)} baths
@@ -99,7 +95,7 @@ export default function SpotDetail() {
                       <CiMedal size={30} />
                     </div>
                     <div>
-                      <span className='host bold'>{hostName} is a superhost</span>
+                      <span className='host bold'>{spot.Owner.firstName} is a superhost</span>
                       <p className='host-disclaimer'>
                         Superhosts would probably be experienced, if they were hosting on a site where you could
                         actually rent a place.

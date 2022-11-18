@@ -1,4 +1,3 @@
-import { faker } from '@faker-js/faker';
 import { AiFillStar } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import './BookingDetails.css';

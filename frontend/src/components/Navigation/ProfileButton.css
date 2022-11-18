@@ -79,7 +79,7 @@ i.fa-bars {
   position: absolute;
   right: 40px;
   width: 250px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .user-info {
