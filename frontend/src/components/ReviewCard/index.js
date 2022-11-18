@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker';
 import './ReviewCard.css';
 
 export default function ReviewCard({ review }) {
+
   return (
     <>
       {review && (
@@ -15,7 +16,9 @@ export default function ReviewCard({ review }) {
               />
             </div>
             <div className='review-details'>
-              <div className='reviewer-name bold'>{review.User?.firstName}</div>
+              <div className='reviewer-name bold'>
+                {review.User?.firstName ? review.User.firstName : review.firstName}
+              </div>
               <div className='review-month-year'>
                 {months[new Date(review.createdAt).getMonth()]} {new Date(review.createdAt).getFullYear()}
               </div>

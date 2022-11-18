@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import * as spotActions from '../../store/spots';
 import * as reviewActions from '../../store/reviews';
@@ -20,8 +20,6 @@ export default function SpotDetail() {
   const spot = useSelector(state => state.spots.spotDetail);
   const spotReviews = useSelector(state => state.reviews.spotReviews);
 
-  console.log('SPOT REVIEWS ----------->', spotReviews);
-
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
     dispatch(reviewActions.getReviews(spotId));
@@ -37,12 +35,12 @@ export default function SpotDetail() {
               <div className='spot-stats'>
                 <i className='fas fa-star' />
                 <span> {spot.avgStarRating} - </span>
-                <span className='reviews-text'>{spot.numReviews} reviews</span>
+                <Link to='/feature-not-found' className='reviews-text'>{spot.numReviews} reviews</Link>
                 {' - '}
-                <span className='location-text'>
+                <Link to='/feature-not-found' className='location-text'>
                   {' '}
                   {spot.city}, {spot.state}, {spot.country}
-                </span>
+                </Link>
               </div>
             </header>
             <div className='img-container'>
@@ -53,19 +51,35 @@ export default function SpotDetail() {
               <div className='imgs'>
                 <div
                   className='img1'
-                  style={{ backgroundImage: `url(${spot.SpotImages[1]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[1]
+                      ? `url(${spot.SpotImages[1]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
                 <div
                   className='img2'
-                  style={{ backgroundImage: `url(${spot.SpotImages[2]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[2]
+                      ? `url(${spot.SpotImages[2]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
                 <div
                   className='img3'
-                  style={{ backgroundImage: `url(${spot.SpotImages[3]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[3]
+                      ? `url(${spot.SpotImages[3]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
                 <div
                   className='img4'
-                  style={{ backgroundImage: `url(${spot.SpotImages[4]?.url})` }}
+                  style={{
+                    backgroundImage: spot.SpotImages[4]
+                      ? `url(${spot.SpotImages[4]?.url})`
+                      : `url('https://mytrailcreek.com/wp-content/plugins/epl-advanced-mapping/images/no-image.jpg')`
+                  }}
                 ></div>
               </div>
             </div>
@@ -146,7 +160,10 @@ export default function SpotDetail() {
               </div>
             </div>
             <div className='reviews-container'>
-              <SpotReviews spot={spot} spotReviews={spotReviews}/>
+              <SpotReviews
+                spot={spot}
+                spotReviews={spotReviews}
+              />
             </div>
           </div>
         </>

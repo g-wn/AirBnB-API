@@ -40,6 +40,13 @@
   margin: 0;
 }
 
+.date-input,
+.date-input:focus {
+  border: none;
+  max-width: 8rem;
+  outline: none;
+}
+
 .date-guest-select-container {
   align-items: center;
   border: 1px solid rgba(0, 0, 0, .2);
@@ -59,13 +66,17 @@
   width: 100%;
 }
 
-.date-guest-btm-left,
-.date-guest-btm-right {
-  align-items: flex-start;
+.date-guest-btm-select {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
   justify-content: center;
+  padding: .75em;
   width: 100%;
 }
 
@@ -87,6 +98,8 @@
 
 .date-guest-top-left {
   border-right: 1px solid rgba(0, 0, 0, .2);
+  max-width: 50%;
+  padding-right: 1em;
 }
 
 .date-guest-top-left,
@@ -136,7 +149,7 @@
 }
 
 .price-breakdown-left {
-  text-decoration: underline;
+  color: black;
 }
 
 .price-disclaimer {
@@ -145,6 +158,7 @@
 }
 
 .reserve-btn {
+  align-items: center;
   background-image: radial-gradient(circle at center center,
       rgb(255, 56, 92) 0%,
       rgb(230, 30, 77) 27.5%,
@@ -152,11 +166,16 @@
       rgb(215, 4, 102) 57.5%,
       rgb(189, 30, 89) 75%,
       rgb(189, 30, 89) 100%);
-  color: white;
+  border: none;
   border-radius: 1em;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
   height: 3.5em;
   margin-bottom: 1.25em;
   text-align: center;
+  text-decoration: none;
   width: 100%;
 }
 

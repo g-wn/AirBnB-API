@@ -4,15 +4,18 @@ import { useHistory } from 'react-router-dom';
 import { currentUserSpotsModal } from '../../store/modal';
 import * as spotActions from '../../store/spots';
 
+import TimeAgo from 'react-timeago';
+
 import './SpotCard.css';
 
 export default function SpotCard({ spot }) {
   const history = useHistory();
   const dispatch = useDispatch();
+  const added = spot.createdAt;
 
   useEffect(() => {
-    dispatch(spotActions.getSpots())
-  }, [dispatch, spot.id, spot.avgRating])
+    dispatch(spotActions.getSpots());
+  }, [dispatch, spot.id, spot.avgRating]);
 
   const handleRedirect = e => {
     e.preventDefault();
@@ -36,13 +39,19 @@ export default function SpotCard({ spot }) {
 
           <div className='spot-text-container'>
             <div className='top-row'>
-              {spot.city}, {spot.state}
+              <span className='city-state bold'>
+                {spot.city}, {spot.state}
+              </span>
               <span className='rating-icon'>
                 <i className='fas fa-star' />
                 <span> {spot.avgRating ? spot.avgRating : 'New'}</span>
               </span>
             </div>
             <div>
+              <div className='time-ago'>
+                Added <TimeAgo date={added} />
+              </div>
+              <div className="dates">Mar 23 - Apr 1</div>
               <span className='bold'>$</span>
               <span className='bold'>{spot.price}</span>
               <span> night</span>

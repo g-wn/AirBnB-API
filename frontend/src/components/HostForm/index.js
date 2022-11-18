@@ -73,7 +73,7 @@ export default function HostForm({ showForm, setShowForm }) {
             ))}
           </ul>
         ) : (
-          <h2 className='signup-form-h2'>Tell us about your home</h2>
+          <h2 className='host-form-h2'>Tell us about your home</h2>
         )}
 
         <div className='inputs-container'>

@@ -1,10 +1,9 @@
+import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import './BookingDetails.css';
 
 export default function BookingDetails({ spot }) {
-  const firstDate = new Date('2023-04-02').toLocaleDateString();
-  const secondDate = new Date('2023-04-06').toLocaleDateString();
 
   return (
     <div className='booking-details-component-container'>
@@ -18,60 +17,73 @@ export default function BookingDetails({ spot }) {
             <AiFillStar size={20} />
           </span>
           <span>{spot.avgStarRating} - </span>
-          <span className='booking-details-component-numreviews'>{spot.numReviews} reviews</span>
+          <Link to='/feature-not-found' className='booking-details-component-numreviews'>{spot.numReviews} reviews</Link>
         </div>
       </header>
       <div className='date-guest-select-container'>
         <div className='date-guest-top'>
           <div className='date-guest-top-left'>
             <p className='check-in bold'>CHECK-IN</p>
-            <p className='check-in-out-date'>{firstDate}</p>
+            <input
+              type='date'
+              className='date-input'
+            />
           </div>
           <div className='date-guest-top-right'>
             <p className='check-out bold'>CHECK-OUT</p>
-            <p className='check-in-out-date'>{secondDate}</p>
+            <input
+              type='date'
+              className='date-input'
+            />
           </div>
         </div>
         <div className='date-guest-btm'>
-          <div className='date-guest-btm-left'>
-            <p className='guest-text'>GUESTS</p>
-            <p className='guest-count'>1 guest</p>
-          </div>
-          <div className='date-guest-btm-right'>
-            <div className='num-guests-icon'>
-              <BsChevronDown size={20} />
-            </div>
-          </div>
+          <select className='date-guest-btm-select'>
+            <option value=''>Guests</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+            <option value={6}>6</option>
+            <option value={7}>7</option>
+            <option value={8}>8</option>
+            <option value={9}>9</option>
+            <option value={10}>10</option>
+            <option value={11}>11</option>
+            <option value={12}>12</option>
+            <option value={13}>13</option>
+            <option value={14}>14</option>
+            <option value={15}>15</option>
+          </select>
         </div>
       </div>
 
-      <div className='reserve-btn bold'>
-        <p>This ain't no button</p>
+      <Link to='/feature-not-found' className='reserve-btn bold'>This ain't no button</Link>
+
+      <p className='no-charge-disclaimer'>You won't be charged yet. Or ever.</p>
+
+      <div className='price-breakdown-container'>
+        <p className='nightly-price'>
+          <Link to='/feature-not-found' className='price-breakdown-left'>${spot.price} x 5 nights</Link>
+          <span>${spot.price * 5}</span>
+        </p>
+        <p className='cleaning-fee'>
+          <Link to='/feature-not-found' className='price-breakdown-left'>Cleaning fee</Link>
+          <span>$LOL</span>
+        </p>
+        <p className='service-fee'>
+          <Link to='/feature-not-found' className='price-breakdown-left'>Service Fee</Link>
+          <span>$Nope</span>
+        </p>
       </div>
 
-      <p className="no-charge-disclaimer">You won't be charged yet. Or ever.</p>
-
-      <div className="price-breakdown-container">
-      <p className='nightly-price'>
-        <span className='price-breakdown-left'>${spot.price} x 5 nights</span>
-        <span>${spot.price * 5}</span>
-      </p>
-      <p className='cleaning-fee'>
-        <span className='price-breakdown-left'>Cleaning fee</span>
-        <span>$LOL</span>
-      </p>
-      <p className='service-fee'>
-        <span className='price-breakdown-left'>Service Fee</span>
-        <span>$Nope</span>
-      </p>
-      </div>
-
-      <p className="total-price bold">
+      <p className='total-price bold'>
         <span>Total before taxes</span>
         <span>$0,000</span>
       </p>
 
-      <p className="price-disclaimer">Don't you get it by now? This site can't charge you money... Ever.</p>
+      <p className='price-disclaimer'>Don't you get it by now? This site can't charge you money... Ever.</p>
     </div>
   );
 }

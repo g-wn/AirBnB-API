@@ -1,0 +1,35 @@
+  .not-found-splash {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30rem;
+  }
+
+  .go-back,
+  .go-home {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: #FF385C;
+    text-decoration: none;
+  }
+
+  .not-found-top,
+  .not-found-btm {
+    font-size: 20px;
+    padding-bottom: 1rem;
+  }
+
+  .not-found-txt {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .safety-btns {
+    display: flex;
+    gap: 2rem;
+  }
