@@ -66,13 +66,17 @@
   width: 100%;
 }
 
-.date-guest-btm-left,
-.date-guest-btm-right {
-  align-items: flex-start;
+.date-guest-btm-select {
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
   justify-content: center;
+  padding: .75em;
   width: 100%;
 }
 
@@ -145,7 +149,7 @@
 }
 
 .price-breakdown-left {
-  text-decoration: underline;
+  color: black;
 }
 
 .price-disclaimer {
@@ -154,6 +158,7 @@
 }
 
 .reserve-btn {
+  align-items: center;
   background-image: radial-gradient(circle at center center,
       rgb(255, 56, 92) 0%,
       rgb(230, 30, 77) 27.5%,
@@ -162,12 +167,15 @@
       rgb(189, 30, 89) 75%,
       rgb(189, 30, 89) 100%);
   border: none;
+  border-radius: 1em;
   color: white;
   cursor: pointer;
-  border-radius: 1em;
+  display: flex;
+  justify-content: center;
   height: 3.5em;
   margin-bottom: 1.25em;
   text-align: center;
+  text-decoration: none;
   width: 100%;
 }
 

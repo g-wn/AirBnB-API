@@ -131,6 +131,7 @@
 
 .location-text,
 .reviews-text {
+  color: black;
   text-decoration: underline;
 }
 

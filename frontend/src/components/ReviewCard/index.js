@@ -3,7 +3,6 @@ import { faker } from '@faker-js/faker';
 import './ReviewCard.css';
 
 export default function ReviewCard({ review }) {
-  console.log('REVIEW --------->', review);
 
   return (
     <>

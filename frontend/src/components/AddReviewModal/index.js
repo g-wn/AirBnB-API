@@ -8,12 +8,10 @@ export default function AddReviewModal({ spot }) {
   const dispatch = useDispatch();
   const showAddReviewModal = useSelector(state => state.modal.showAddReviewModal);
   const user = useSelector(state => state.session.user);
-  console.log('SPOT --------->', spot)
-  console.log('USER --------->', user)
 
   return (
     <>
-      {spot.ownerId !== user.id && (
+      {user && spot.ownerId !== user.id && (
         <button
           className='add-review-btn'
           onClick={() => dispatch(addReviewModal(true))}

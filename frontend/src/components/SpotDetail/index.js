@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import * as spotActions from '../../store/spots';
 import * as reviewActions from '../../store/reviews';
@@ -35,12 +35,12 @@ export default function SpotDetail() {
               <div className='spot-stats'>
                 <i className='fas fa-star' />
                 <span> {spot.avgStarRating} - </span>
-                <span className='reviews-text'>{spot.numReviews} reviews</span>
+                <Link to='/feature-not-found' className='reviews-text'>{spot.numReviews} reviews</Link>
                 {' - '}
-                <span className='location-text'>
+                <Link to='/feature-not-found' className='location-text'>
                   {' '}
                   {spot.city}, {spot.state}, {spot.country}
-                </span>
+                </Link>
               </div>
             </header>
             <div className='img-container'>
