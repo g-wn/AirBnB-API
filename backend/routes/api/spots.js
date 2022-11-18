@@ -282,7 +282,9 @@ router.post('/:spotId/reviews', validateReview, requireAuth, async (req, res, ne
 
   if (spot) {
     try {
+      console.log('BACKEND REQ.USER ----------->', req.user.dataValues.firstName)
       const newSpotReview = await Review.create({
+        firstName: req.user.dataValues.firstName,
         userId: +req.user.id,
         spotId: +req.params.spotId,
         review,

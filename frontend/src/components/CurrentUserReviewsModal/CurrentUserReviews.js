@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { currentUserReviewsModal } from '../../store/modal';
 import * as reviewActions from '../../store/reviews';
+import * as spotActions from '../../store/spots';
 import ReviewCard from '../ReviewCard';
 
 import { IoCloseSharp } from 'react-icons/io5';
@@ -11,12 +12,14 @@ import './CurrentUserReviews.css';
 export default function CurrentUserReviews({ userReviews }) {
   const dispatch = useDispatch();
 
-  const handleDelete = async (e, reviewId, spotId) => {
+  const handleDelete = async (e, review) => {
     e.preventDefault();
 
-    await dispatch (reviewActions.getReviews(spotId))
-    await dispatch(reviewActions.deleteReview(reviewId));
-    await dispatch(reviewActions.getUserReviews());
+    console.log(review);
+    dispatch(reviewActions.deleteReview(review));
+    dispatch(reviewActions.getUserReviews());
+    dispatch(spotActions.getSpot(review.spotId));
+    dispatch(spotActions.getSpots());
   };
 
   return (
@@ -47,7 +50,9 @@ export default function CurrentUserReviews({ userReviews }) {
                 <p className='delete-disclaimer'>Don't want your opinion heard anymore? Good.</p>
                 <button
                   className='delete-user-review-btn'
-                  onClick={e => handleDelete(e, review.id, review.Spot.id)}
+                  onClick={e => {
+                    handleDelete(e, review);
+                  }}
                 >
                   <FaTrashAlt /> Remove this review
                 </button>

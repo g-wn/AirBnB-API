@@ -20,6 +20,8 @@ export default function SpotDetail() {
   const spot = useSelector(state => state.spots.spotDetail);
   const spotReviews = useSelector(state => state.reviews.spotReviews);
 
+  console.log('SPOT REVIEWS ----------->', spotReviews);
+
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
     dispatch(reviewActions.getReviews(spotId));
@@ -144,10 +146,7 @@ export default function SpotDetail() {
               </div>
             </div>
             <div className='reviews-container'>
-              <SpotReviews
-                spot={spot}
-                spotReviews={spotReviews}
-              />
+              <SpotReviews spot={spot} spotReviews={spotReviews}/>
             </div>
           </div>
         </>
