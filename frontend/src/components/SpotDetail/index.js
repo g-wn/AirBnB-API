@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import * as spotActions from '../../store/spots';
 import * as reviewActions from '../../store/reviews';
+import { randomNumber } from '../../utils/randomNumber';
 import BookingDetails from '../BookingDetails';
 import SpotReviews from '../SpotReviews';
 
@@ -18,10 +19,6 @@ export default function SpotDetail() {
   const { spotId } = useParams();
   const spot = useSelector(state => state.spots.spotDetail);
   const spotReviews = useSelector(state => state.reviews.spotReviews);
-
-  const randomNumber = num => {
-    return Math.floor(Math.random() * num);
-  };
 
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
