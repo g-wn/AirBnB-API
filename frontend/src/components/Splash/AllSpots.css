@@ -1,16 +1,31 @@
 .splash-container {
-  display: flex;
-  justify-content: space-between;
   margin-top: 15px;
-  width: 100%;
-  flex-wrap: wrap;
-  padding: 0 1.75em 0 1.75em;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  padding: 0 2.75em 0 2.75em;
+  margin: 0 6vh;
+}
+
+@media (max-width:1920px){
+  .splash-container {
+    grid-template-columns: repeat(5, auto);
+  }
+}
+
+@media (max-width: 1660px){
+  .splash-container {
+    grid-template-columns: repeat(4, auto);
+  }
+}
+
+@media(max-width: 1320px) {
+  .splash-container {
+    grid-template-columns: repeat(3, auto);
+  }
 }
 
 .splash-container > div {
   border-radius: 10px;
-  width: 200px;
-  height: 350px;
-  margin: 10px;
-  flex-grow: 1;
+  margin: .75rem;
+  max-width: 19rem;
 }
