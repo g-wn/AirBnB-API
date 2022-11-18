@@ -15,9 +15,9 @@ export default function CurrentUserSpots() {
   const handleDelete = async (e, spotId) => {
     e.preventDefault();
 
-    await dispatch(spotActions.getSpots())
     await dispatch(spotActions.deleteSpot(spotId));
     await dispatch(spotActions.getCurrentUsersSpots());
+    await dispatch(spotActions.getSpots())
   };
 
   return (
