@@ -15,10 +15,11 @@ export default function CurrentUserReviews({ userReviews }) {
   const handleDelete = async (e, review) => {
     e.preventDefault();
 
-    console.log(review)
+    console.log(review);
     dispatch(reviewActions.deleteReview(review));
     dispatch(reviewActions.getUserReviews());
     dispatch(spotActions.getSpot(review.spotId));
+    dispatch(spotActions.getSpots());
   };
 
   return (

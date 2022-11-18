@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { currentUserSpotsModal } from '../../store/modal';
@@ -8,6 +9,10 @@ import './SpotCard.css';
 export default function SpotCard({ spot }) {
   const history = useHistory();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(spotActions.getSpots())
+  }, [dispatch, spot.id, spot.avgRating])
 
   const handleRedirect = e => {
     e.preventDefault();
@@ -30,11 +35,11 @@ export default function SpotCard({ spot }) {
           ></div>
 
           <div className='spot-text-container'>
-            <div className='bold top-row'>
+            <div className='top-row'>
               {spot.city}, {spot.state}
               <span className='rating-icon'>
                 <i className='fas fa-star' />
-                <span> {spot.avgRating}</span>
+                <span> {spot.avgRating ? spot.avgRating : 'New'}</span>
               </span>
             </div>
             <div>

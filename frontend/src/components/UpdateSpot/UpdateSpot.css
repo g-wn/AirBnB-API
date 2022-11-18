@@ -6,7 +6,26 @@
 .update-form-container {
   background-color: rgba(255, 255, 255, .9);
   border-radius: 15px;
-  width: 568px;
+  display: flex;
+  flex-direction: column;
+  max-width: 568px;
+}
+
+@media screen and (max-width: 1280px) {
+  .update-form-container {
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    max-width: 25em;
+    max-height: 35em;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .update-form-container::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .update-form-header {
@@ -14,7 +33,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, .11);
   display: flex;
   flex-direction: row;
-  height: 64px;
+  height: 4em;
   justify-content: center;
   padding: 0 24px 0 24px
 }

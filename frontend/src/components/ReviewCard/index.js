@@ -21,9 +21,7 @@ export default function ReviewCard({ review }) {
               </div>
             </div>
           </header>
-            <div className="review-content">
-              {review.review}
-            </div>
+          <div className='review-content'>{review.review}</div>
         </div>
       )}
     </>

@@ -108,7 +108,7 @@ export const deleteReview = review => async dispatch => {
   if (res.ok) {
     console.log(review)
     dispatch(getReviews(review.spotId));
-    dispatch(getUserReviews(review.userId))
+    dispatch(getUserReviews(review.userId));
     return res;
   }
   return res;

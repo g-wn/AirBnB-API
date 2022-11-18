@@ -38,7 +38,26 @@ input::-webkit-inner-spin-button {
 .host-form-container {
   background-color: rgba(255, 255, 255, .9);
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
   width: 568px;
+}
+
+@media screen and (max-width: 1280px) {
+  .host-form-container {
+    background-color: rgba(255, 255, 255, .9);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    max-width: 25em;
+    max-height: 35em;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  .host-form-container::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .host-form-h2 {
