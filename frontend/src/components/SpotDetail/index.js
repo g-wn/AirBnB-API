@@ -7,7 +7,6 @@ import * as reviewActions from '../../store/reviews';
 import { randomNumber } from '../../utils/randomNumber';
 import BookingDetails from '../BookingDetails';
 import SpotReviews from '../SpotReviews';
-import TestSpotContainer from './TestSpotContainer';
 
 import { faker } from '@faker-js/faker';
 import { HiOutlineKey } from 'react-icons/hi';

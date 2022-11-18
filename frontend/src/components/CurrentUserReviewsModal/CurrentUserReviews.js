@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { currentUserReviewsModal } from '../../store/modal';
 import * as reviewActions from '../../store/reviews';
+import * as spotActions from '../../store/spots';
 import ReviewCard from '../ReviewCard';
 
 import { IoCloseSharp } from 'react-icons/io5';
@@ -14,8 +15,10 @@ export default function CurrentUserReviews({ userReviews }) {
   const handleDelete = async (e, review) => {
     e.preventDefault();
 
+    console.log(review)
     dispatch(reviewActions.deleteReview(review));
     dispatch(reviewActions.getUserReviews());
+    dispatch(spotActions.getSpot(review.spotId));
   };
 
   return (
