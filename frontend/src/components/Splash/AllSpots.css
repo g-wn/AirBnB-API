@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(6, auto);
   padding: 0 2.75em 0 2.75em;
-  margin: 0 6vh;
+  margin: 0 1vh;
 }
 
 @media (max-width:1920px){
