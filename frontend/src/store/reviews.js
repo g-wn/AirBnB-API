@@ -136,7 +136,6 @@ const reviewsReducer = (state = initialState, action) => {
     }
     case REMOVE_REVIEW: {
       const newState = { ...state };
-      console.log('NEW STATE----------->', newState)
       if (newState.spotReviews[action.reviewId]) delete newState.spotReviews[action.reviewId];
       if (newState.currentUserReviews[action.reviewId]) delete newState.currentUserReviews[action.reviewId];
       return newState;
