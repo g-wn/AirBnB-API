@@ -7,6 +7,7 @@ import SignupFormModal from '../SignupFormModal';
 import LoginFormModal from '../LoginFormModal';
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import CurrentUserReviewsModal from '../CurrentUserReviewsModal';
+import logo from '../../images/large.png';
 
 export default function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -19,7 +20,14 @@ export default function Navigation({ isLoaded }) {
           className='home-icon'
           to={`/`}
         >
-          nocleaningfees
+          <img
+            className='logo'
+            src={logo}
+            alt='Logo'
+          />
+          <span className='b-1'>no</span>
+          <span className='r'>cleaning</span>
+          <span className='b-2'>fees</span>
         </NavLink>
       </span>
       <span className='hidden-btns'>

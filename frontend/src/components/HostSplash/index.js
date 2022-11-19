@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import HostForm from '../HostForm';
-
+import logo from '../../images/large.png';
 import './HostSplash.css';
 
 export default function HostSplash() {
@@ -13,7 +13,11 @@ export default function HostSplash() {
         className='home-btn'
         to={`/`}
       >
-        Home
+        <img
+        className='logo-host-update-splash'
+          src={logo}
+          alt='Logo'
+        />
       </NavLink>
       <div className='left-panel panel'>
         <div className='left-content'>
@@ -33,7 +37,10 @@ export default function HostSplash() {
       >
         {showForm ? (
           <div className='form-container'>
-            <HostForm showForm={showForm} setShowForm={setShowForm}/>
+            <HostForm
+              showForm={showForm}
+              setShowForm={setShowForm}
+            />
           </div>
         ) : (
           <div className='testimonial'>

@@ -70,6 +70,11 @@
   justify-content: center;
 }
 
+.logo-host-update-splash {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
 .money {
   font-family: 'Nothing You Could Do';
   font-size: 65px;

@@ -1,4 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import logo from '../../images/large.png';
+
 import SpotForm from './SpotForm';
 import './UpdateSpot.css';
 
@@ -15,7 +17,7 @@ export default function UpdateSpot() {
             className='home-btn'
             to={`/`}
           >
-            Home
+            <img src={logo} alt="Logo" className='logo-host-update-splash'/>
           </NavLink>
           <div className='left-panel panel'>
             <div className='left-content'>
