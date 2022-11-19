@@ -2,6 +2,10 @@
   font-weight: 600;
 }
 
+.dates {
+  padding-bottom: .5em;
+}
+
 .spot-card {
   cursor: pointer;
   display: flex;
@@ -20,6 +24,7 @@
   border-radius: 10px;
   flex-grow: 3;
   height: 250px;
+  margin-bottom: .75em;
 }
 
 .spot-text-container {

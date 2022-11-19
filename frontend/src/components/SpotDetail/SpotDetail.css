@@ -4,14 +4,19 @@
   width: 33%;
 }
 
-.coverage-red {
-  color: #FF385C;
-}
-
-.coverage-title>span {
-  font-size: 36px;
+.coverage-red,
+.coverage-black {
   font-weight: 900;
   letter-spacing: -0.1em;
+}
+
+.coverage-red {
+  color: #FF385C;
+  font-size: 38px;
+}
+
+.coverage-black {
+  font-size: 32px;
 }
 
 .check-in,
@@ -186,6 +191,7 @@
   margin: 1.5em 0 1.5em 0;
   height: 650px;
   padding: 0px 2.25em 0px 2.25em;
+  width: 100%;
 }
 
 .spot-header {

@@ -26,7 +26,7 @@ export default function SpotCard({ spot }) {
   };
 
   return (
-    <>
+    <div className='spot-card-container'>
       {spot && (
         <div
           onClick={handleRedirect}
@@ -47,7 +47,7 @@ export default function SpotCard({ spot }) {
                 <span> {spot.avgRating ? spot.avgRating : 'New'}</span>
               </span>
             </div>
-            <div>
+            <div className='bottom-row'>
               <div className='time-ago'>
                 Added <TimeAgo date={added} />
               </div>
@@ -59,6 +59,6 @@ export default function SpotCard({ spot }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

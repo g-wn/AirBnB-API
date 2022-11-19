@@ -15,20 +15,20 @@ const router = express.Router();
 /*-------------------------------------------------------------------------------------------------------*/
 
 const validateSpot = [
-  check('address').exists({ checkFalsy: true }).notEmpty().withMessage('Street address is required'),
-  check('city').exists({ checkFalsy: true }).notEmpty().withMessage('City is required'),
-  check('state').exists({ checkFalsy: true }).notEmpty().withMessage('State is required'),
-  check('country').exists({ checkFalsy: true }).notEmpty().withMessage('Country is required'),
+  check('address').exists({ checkFalsy: true }).notEmpty().withMessage('Street address is required.'),
+  check('city').exists({ checkFalsy: true }).notEmpty().withMessage('City is required.'),
+  check('state').exists({ checkFalsy: true }).notEmpty().withMessage('State is required.'),
+  check('country').exists({ checkFalsy: true }).notEmpty().withMessage('Country is required.'),
   // check('lat').isNumeric().withMessage('Latitude is not valid'),
   // check('lng').isNumeric().withMessage('Longitude is not valid'),
-  check('name').exists({ checkFalsy: true }).isLength({ max: 49 }).withMessage('Name must be less than 50 characters'),
-  check('description').exists({ checkFalsy: true }).notEmpty().withMessage('Description is required'),
-  check('price').exists({ checkFalsy: true }).notEmpty().isNumeric().withMessage('Price per day is required'),
+  check('name').exists({ checkFalsy: true }).isLength({ max: 49 }).withMessage('Name must be less than 50 characters.'),
+  check('description').exists({ checkFalsy: true }).isLength({ min: 50 }).withMessage('Please provide a more detailed description (50 characters).'),
+  check('price').exists({ checkFalsy: true }).notEmpty().isNumeric().withMessage('Price per day is required.'),
   handleValidationErrors
 ];
 
 const validateReview = [
-  check('review').exists({ checkFalsy: true }).notEmpty().withMessage('Review text is required'),
+  check('review').exists({ checkFalsy: true }).notEmpty().withMessage('Review text is required.'),
   check('stars')
     .exists({ checkFalsy: true })
     .isFloat({ min: 1, max: 5 })
@@ -41,7 +41,7 @@ const validateBooking = [
     .exists({ checkFalsy: true })
     .custom((value, { req }) => {
       if (new Date(value) <= new Date(req.body.startDate)) {
-        throw new Error('endDate cannot be on or before startDate');
+        throw new Error('endDate cannot be on or before startDate.');
       }
       return true;
     }),

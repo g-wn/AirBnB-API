@@ -143,9 +143,9 @@ export default function SpotDetail() {
                 </div>
                 <div className='fake-coverage-container'>
                   <div className='coverage-title'>
-                    <span>clean</span>
+                    <span className='coverage-black'>clean</span>
                     <span className='coverage-red'>fee</span>
-                    <span>cover</span>
+                    <span className='coverage-black'>cover</span>
                   </div>
                   <p className='coverage-text'>
                     We don't provide coverage for anything because if you actually manage to book through this website

@@ -42,6 +42,12 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   max-width: 30rem;
   max-height: 44rem;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.host-form-container::-webkit-scrollbar {
+  display: none;
 }
 
 .host-form-h2 {

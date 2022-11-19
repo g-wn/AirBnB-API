@@ -53,7 +53,7 @@ export default function SpotForm({ spot }) {
         {errors.length > 0 ? (
           <ul>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li className='error-red' key={idx}>{error}</li>
             ))}
           </ul>
         ) : (

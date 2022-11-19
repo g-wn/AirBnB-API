@@ -17,7 +17,11 @@ export default function UpdateSpot() {
             className='home-btn'
             to={`/`}
           >
-            <img src={logo} alt="Logo" className='logo-host-update-splash'/>
+            <img
+              src={logo}
+              alt='Logo'
+              className='logo-host-update-splash'
+            />
           </NavLink>
           <div className='left-panel panel'>
             <div className='left-content'>
@@ -28,7 +32,7 @@ export default function UpdateSpot() {
 
           <div
             className='right-panel panel'
-            style={spot && { backgroundImage: `url('${spot.previewImage}')` }}
+            style={spot && { backgroundImage: `url('https://loremflickr.com/2160/3840/airbnb')` }}
           >
             <SpotForm spot={spot} />
           </div>

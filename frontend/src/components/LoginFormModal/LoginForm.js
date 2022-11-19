@@ -37,7 +37,7 @@ export default function LoginForm({ onClose }) {
 
     return dispatch(sessionActions.login({ credential, password })).then(async res => {
       if (res.ok) {
-        dispatch(loginModal(false))
+        dispatch(loginModal(false));
       }
     });
   };
@@ -49,7 +49,7 @@ export default function LoginForm({ onClose }) {
 
     return dispatch(sessionActions.login({ credential, password })).then(async res => {
       if (res.ok) {
-        dispatch(loginModal(false))
+        dispatch(loginModal(false));
       }
     });
   };
@@ -61,7 +61,7 @@ export default function LoginForm({ onClose }) {
 
     return dispatch(sessionActions.login({ credential, password })).then(async res => {
       if (res.ok) {
-        dispatch(loginModal(false))
+        dispatch(loginModal(false));
       }
     });
   };
@@ -73,7 +73,7 @@ export default function LoginForm({ onClose }) {
 
     return dispatch(sessionActions.login({ credential, password })).then(async res => {
       if (res.ok) {
-        dispatch(loginModal(false))
+        dispatch(loginModal(false));
       }
     });
   };
@@ -98,11 +98,16 @@ export default function LoginForm({ onClose }) {
         {errors.length > 0 ? (
           <ul>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li className='error-red' key={idx}>{error}</li>
             ))}
           </ul>
         ) : (
-          <h2 className='login-form-h2'>Welcome back to NoCleaningFees</h2>
+          <h2 className='login-form-h2'>
+            Welcome back to
+            <span className='h2-black'> no</span>
+            <span className='h2-red'>Cleaning</span>
+            <span className='h2-black'>fees</span>
+          </h2>
         )}
 
         <div className='inputs-container'>

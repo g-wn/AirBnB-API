@@ -1,9 +1,10 @@
 .splash-container {
-  margin-top: 15px;
   display: grid;
+  grid-gap: .5em;
   grid-template-columns: repeat(6, auto);
   padding: 0 2.75em 0 2.75em;
-  margin: 0 1vh;
+  margin: 2em 2em;
+  width: 100%;
 }
 
 @media (max-width:1920px){

@@ -54,11 +54,16 @@ export default function SignupForm() {
         {errors.length > 0 ? (
           <ul>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li className='error-red' key={idx}>{error}</li>
             ))}
           </ul>
         ) : (
-          <h2 className='signup-form-h2'>Welcome to NoCleaningFees</h2>
+          <h2 className='signup-form-h2'>
+            Welcome to
+            <span className='h2-black'> no</span>
+            <span className='h2-red'>Cleaning</span>
+            <span className='h2-black'>fees</span>
+          </h2>
         )}
 
         <div className='inputs-container'>

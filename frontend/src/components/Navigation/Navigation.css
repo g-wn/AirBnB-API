@@ -5,7 +5,7 @@
 }
 
 .b-1 {
-  padding-left: 1rem;
+  padding-left: .5rem;
 }
 
 .hidden-btns {
@@ -49,8 +49,8 @@
 }
 
 .logo {
-  height: 4rem;
-  width: 4rem;
+  height: 2.75rem;
+  width: 2.75rem;
 }
 
 .r {

@@ -5,7 +5,7 @@ import * as spotActions from '../../store/spots';
 
 import './HostForm.css';
 import { IoCloseSharp } from 'react-icons/io5';
-import { faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker';
 
 export default function HostForm({ showForm, setShowForm }) {
   const history = useHistory();
@@ -69,7 +69,12 @@ export default function HostForm({ showForm, setShowForm }) {
         {errors.length > 0 ? (
           <ul>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li
+                className='error-red'
+                key={idx}
+              >
+                {error}
+              </li>
             ))}
           </ul>
         ) : (
