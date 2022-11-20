@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
-import { BsChevronDown } from 'react-icons/bs';
 import './BookingDetails.css';
 
 export default function BookingDetails({ spot }) {
@@ -25,36 +24,37 @@ export default function BookingDetails({ spot }) {
           <div className='date-guest-top-left'>
             <p className='check-in bold'>CHECK-IN</p>
             <input
-              type='date'
               className='date-input'
+              type='date'
+              defaultValue='2023-04-03'
             />
           </div>
           <div className='date-guest-top-right'>
             <p className='check-out bold'>CHECK-OUT</p>
             <input
-              type='date'
               className='date-input'
+              type='date'
+              defaultValue='2023-04-10'
             />
           </div>
         </div>
         <div className='date-guest-btm'>
           <select className='date-guest-btm-select'>
-            <option value=''>Guests</option>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-            <option value={6}>6</option>
-            <option value={7}>7</option>
-            <option value={8}>8</option>
-            <option value={9}>9</option>
-            <option value={10}>10</option>
-            <option value={11}>11</option>
-            <option value={12}>12</option>
-            <option value={13}>13</option>
-            <option value={14}>14</option>
-            <option value={15}>15</option>
+            <option value={1}>1 guest</option>
+            <option value={2}>2 guests</option>
+            <option value={3}>3 guests</option>
+            <option value={4}>4 guests</option>
+            <option value={5}>5 guests</option>
+            <option value={6}>6 guests</option>
+            <option value={7}>7 guests</option>
+            <option value={8}>8 guests</option>
+            <option value={9}>9 guests</option>
+            <option value={10}>10 guests</option>
+            <option value={11}>11 guests</option>
+            <option value={12}>12 guests</option>
+            <option value={13}>13 guests</option>
+            <option value={14}>14 guests</option>
+            <option value={15}>15 guests</option>
           </select>
         </div>
       </div>

@@ -1,3 +1,9 @@
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
 * {
   box-sizing: border-box;
   font-size: 15px;
@@ -5,7 +11,8 @@
   font-family: "Poppins", "Montserrat";
 }
 
-html, body {
+html,
+body {
   width: 100%;
   margin: 0;
 }
