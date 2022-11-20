@@ -8,29 +8,37 @@
   width: 100%;
 }
 
-@media (max-width:1920px){
+@media (max-width:1920px) {
   .splash-container {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
-@media (max-width: 1660px){
+@media (max-width: 1639px) {
   .splash-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media(max-width: 1320px) {
+@media(max-width: 1127px) {
   .splash-container {
     grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .spot-card-img {
-    height: 300px;
+@media(max-width: 949px) {
+  .splash-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.splash-container > div {
+@media(max-width: 549px) {
+  .splash-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.splash-container>div {
   border-radius: 10px;
   margin: .75rem;
 }
