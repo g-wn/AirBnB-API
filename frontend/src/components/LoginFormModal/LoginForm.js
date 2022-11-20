@@ -9,7 +9,7 @@ import { BsFacebook } from 'react-icons/bs';
 import { FcGoogle } from 'react-icons/fc';
 import { BsApple, BsEnvelope } from 'react-icons/bs';
 
-export default function LoginForm({ onClose }) {
+export default function LoginForm({ onClose, showForm, setShowForm }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
@@ -29,6 +29,12 @@ export default function LoginForm({ onClose }) {
         if (data && data.message) setErrors([data.message]);
       });
   };
+
+  const handleClose = e => {
+    e.preventDefault()
+    setShowForm && setShowForm(!showForm)
+    dispatch(loginModal(false));
+  }
 
   const handleFbLogin = e => {
     e.preventDefault();
@@ -79,11 +85,11 @@ export default function LoginForm({ onClose }) {
   };
 
   return (
-    <>
+    <div className='login-form-container'>
       <header className='login-form-header'>
         <button
           className='close-form-btn'
-          onClick={() => dispatch(loginModal(false))}
+          onClick={handleClose}
         >
           <IoCloseSharp size={20} />
         </button>
@@ -186,6 +192,6 @@ export default function LoginForm({ onClose }) {
           <span className='hidden'></span>
         </button>
       </form>
-    </>
+    </div>
   );
 }

@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import HostForm from '../HostForm';
+import LoginForm from '../LoginFormModal/LoginForm';
 import logo from '../../images/large.png';
 import './HostSplash.css';
+import { useSelector } from 'react-redux';
 
 export default function HostSplash() {
   const [showForm, setShowForm] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <div className='host-splash-container'>
@@ -14,7 +17,7 @@ export default function HostSplash() {
         to={`/`}
       >
         <img
-        className='logo-host-update-splash'
+          className='logo-host-update-splash'
           src={logo}
           alt='Logo'
         />
@@ -37,10 +40,17 @@ export default function HostSplash() {
       >
         {showForm ? (
           <div className='form-container'>
-            <HostForm
-              showForm={showForm}
-              setShowForm={setShowForm}
-            />
+            {sessionUser ? (
+              <HostForm
+                showForm={showForm}
+                setShowForm={setShowForm}
+              />
+            ) : (
+              <LoginForm
+                showForm={showForm}
+                setShowForm={setShowForm}
+              />
+            )}
           </div>
         ) : (
           <div className='testimonial'>

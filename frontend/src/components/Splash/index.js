@@ -9,9 +9,8 @@ export default function Splash() {
     <div className='splash-container'>
       {allSpots &&
         Object.values(allSpots).map((spot, idx) => (
-          <div>
+          <div key={idx}>
             <SpotCard
-              key={idx}
               spot={spot}
             />
           </div>

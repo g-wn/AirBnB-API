@@ -25,7 +25,7 @@
   max-height: 700px;
   overflow: scroll;
   overflow-x: hidden;
-  width: 568px;
+  max-width: 44rem;
 }
 
 #modal-content::-webkit-scrollbar {
