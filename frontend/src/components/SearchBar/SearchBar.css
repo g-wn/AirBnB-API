@@ -1,0 +1,43 @@
+.how-many {
+  color: #717171;
+}
+
+.icon {
+  align-items: center;
+  background-color: #FF385C;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+  justify-content: center;
+  margin: .45rem .45rem .45rem 0;
+  padding: .55rem;
+  width: 2rem;
+}
+
+.where,
+.when {
+  border-right: 1px solid rgba(0, 0, 0, .11);
+  color: #222222;
+}
+
+.search-bar-container {
+  align-items: center;
+  border-radius: 2rem;
+  box-shadow: 0 .01rem .25rem rgba(0, 0, 0, .2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: box-shadow 0.2s ease;
+}
+
+.search-bar-container:hover {
+  box-shadow: 0 .1rem .25rem rgba(0, 0, 0, .2);
+}
+
+.search-bar-container>a {
+  font-size: 13px;
+  padding: 0 1rem;
+  text-decoration: none;
+}

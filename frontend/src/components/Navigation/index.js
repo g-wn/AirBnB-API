@@ -8,6 +8,8 @@ import LoginFormModal from '../LoginFormModal';
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import CurrentUserReviewsModal from '../CurrentUserReviewsModal';
 import logo from '../../images/large.png';
+import SearchBar from '../SearchBar';
+import { GrLanguage } from 'react-icons/gr'
 
 export default function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -36,6 +38,9 @@ export default function Navigation({ isLoaded }) {
         <CurrentUserSpotsModal />
         <CurrentUserReviewsModal />
       </span>
+      <span>
+        <SearchBar />
+      </span>
       {isLoaded && (
         <div className='right-buttons'>
           <NavLink
@@ -43,6 +48,9 @@ export default function Navigation({ isLoaded }) {
             to={`/host`}
           >
             Host your home
+          </NavLink>
+          <NavLink to='/feature-not-found' className="language-nav">
+            <GrLanguage />
           </NavLink>
           <span>{sessionLinks}</span>
         </div>

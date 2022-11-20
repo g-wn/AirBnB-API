@@ -1,8 +1,8 @@
 * {
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 20px;
-  font-family: "Montserrat";
+  font-family: "Poppins", "Montserrat";
 }
 
 html, body {
