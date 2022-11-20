@@ -2,7 +2,7 @@
   display: grid;
   grid-column-gap: .1em;
   grid-row-gap: 1.5rem;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(6, 1fr);
   padding: 0 2.75em 0 2.75em;
   margin: 2em 2em;
   width: 100%;
@@ -10,24 +10,27 @@
 
 @media (max-width:1920px){
   .splash-container {
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
 @media (max-width: 1660px){
   .splash-container {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media(max-width: 1320px) {
   .splash-container {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .spot-card-img {
+    height: 300px;
   }
 }
 
 .splash-container > div {
   border-radius: 10px;
   margin: .75rem;
-  max-width: 19rem;
 }
