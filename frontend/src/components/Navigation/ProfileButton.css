@@ -42,12 +42,12 @@ i.fa-bars {
 
 .profile-btn {
   align-items: center;
-  border-radius: 21px;
+  border-radius: 2.75rem;
   border: 1px solid #DDDDDD;
   background-color: white;
   cursor: pointer;
   display: inline-flex;
-  height: 42px;
+  height: 2.75em;
   justify-content: space-around;
   transition: box-shadow 0.2s ease;
   padding: 5px 5px 5px 12px;

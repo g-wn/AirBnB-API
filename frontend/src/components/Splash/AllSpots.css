@@ -1,6 +1,7 @@
 .splash-container {
   display: grid;
-  grid-gap: .5em;
+  grid-column-gap: .1em;
+  grid-row-gap: 1.5rem;
   grid-template-columns: repeat(6, auto);
   padding: 0 2.75em 0 2.75em;
   margin: 2em 2em;

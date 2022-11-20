@@ -13,15 +13,21 @@
 }
 
 .host-btn-nav {
+  align-items: center;
   border-radius: 2em;
   color: black;
-  margin-right: 2em;
+  display: flex;
+  flex-grow: 1;
+  font-size: 14px;
+  height: 2.75rem;
+  justify-content: center;
   padding: .75em;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
-.host-btn-nav:hover {
+.host-btn-nav:hover,
+.language-nav:hover {
   background-color: rgba(0, 0, 0, .06);
 }
 
@@ -33,6 +39,20 @@
   letter-spacing: -.075em;
   text-decoration: none;
 }
+
+.language-nav {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  flex-grow: 1;
+  height: 2.75rem;
+  justify-content: center;
+  margin-right: .75rem;
+  padding: .75em;
+  transition: background-color 0.2s ease;
+  width: 2.75rem;
+}
+
 
 .nav-container {
   align-items: center;
@@ -56,4 +76,10 @@
 .r {
   color: #FF385C;
   font-size: 26px;
+}
+
+.right-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
