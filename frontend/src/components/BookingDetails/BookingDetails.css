@@ -42,6 +42,7 @@
 
 .date-input,
 .date-input:focus {
+  background-color: transparent;
   border: none;
   max-width: 8rem;
   outline: none;

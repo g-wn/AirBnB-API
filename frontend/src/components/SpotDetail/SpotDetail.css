@@ -110,6 +110,7 @@
 }
 
 .imgs>div {
+  border: 1px solid rgba(0, 0, 0, .11);
   flex-grow: 1;
   background-size: cover;
   background-position: center;

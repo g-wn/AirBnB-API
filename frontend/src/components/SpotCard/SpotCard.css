@@ -10,20 +10,14 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  max-width: 315px;
-  min-width: 240px;
-}
-
-.spot-card>div {
-  flex-grow: 1;
 }
 
 .spot-card-img {
+  aspect-ratio: 1/1;
   background-position: center;
   background-size: cover;
   border-radius: 10px;
   flex-grow: 3;
-  height: 250px;
   margin-bottom: .75em;
 }
 
