@@ -16,6 +16,7 @@
 
 ## Project Information
 
+<hr />
 <br />
 
 <p>
@@ -38,6 +39,7 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 ## How to Navigate the Site:
 
+<hr />
 <br />
 
 <p>
@@ -46,8 +48,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br />
 
-<h2>PLACEHOLDER FOR SPLASH SCROLL AND NAVIGATE TO SPOT DETAIL</h2>
+![splash](./gifs/splash-page.gif)
 
+<hr />
 <br />
 
 <p>
@@ -56,8 +59,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br />
 
-<h2>PLACEHOLD FOR GIF OF LOGIN</h2>
+![signup-login](./gifs/signup-login.gif)
 
+<hr />
 <br/>
 
 <p>
@@ -66,8 +70,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br/>
 
-<h2>PLACEHOLDER FOR GIF OF SPOT CREATION</h2>
+![create-spot](./gifs/create-spot.gif)
 
+<hr />
 <br />
 
 <p>
@@ -76,8 +81,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br/>
 
-<h2>PLACEHOLDER FOR GIF OF USER SPOTS LIST</h2>
+![user-spots](./gifs/user-spots.gif)
 
+<hr />
 <br/>
 
 <p>
@@ -86,8 +92,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br/>
 
-<h2>PLACEHOLDER FOR GIF OF USER SPOT UPDATE</h2>
+![update-spot](./gifs/update-spot.gif)
 
+<hr />
 <br/>
 
 <p>
@@ -96,8 +103,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br/>
 
-<h2>PLACEHOLDER FOR GIF OF USER REVIEWS LIST</h2>
+![user-reviews](./gifs/user-reviews.gif)
 
+<hr />
 <br/>
 
 <p>
@@ -106,8 +114,9 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 
 <br/>
 
-<h2>PLACEHOLDER FOR GIF OF LEAVING A REVIEW</h2>
+![leave-review](./gifs/leave-review.gif)
 
+<hr />
 <br/>
 
 ## Challenges During This Project:
