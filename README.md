@@ -30,6 +30,7 @@ noCleaningfees is an AirBnB clone where the price you see is the price you pay. 
 ### Built Using:
 * [React](https://beta.reactjs.org/)
 * [Redux](https://redux.js.org/)
+* [Node.js](https://nodejs.org)
 * [Express.js](https://expressjs.com/)
 * [Sequelize](https://sequelize.org/)
 * [PostgreSQL](https://www.postgresql.org/docs/)
