@@ -142,6 +142,7 @@ export default function HostForm({ showForm, setShowForm }) {
           />
           <input
             className='price-input input'
+            min={0}
             onChange={e => setPrice(e.target.value)}
             placeholder="What's the price?"
             required
