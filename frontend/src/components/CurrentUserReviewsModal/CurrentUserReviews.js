@@ -15,9 +15,9 @@ export default function CurrentUserReviews({ userReviews }) {
   const handleDelete = async (e, review) => {
     e.preventDefault();
 
-    dispatch(reviewActions.deleteReview(review));
-    dispatch(spotActions.getSpot(review.spotId));
-    dispatch(spotActions.getSpots());
+    await dispatch(reviewActions.deleteReview(review));
+    await dispatch(spotActions.getSpot(review.spotId));
+    await dispatch(spotActions.getSpots());
   };
 
   return (

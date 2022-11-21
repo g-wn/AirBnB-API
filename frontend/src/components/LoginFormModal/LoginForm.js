@@ -15,10 +15,10 @@ export default function LoginForm({ onClose, showForm, setShowForm }) {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
+    return await dispatch(sessionActions.login({ credential, password }))
       .then(async res => {
         if (res.ok) {
           dispatch(loginModal(false));

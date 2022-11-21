@@ -17,11 +17,11 @@ export default function SpotCard({ spot }) {
     dispatch(spotActions.getSpots());
   }, [dispatch, spot.id, spot.avgRating]);
 
-  const handleRedirect = e => {
+  const handleRedirect = async e => {
     e.preventDefault();
 
-    dispatch(currentUserSpotsModal(false));
-    dispatch(spotActions.getSpot(spot.id));
+    await dispatch(currentUserSpotsModal(false));
+    await dispatch(spotActions.getSpot(spot.id));
     history.push(`/spots/${spot.id}`);
   };
 

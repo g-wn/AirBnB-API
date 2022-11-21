@@ -14,7 +14,7 @@ export default function AddReviewForm({ spot }) {
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setErrors([]);
 
@@ -23,7 +23,7 @@ export default function AddReviewForm({ spot }) {
       stars
     };
 
-    return dispatch(reviewActions.postReview(spot.id, newReview))
+    return await dispatch(reviewActions.postReview(spot.id, newReview))
       .then(async res => {
         if (res.ok) {
           dispatch(modalActions.addReviewModal(false));

@@ -16,11 +16,11 @@ export default function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
+      return await dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
         .then(async res => {
           if (res.ok) {
             dispatch(signupModal(false));
