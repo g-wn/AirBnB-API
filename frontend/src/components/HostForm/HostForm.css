@@ -37,6 +37,7 @@ input::-webkit-inner-spin-button {
 
 .host-form-container {
   background-color: rgba(255, 255, 255, .9);
+  border: 1px solid rgba(0, 0, 0, .11);
   border-radius: 15px;
   display: flex;
   flex-direction: column;

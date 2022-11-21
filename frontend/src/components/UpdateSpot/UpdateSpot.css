@@ -4,6 +4,7 @@
 }
 
 .update-form-container {
+  border: 1px solid rgba(0, 0, 0, .11);
   background-color: rgba(255, 255, 255, .9);
   border-radius: 15px;
   display: flex;
