@@ -23,6 +23,7 @@
   background-color: white;
   border-radius: 15px;
   max-height: 700px;
+  min-width: 450px;
   overflow: scroll;
   overflow-x: hidden;
   max-width: 44rem;
