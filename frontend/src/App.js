@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from './store/session';
 import * as spotsActions from './store/spots';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 // import Filters from './components/Filters';
 import Splash from './components/Splash';
 import SpotDetail from './components/SpotDetail';
@@ -28,6 +29,7 @@ function App() {
           <Route path={`/`} exact={true}>
             <Navigation isLoaded={isLoaded} />
             <Splash isLoaded={isLoaded}/>
+            <Footer />
           </Route>
 
           <Route path={`/spots/:spotId`} exact={true}>
@@ -47,6 +49,7 @@ function App() {
             <Navigation isLoaded={isLoaded} />
             <FeatureNotFound isLoaded={isLoaded} />
           </Route>
+
           <Route>Page Not Found</Route>
 
         </Switch>
