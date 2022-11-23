@@ -1,3 +1,22 @@
+#about-modal {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+}
+
+#about-modal-content {
+  background-color: white;
+  border-radius: 1em;
+  height: 46.5em;
+  padding: 1.5em;
+  position: absolute;
+  width: 100%;
+}
+
 #modal {
   position: fixed;
   top: 0;
@@ -19,6 +38,7 @@
 }
 
 #modal-content {
+  animation: moveUp 1s cubic-bezier(0.165, 0.840, 0.440, 1.000);
   position: absolute;
   background-color: white;
   border-radius: 15px;
@@ -29,6 +49,17 @@
   max-width: 44rem;
 }
 
-#modal-content::-webkit-scrollbar {
+#modal-content::-webkit-scrollbar,
+#about-modal-content::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(300px)
+  }
+
+  100% {
+    transform: translateY(0)
+  }
 }

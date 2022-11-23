@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import {FiChevronUp} from 'react-icons/fi'
 import {GrLanguage} from 'react-icons/gr'
 import './Footer.css'
+import AboutPopUp from '../AboutModal'
 
 export default function Footer() {
   return (
@@ -67,7 +67,7 @@ export default function Footer() {
             Who dared clone Airbnb?
           </span>
           <span className="about-me-icon">
-            <FiChevronUp size={25}/>
+            <AboutPopUp />
           </span>
         </div>
       </div>

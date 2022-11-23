@@ -13,6 +13,7 @@ import { restoreCSRF, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session';
 import * as spotActions from './store/spots';
 import * as reviewActions from './store/reviews';
+import { AboutModalProvider } from './context/AboutModal';
 
 const store = configureStore();
 
@@ -30,9 +31,11 @@ function Root() {
   return (
     <ReduxProvider store={store}>
       <ModalProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <AboutModalProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </AboutModalProvider>
       </ModalProvider>
     </ReduxProvider>
   );
