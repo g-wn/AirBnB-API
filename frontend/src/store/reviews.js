@@ -134,6 +134,13 @@ const reviewsReducer = (state = initialState, action) => {
         currentUserReviews: { ...state.currentUserReviews, [action.review.id]: action.review }
       };
     }
+    case UPDATE_REVIEW: {
+      return {
+        ...state,
+        spotReviews: { ...state.spotReviews, [action.review.id]: action.review },
+        currentUserReviews: { ...state.currentUserReviews, [action.review.id]: action.review }
+      };
+    }
     case REMOVE_REVIEW: {
       const newState = { ...state };
       if (newState.spotReviews[action.reviewId]) delete newState.spotReviews[action.reviewId];

@@ -278,7 +278,6 @@ router.get('/', validateQuery, async (req, res, _next) => {
 router.post('/:spotId/reviews', validateReview, requireAuth, async (req, res, next) => {
   const { review, stars } = req.body;
   const spot = await Spot.findByPk(req.params.spotId);
-  console.log(spot);
 
   if (spot) {
     try {
