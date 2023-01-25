@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import * as bookingActions from '../../store/bookings';
 import * as spotActions from '../../store/spots';
 import { AiFillStar } from 'react-icons/ai';
@@ -8,6 +8,7 @@ import './BookingDetails.css';
 
 export default function BookingDetails({ spot }) {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [startDate, setStartDate] = useState('2023-04-03');
   const [endDate, setEndDate] = useState('2023-04-10');
   const [errors, setErrors] = useState([]);
@@ -25,6 +26,7 @@ export default function BookingDetails({ spot }) {
       .then(async res => {
         if (res.ok) {
           dispatch(spotActions.getSpot(spot.id));
+          history.push('/my-bookings')
         }
       })
       .catch(async res => {
@@ -113,7 +115,7 @@ export default function BookingDetails({ spot }) {
           type='submit'
           className='reserve-btn bold'
         >
-          This ain't no button
+          Book It!
         </button>
       </form>
 

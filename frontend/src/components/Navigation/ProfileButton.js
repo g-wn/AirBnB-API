@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import * as spotActions from '../../store/spots';
-import * as reviewActions from '../../store/reviews'
-import * as bookingActions from '../../store/bookings'
+import * as reviewActions from '../../store/reviews';
+import * as bookingActions from '../../store/bookings';
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import CurrentUserReviewsModal from '../CurrentUserReviewsModal';
 import LoginFormModal from '../LoginFormModal';
@@ -35,10 +35,10 @@ export default function ProfileButton({ user }) {
 
   useEffect(() => {
     if (sessionUser) {
-      dispatch(spotActions.getCurrentUsersSpots())
-      dispatch(reviewActions.getUserReviews())
-      dispatch(bookingActions.getUserBookings())
-    };
+      dispatch(spotActions.getCurrentUsersSpots());
+      dispatch(reviewActions.getUserReviews());
+      dispatch(bookingActions.getUserBookings());
+    }
   }, [dispatch, sessionUser]);
 
   const logout = e => {
@@ -67,12 +67,20 @@ export default function ProfileButton({ user }) {
           </div>
           <CurrentUserSpotsModal />
           <CurrentUserReviewsModal />
-            <button
-              className='log-out-btn'
-              onClick={logout}
+          <button className='user-spots-btn'>
+            <NavLink
+              className='my-bookings-btn'
+              to={`/my-bookings`}
             >
-              Log Out
-            </button>
+              My bookings
+            </NavLink>
+          </button>
+          <button
+            className='log-out-btn'
+            onClick={logout}
+          >
+            Log Out
+          </button>
         </div>
       )}
       {showMenu && !user && (
