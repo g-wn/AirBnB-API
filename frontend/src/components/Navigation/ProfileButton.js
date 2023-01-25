@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import * as spotActions from '../../store/spots';
 import * as reviewActions from '../../store/reviews'
+import * as bookingActions from '../../store/bookings'
 import CurrentUserSpotsModal from '../CurrentUserSpotsModal';
 import CurrentUserReviewsModal from '../CurrentUserReviewsModal';
 import LoginFormModal from '../LoginFormModal';
@@ -36,6 +37,7 @@ export default function ProfileButton({ user }) {
     if (sessionUser) {
       dispatch(spotActions.getCurrentUsersSpots())
       dispatch(reviewActions.getUserReviews())
+      dispatch(bookingActions.getUserBookings())
     };
   }, [dispatch, sessionUser]);
 

@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 
 import * as spotActions from '../../store/spots';
 import * as reviewActions from '../../store/reviews';
+import * as bookingActions from '../../store/bookings';
 import { randomNumber } from '../../utils/randomNumber';
 import BookingDetails from '../BookingDetails';
 import SpotReviews from '../SpotReviews';
@@ -23,6 +24,7 @@ export default function SpotDetail() {
   useEffect(() => {
     dispatch(spotActions.getSpot(spotId));
     dispatch(reviewActions.getReviews(spotId));
+    dispatch(bookingActions.getBookings(spotId));
   }, [spotId, dispatch]);
 
   return (
@@ -35,9 +37,17 @@ export default function SpotDetail() {
               <div className='spot-stats'>
                 <i className='fas fa-star' />
                 <span> {spot.avgStarRating} - </span>
-                <Link to='/feature-not-found' className='reviews-text'>{spot.numReviews} reviews</Link>
+                <Link
+                  to='/feature-not-found'
+                  className='reviews-text'
+                >
+                  {spot.numReviews} reviews
+                </Link>
                 {' - '}
-                <Link to='/feature-not-found' className='location-text'>
+                <Link
+                  to='/feature-not-found'
+                  className='location-text'
+                >
                   {' '}
                   {spot.city}, {spot.state}, {spot.country}
                 </Link>
