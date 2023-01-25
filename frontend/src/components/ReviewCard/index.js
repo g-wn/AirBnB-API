@@ -1,8 +1,11 @@
+import { useSelector } from 'react-redux';
 import { months } from '../../utils/dates';
 import { faker } from '@faker-js/faker';
 import './ReviewCard.css';
+import ReviewOptions from './ReviewOptions';
 
-export default function ReviewCard({ review }) {
+export default function ReviewCard({ review, spot }) {
+  const currentUser = useSelector(state => state.session.user);
 
   return (
     <>
@@ -24,7 +27,19 @@ export default function ReviewCard({ review }) {
               </div>
             </div>
           </header>
-          <div className='review-content'>{review.review}</div>
+          <div className='review-content'>
+            <div>{review.review}</div>
+            <div>
+              {review.userId === currentUser?.id ? (
+                <ReviewOptions
+                  review={review}
+                  spot={spot}
+                />
+              ) : (
+                ''
+              )}
+            </div>
+          </div>
         </div>
       )}
     </>

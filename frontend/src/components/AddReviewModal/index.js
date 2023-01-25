@@ -21,7 +21,10 @@ export default function AddReviewModal({ spot }) {
       )}
       {showAddReviewModal && (
         <Modal onClose={() => dispatch(addReviewModal(false))}>
-          <AddReviewForm spot={spot} />
+          <AddReviewForm
+            spot={spot}
+            formType='create'
+          />
         </Modal>
       )}
     </>

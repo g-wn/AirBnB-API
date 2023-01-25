@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addReviewModal } from '../../store/modal';
+import { addReviewModal, editReviewModal } from '../../store/modal';
 
 import * as reviewActions from '../../store/reviews';
 import * as modalActions from '../../store/modal';
-import * as spotActions from '../../store/spots'
+import * as spotActions from '../../store/spots';
 
 import { IoCloseSharp } from 'react-icons/io5';
 
-export default function AddReviewForm({ spot }) {
+export default function AddReviewForm({ spot, formType, prevReview }) {
   const dispatch = useDispatch();
-  const [review, setReview] = useState('');
-  const [stars, setStars] = useState(0);
+  const [review, setReview] = useState(prevReview ? prevReview.review : '');
+  const [stars, setStars] = useState(prevReview ? prevReview.stars : 0);
   const [errors, setErrors] = useState([]);
 
   const handleSubmit = async e => {
@@ -27,7 +27,29 @@ export default function AddReviewForm({ spot }) {
       .then(async res => {
         if (res.ok) {
           dispatch(modalActions.addReviewModal(false));
-          dispatch(spotActions.getSpot(spot.id))
+          dispatch(spotActions.getSpot(spot.id));
+        }
+      })
+      .catch(async res => {
+        const data = await res.json();
+        if (data && data.message) setErrors([data.message]);
+      });
+  };
+
+  const handleEdit = async e => {
+    e.preventDefault();
+    setErrors([]);
+
+    const editedReview = {
+      review,
+      stars
+    };
+
+    return await dispatch(reviewActions.putReview(prevReview.id, editedReview))
+      .then(async res => {
+        if (res.ok) {
+          dispatch(modalActions.editReviewModal(false));
+          dispatch(spotActions.getSpot(spot.id));
         }
       })
       .catch(async res => {
@@ -41,17 +63,19 @@ export default function AddReviewForm({ spot }) {
       <header className='add-review-form-header'>
         <button
           className='close-form-btn'
-          onClick={() => dispatch(addReviewModal(false))}
+          onClick={() => dispatch(formType === 'create' ? addReviewModal(false) : editReviewModal(false))}
         >
           <IoCloseSharp size={20} />
         </button>
-        <div className='header-text bold'>Let 'em know what you think</div>
+        <div className='header-text bold'>
+          {formType === 'create' ? "Let 'em know what you think" : 'No worries... change your mind'}
+        </div>
         <div className='hidden'></div>
       </header>
 
       <form
         className='add-review-form'
-        onSubmit={handleSubmit}
+        onSubmit={formType === 'create' ? handleSubmit : handleEdit}
       >
         {errors.length > 0 ? (
           <ul>
@@ -60,7 +84,12 @@ export default function AddReviewForm({ spot }) {
             ))}
           </ul>
         ) : (
-          <h2 className='add-review-form-h2'>I'm sure they really want to know...</h2>
+          <h2 className='add-review-form-h2'>
+            {formType === 'create'
+              ? "I'm sure they really want to know.."
+              : "I'm sure they love when you switch it up..."}
+            .
+          </h2>
         )}
 
         <div className='inputs-container'>

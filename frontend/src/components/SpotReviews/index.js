@@ -4,7 +4,6 @@ import './SpotReviews.css';
 import AddReviewModal from '../AddReviewModal';
 
 export default function SpotReviews({ spot, spotReviews }) {
-
   return (
     <div className='spot-reviews-container'>
       <div className='spot-reviews-header bold'>
@@ -15,7 +14,7 @@ export default function SpotReviews({ spot, spotReviews }) {
           <span>{spot.avgStarRating} - </span>
           <span className='spot-reviews-numreviews'>{spot.numReviews} reviews</span>
         </div>
-        <AddReviewModal spot={spot}/>
+        <AddReviewModal spot={spot} />
       </div>
       <div className='reviews-list'>
         {spotReviews &&
@@ -24,7 +23,10 @@ export default function SpotReviews({ spot, spotReviews }) {
               className='spot-review-card'
               key={idx}
             >
-              <ReviewCard review={review} />
+              <ReviewCard
+                review={review}
+                spot={spot}
+              />
             </div>
           ))}
       </div>

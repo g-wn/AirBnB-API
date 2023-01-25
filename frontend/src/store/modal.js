@@ -6,6 +6,7 @@ const SIGNUP_MODAL = 'modals/SIGNUP_MODAL';
 const USER_SPOTS_MODAL = 'modals/USER_SPOTS_MODAL';
 const USER_REVIEWS_MODAL = 'modals/USER_REVIEWS_MODAL';
 const ADD_REVIEW_MODAL = 'modals/ADD_REVIEW_MODAL';
+const EDIT_REVIEW_MODAL = 'modals/EDIT_REVIEW_MODAL';
 
 export const loginModal = boolean => {
   return {
@@ -42,6 +43,13 @@ export const addReviewModal = boolean => {
   };
 };
 
+export const editReviewModal = boolean => {
+  return {
+    type: EDIT_REVIEW_MODAL,
+    boolean
+  };
+};
+
 /* ----------------------------------------------------------- */
 /* ------------------------- REDUCER ------------------------- */
 /* ----------------------------------------------------------- */
@@ -51,7 +59,8 @@ const initialState = {
   showSignupModal: false,
   showCurrentUserSpotsModal: false,
   showCurrentUserReviewsModal: false,
-  showAddReviewModal: false
+  showAddReviewModal: false,
+  showEditReviewModal: false
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -70,6 +79,9 @@ const modalReducer = (state = initialState, action) => {
     }
     case ADD_REVIEW_MODAL: {
       return { ...state, showAddReviewModal: action.boolean };
+    }
+    case EDIT_REVIEW_MODAL: {
+      return { ...state, showEditReviewModal: action.boolean };
     }
     default:
       return state;

@@ -1,0 +1,56 @@
+.delete-review-btn,
+.edit-review-btn {
+    align-items: center;
+    background: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    color: #DDDDDD;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 30px;
+}
+
+.delete-review-btn:hover,
+.edit-review-btn:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    color: black;
+}
+
+.review-options {
+    background-color: white;
+    border: 1px solid #DDDDDD;
+    border-radius: 0.6em;
+    bottom: 110%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    display: flex;
+    gap: 0.25em;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+}
+
+.review-options-btn {
+    align-items: center;
+    background: none;
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    color: #DDDDDD;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    transition: all 0.2s ease;
+    width: 30px;
+}
+
+.review-options-btn:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    color: black;
+}
+
+.review-options-container {
+    position: relative;
+}
