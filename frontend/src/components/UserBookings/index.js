@@ -1,9 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserBookings } from '../../store/bookings';
 import SingleBooking from './SingleBooking';
 import './UserBookings.css';
 
 const UserBookings = () => {
+  const dispatch = useDispatch();
   const userBookings = useSelector(state => Object.values(state.bookings.currentUserBookings));
+
+  useEffect(() => {
+    dispatch(getUserBookings())
+  }, [dispatch])
 
   return (
     <div className='user-bookings-container'>
