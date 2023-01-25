@@ -22,7 +22,10 @@ const validateSpot = [
   // check('lat').isNumeric().withMessage('Latitude is not valid'),
   // check('lng').isNumeric().withMessage('Longitude is not valid'),
   check('name').exists({ checkFalsy: true }).isLength({ max: 49 }).withMessage('Name must be less than 50 characters.'),
-  check('description').exists({ checkFalsy: true }).isLength({ min: 50 }).withMessage('Please provide a more detailed description (50 characters).'),
+  check('description')
+    .exists({ checkFalsy: true })
+    .isLength({ min: 50 })
+    .withMessage('Please provide a more detailed description (50 characters).'),
   check('price').exists({ checkFalsy: true }).notEmpty().isNumeric().withMessage('Price per day is required.'),
   handleValidationErrors
 ];
@@ -41,7 +44,7 @@ const validateBooking = [
     .exists({ checkFalsy: true })
     .custom((value, { req }) => {
       if (new Date(value) <= new Date(req.body.startDate)) {
-        throw new Error('endDate cannot be on or before startDate.');
+        throw new Error('End date cannot be on or before start date.');
       }
       return true;
     }),
@@ -177,7 +180,7 @@ router.get('/:spotId/bookings', requireAuth, async (req, res, next) => {
       where: {
         spotId: req.params.spotId
       },
-      attributes: ['spotId', 'startDate', 'endDate']
+      attributes: ['id', 'spotId', 'userId', 'startDate', 'endDate']
     });
     res.json({ Bookings: bookings });
   } else {
@@ -382,6 +385,8 @@ router.post('/:spotId/bookings', validateBooking, requireAuth, async (req, res, 
       startDate,
       endDate
     });
+
+    newBooking.dataValues.Spot = await Spot.findByPk(req.params.spotId);
 
     res.json(newBooking);
   } else {

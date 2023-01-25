@@ -19,7 +19,6 @@ export const setBookings = bookings => {
 };
 
 export const setCurrentUserBookings = currentUserBookings => {
-  console.log('USER BOOKINGS INSIDE ACTION', currentUserBookings);
   return {
     type: CURRENT_USER_BOOKINGS,
     currentUserBookings
@@ -67,7 +66,6 @@ export const getUserBookings = () => async dispatch => {
 
   if (res.ok) {
     const data = await res.json();
-    console.log('USER BOOKING DATA INSIDE THUNK', normalizeArray(data.Bookings));
     dispatch(setCurrentUserBookings(normalizeArray(data.Bookings)));
     return res;
   }
