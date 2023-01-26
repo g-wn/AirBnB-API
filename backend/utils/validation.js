@@ -7,7 +7,6 @@ const handleValidationErrors = (req, _res, next) => {
   const validationErrors = validationResult(req);
 
   if (!validationErrors.isEmpty()) {
-    console.log(validationErrors.throw)
     const errors = {};
     validationErrors.array().forEach(error => {
       const key = error.param;

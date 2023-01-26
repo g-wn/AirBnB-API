@@ -6,6 +6,7 @@ import * as spotsActions from './store/spots';
 import Navigation from './components/Navigation';
 // import Filters from './components/Filters';
 import Splash from './components/Splash';
+import UserBookings from './components/UserBookings';
 import SpotDetail from './components/SpotDetail';
 import HostSplash from './components/HostSplash';
 import UpdateSpot from './components/UpdateSpot';
@@ -28,6 +29,11 @@ function App() {
           <Route path={`/`} exact={true}>
             <Navigation isLoaded={isLoaded} />
             <Splash isLoaded={isLoaded}/>
+          </Route>
+
+          <Route path={`/my-bookings`} exact={true}>
+            <Navigation isLoaded={isLoaded} />
+            <UserBookings isLoaded={isLoaded} />
           </Route>
 
           <Route path={`/spots/:spotId`} exact={true}>

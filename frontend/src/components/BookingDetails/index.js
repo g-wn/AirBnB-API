@@ -1,32 +1,85 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import * as bookingActions from '../../store/bookings';
+import * as spotActions from '../../store/spots';
 import { AiFillStar } from 'react-icons/ai';
 import './BookingDetails.css';
 
 export default function BookingDetails({ spot }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [startDate, setStartDate] = useState('2023-04-03');
+  const [endDate, setEndDate] = useState('2023-04-10');
+  const [errors, setErrors] = useState([]);
+
+  const handleBooking = async e => {
+    e.preventDefault();
+    setErrors([]);
+
+    const newBooking = {
+      startDate,
+      endDate
+    };
+
+    return await dispatch(bookingActions.postBooking(spot.id, newBooking))
+      .then(async res => {
+        if (res.ok) {
+          dispatch(spotActions.getSpot(spot.id));
+          history.push('/my-bookings')
+        }
+      })
+      .catch(async res => {
+        const data = await res.json();
+        if (data && data.message) setErrors(data.errors ? Object.values(data.errors) : [data.message]);
+      });
+  };
 
   return (
     <div className='booking-details-component-container'>
-      <header className='booking-details-header'>
-        <div>
-          <span className='spot-price bold'>${spot.price} </span>
-          <span>night</span>
-        </div>
-        <div className='booking-details-component-reviews'>
-          <span>
-            <AiFillStar size={20} />
-          </span>
-          <span>{spot.avgStarRating} - </span>
-          <Link to='/feature-not-found' className='booking-details-component-numreviews'>{spot.numReviews} reviews</Link>
-        </div>
-      </header>
-      <div className='date-guest-select-container'>
+      {errors.length > 0 ? (
+        <header className='booking-details-header-errors'>
+          {errors.map((error, idx) => (
+            <div
+              className='booking-error'
+              key={idx}
+            >
+              {error}
+            </div>
+          ))}
+        </header>
+      ) : (
+        <header className='booking-details-header'>
+          <div>
+            <span className='spot-price bold'>${spot.price} </span>
+            <span>night</span>
+          </div>
+          <div className='booking-details-component-reviews'>
+            <span>
+              <AiFillStar size={20} />
+            </span>
+            <span>{spot.avgStarRating} - </span>
+            <Link
+              to='/feature-not-found'
+              className='booking-details-component-numreviews'
+            >
+              {spot.numReviews} reviews
+            </Link>
+          </div>
+        </header>
+      )}
+      <form
+        onSubmit={handleBooking}
+        className='date-guest-select-container'
+      >
         <div className='date-guest-top'>
           <div className='date-guest-top-left'>
             <p className='check-in bold'>CHECK-IN</p>
             <input
               className='date-input'
               type='date'
-              defaultValue='2023-04-03'
+              onChange={e => setStartDate(e.target.value)}
+              value={startDate}
             />
           </div>
           <div className='date-guest-top-right'>
@@ -34,7 +87,8 @@ export default function BookingDetails({ spot }) {
             <input
               className='date-input'
               type='date'
-              defaultValue='2023-04-10'
+              onChange={e => setEndDate(e.target.value)}
+              value={endDate}
             />
           </div>
         </div>
@@ -57,23 +111,42 @@ export default function BookingDetails({ spot }) {
             <option value={15}>15 guests</option>
           </select>
         </div>
-      </div>
-
-      <Link to='/feature-not-found' className='reserve-btn bold'>This ain't no button</Link>
+        <button
+          type='submit'
+          className='reserve-btn bold'
+        >
+          Book It!
+        </button>
+      </form>
 
       <p className='no-charge-disclaimer'>You won't be charged yet. Or ever.</p>
 
       <div className='price-breakdown-container'>
         <p className='nightly-price'>
-          <Link to='/feature-not-found' className='price-breakdown-left'>${spot.price} x 5 nights</Link>
+          <Link
+            to='/feature-not-found'
+            className='price-breakdown-left'
+          >
+            ${spot.price} x 5 nights
+          </Link>
           <span>${spot.price * 5}</span>
         </p>
         <p className='cleaning-fee'>
-          <Link to='/feature-not-found' className='price-breakdown-left'>Cleaning fee</Link>
+          <Link
+            to='/feature-not-found'
+            className='price-breakdown-left'
+          >
+            Cleaning fee
+          </Link>
           <span>$LOL</span>
         </p>
         <p className='service-fee'>
-          <Link to='/feature-not-found' className='price-breakdown-left'>Service Fee</Link>
+          <Link
+            to='/feature-not-found'
+            className='price-breakdown-left'
+          >
+            Service Fee
+          </Link>
           <span>$Nope</span>
         </p>
       </div>
