@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { months } from '../../utils/dates';
-import { faker } from '@faker-js/faker';
 import './ReviewCard.css';
 import ReviewOptions from './ReviewOptions';
 
 export default function ReviewCard({ review, spot }) {
   const currentUser = useSelector(state => state.session.user);
+  console.log(review)
 
   return (
     <>
@@ -14,7 +14,7 @@ export default function ReviewCard({ review, spot }) {
           <header className='review-card-header'>
             <div className='review-user-avatar'>
               <img
-                src={faker.image.avatar()}
+                src={review.User?.avatar ? review.User.avatar : currentUser.avatar}
                 alt='userAvatar'
               />
             </div>

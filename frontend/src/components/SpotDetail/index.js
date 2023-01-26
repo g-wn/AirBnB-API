@@ -9,7 +9,6 @@ import { randomNumber } from '../../utils/randomNumber';
 import BookingDetails from '../BookingDetails';
 import SpotReviews from '../SpotReviews';
 
-import { faker } from '@faker-js/faker';
 import { HiOutlineKey } from 'react-icons/hi';
 import { CiMedal } from 'react-icons/ci';
 import { AiOutlineCalendar } from 'react-icons/ai';
@@ -108,7 +107,7 @@ export default function SpotDetail() {
                   </div>
                   <div className='host-avatar-img-container'>
                     <img
-                      src={faker.image.avatar()}
+                      src={spot.Owner.avatar}
                       alt=''
                       className='host-avatar-img'
                     />
@@ -117,9 +116,11 @@ export default function SpotDetail() {
 
                 <div className='host-checkin-cancel'>
                   <div className='host-info'>
+
                     <div className='host-icon'>
                       <CiMedal size={30} />
                     </div>
+
                     <div>
                       <span className='host bold'>{spot.Owner.firstName} is a superhost</span>
                       <p className='host-disclaimer'>
@@ -127,28 +128,37 @@ export default function SpotDetail() {
                         actually rent a place.
                       </p>
                     </div>
+
                   </div>
+
                   <div className='check-in-info'>
+
                     <div className='check-in-icon'>
                       <HiOutlineKey size={30} />
                     </div>
+
                     <div>
                       <span className='check-in bold'> Great check-in experience</span>
                       <p className='check-in-disclaimer'>
                         {randomNumber(100)}% of guests gave the check-in process a {randomNumber(5)}-star rating.
                       </p>
                     </div>
+
                   </div>
+
                   <div className='cancel-info'>
+
                     <div className='cancel-icon'>
                       <AiOutlineCalendar size={30} />
                     </div>
+
                     <div>
                       <span className='cancel bold'>Free cancellation for {randomNumber(72)} hours</span>
                       <p className='cancel-disclaimer'>
                         If you could actually book this place, you would have that many hours to cancel.
                       </p>
                     </div>
+
                   </div>
                 </div>
                 <div className='fake-coverage-container'>

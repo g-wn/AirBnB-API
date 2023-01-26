@@ -43,9 +43,14 @@
   margin-right: 1em;
 }
 
+.check-in {
+  font-size: 15px;
+}
+
 .check-in-info,
 .cancel-info,
 .host-info {
+  /* align-items: flex-start; */
   display: flex;
 }
 

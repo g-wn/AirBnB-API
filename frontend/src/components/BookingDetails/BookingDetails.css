@@ -56,7 +56,7 @@
 .date-input:focus {
   background-color: transparent;
   border: none;
-  font-size: 12px;
+  font-size: 10px;
   max-width: 8rem;
   outline: none;
 }
