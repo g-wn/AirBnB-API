@@ -119,6 +119,8 @@ router.put('/:reviewId', validateReview, requireAuth, async (req, res, next) => 
       stars
     });
 
+    prevReview.dataValues.User = req.user;
+
     res.json(prevReview);
   } else {
     const err = new Error("Review couldn't be found");

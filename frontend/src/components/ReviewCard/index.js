@@ -3,9 +3,8 @@ import { months } from '../../utils/dates';
 import './ReviewCard.css';
 import ReviewOptions from './ReviewOptions';
 
-export default function ReviewCard({ review, spot }) {
+export default function ReviewCard({ review, spot, modal }) {
   const currentUser = useSelector(state => state.session.user);
-  console.log(review)
 
   return (
     <>
@@ -29,16 +28,18 @@ export default function ReviewCard({ review, spot }) {
           </header>
           <div className='review-content'>
             <div>{review.review}</div>
-            <div>
-              {review.userId === currentUser?.id ? (
-                <ReviewOptions
-                  review={review}
-                  spot={spot}
-                />
-              ) : (
-                ''
-              )}
-            </div>
+            {!modal && (
+              <div>
+                {review.userId === currentUser?.id ? (
+                  <ReviewOptions
+                    review={review}
+                    spot={spot}
+                  />
+                ) : (
+                  ''
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

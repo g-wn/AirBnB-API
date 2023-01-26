@@ -33,29 +33,35 @@ export default function CurrentUserReviews({ userReviews }) {
         <div className='hidden'></div>
       </header>
 
-      {userReviews &&
-        Object.values(userReviews).map((review, idx) => (
-          <div
-            className='user-review-card-container'
-            key={idx}
-          >
-            <ReviewCard
-              className='user-review-card'
-              review={review}
-            />
-            <div className='user-review-card-btns'>
-              <p className='delete-disclaimer'>Don't want your opinion heard anymore? Good.</p>
-              <button
-                className='delete-user-review-btn'
-                onClick={e => {
-                  handleDelete(e, review);
-                }}
-              >
-                <FaTrashAlt /> Remove this review
-              </button>
+      {Object.values(userReviews).length ? (
+        <div className='user-reviews-body'>
+          {Object.values(userReviews).map((review, idx) => (
+            <div
+              className='user-review-card-container'
+              key={idx}
+            >
+              <ReviewCard
+                className='user-review-card'
+                review={review}
+                modal={true}
+              />
+              <div className='user-review-card-btns'>
+                <p className='delete-disclaimer'>Don't want your opinion heard anymore? Good.</p>
+                <button
+                  className='delete-user-review-btn'
+                  onClick={e => {
+                    handleDelete(e, review);
+                  }}
+                >
+                  <FaTrashAlt /> Remove this review
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      ) : (
+        <div>You don't have any reviews, yet!</div>
+      )}
     </div>
   );
 }
