@@ -7,6 +7,7 @@ const USER_SPOTS_MODAL = 'modals/USER_SPOTS_MODAL';
 const USER_REVIEWS_MODAL = 'modals/USER_REVIEWS_MODAL';
 const ADD_REVIEW_MODAL = 'modals/ADD_REVIEW_MODAL';
 const EDIT_REVIEW_MODAL = 'modals/EDIT_REVIEW_MODAL';
+const CANCEL_BOOKING_MODAL = 'modals/CANCEL_BOOKING_MODAL';
 
 export const loginModal = boolean => {
   return {
@@ -50,6 +51,13 @@ export const editReviewModal = boolean => {
   };
 };
 
+export const cancelBookingModal = boolean => {
+  return {
+    type: CANCEL_BOOKING_MODAL,
+    boolean
+  };
+};
+
 /* ----------------------------------------------------------- */
 /* ------------------------- REDUCER ------------------------- */
 /* ----------------------------------------------------------- */
@@ -60,7 +68,8 @@ const initialState = {
   showCurrentUserSpotsModal: false,
   showCurrentUserReviewsModal: false,
   showAddReviewModal: false,
-  showEditReviewModal: false
+  showEditReviewModal: false,
+  showCancelBookingModal: false
 };
 
 const modalReducer = (state = initialState, action) => {
@@ -82,6 +91,9 @@ const modalReducer = (state = initialState, action) => {
     }
     case EDIT_REVIEW_MODAL: {
       return { ...state, showEditReviewModal: action.boolean };
+    }
+    case CANCEL_BOOKING_MODAL: {
+      return { ...state, showCancelBookingModal: action.boolean };
     }
     default:
       return state;

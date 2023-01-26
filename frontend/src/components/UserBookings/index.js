@@ -6,11 +6,14 @@ import './UserBookings.css';
 
 const UserBookings = () => {
   const dispatch = useDispatch();
-  const userBookings = useSelector(state => Object.values(state.bookings.currentUserBookings));
+  let userBookings = useSelector(state => state.bookings.currentUserBookings);
+  if (userBookings) userBookings = Object.values(userBookings);
 
   useEffect(() => {
-    dispatch(getUserBookings())
-  }, [dispatch])
+    dispatch(getUserBookings());
+  }, [dispatch]);
+
+  if (!userBookings) return null;
 
   return (
     <div className='user-bookings-container'>
