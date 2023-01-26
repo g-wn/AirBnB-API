@@ -32,7 +32,7 @@ router.get('/current', requireAuth, async (req, res, _next) => {
 
   const userReviews = await Review.findAll({
     include: [
-      { model: User, attributes: ['id', 'firstName', 'lastName'] },
+      { model: User, attributes: ['id', 'firstName', 'lastName', 'avatar'] },
       {
         model: Spot,
         include: [

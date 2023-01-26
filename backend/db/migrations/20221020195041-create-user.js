@@ -1,4 +1,5 @@
 'use strict';
+const { faker } = require('@faker-js/faker');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -26,6 +27,11 @@ module.exports = {
         type: Sequelize.STRING(30),
         allowNull: false,
         unique: true
+      },
+      avatar: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: faker.image.avatar()
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,

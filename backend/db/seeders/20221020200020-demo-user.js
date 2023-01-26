@@ -12,6 +12,7 @@ module.exports = {
         firstName: 'Face',
         lastName: 'Book',
         username: 'Metaverse4Ever',
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password1')
       },
       {
@@ -19,6 +20,7 @@ module.exports = {
         firstName: 'Goo',
         lastName: 'Gle',
         username: 'GoogleGlassHoldout',
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
@@ -26,6 +28,7 @@ module.exports = {
         firstName: 'Apple',
         lastName: 'Ecosystem',
         username: 'NoGrnBubbz',
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password3')
       },
       {
@@ -33,6 +36,7 @@ module.exports = {
         firstName: 'Plainold',
         lastName: 'Emailuser',
         username: 'SnailMailWuz2Slow',
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password4')
       },
       {
@@ -40,6 +44,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -47,6 +52,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -54,6 +60,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -61,6 +68,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -68,6 +76,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -75,6 +84,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -82,6 +92,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -89,6 +100,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -96,6 +108,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -103,6 +116,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -110,6 +124,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -117,6 +132,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -124,6 +140,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -131,6 +148,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -138,6 +156,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -145,6 +164,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -152,6 +172,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -159,6 +180,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -166,6 +188,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -173,6 +196,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -180,6 +204,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -187,6 +212,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -194,6 +220,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -201,6 +228,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -208,6 +236,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -215,6 +244,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -222,6 +252,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -229,6 +260,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -236,6 +268,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -243,6 +276,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
       {
@@ -250,6 +284,7 @@ module.exports = {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
         username: faker.internet.userName(),
+        avatar: faker.image.avatar(),
         hashedPassword: bcrypt.hashSync('password')
       },
     ]);

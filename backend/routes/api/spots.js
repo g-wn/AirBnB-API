@@ -146,7 +146,7 @@ router.get('/:spotId/reviews', async (req, res, next) => {
     const spotReviews = await Review.findAll({
       where: { spotId: req.params.spotId },
       include: [
-        { model: User, attributes: ['id', 'firstName', 'lastName'] },
+        { model: User, attributes: ['id', 'firstName', 'lastName', 'avatar'] },
         { model: ReviewImage, attributes: ['id', 'url'] }
       ]
     });
@@ -202,7 +202,7 @@ router.get('/:spotId', async (req, res, next) => {
       {
         model: User,
         as: 'Owner',
-        attributes: ['id', 'firstName', 'lastName'],
+        attributes: ['id', 'firstName', 'lastName', 'avatar'],
         required: false
       },
       { model: Review, attributes: [], required: false }
@@ -291,6 +291,8 @@ router.post('/:spotId/reviews', validateReview, requireAuth, async (req, res, ne
         review,
         stars
       });
+
+      newSpotReview.dataValues.User = req.user;
 
       res.status(201).json(newSpotReview);
     } catch (e) {
